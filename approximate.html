@@ -6,6 +6,7 @@
         <script type="application/javascript" src="javascripts/jquery.js"></script>
         <script type="application/javascript" src="javascripts/bootstrap.min.js"></script>
         <script type="application/javascript" src="main.js"></script>
+        <script type="application/javascript" src="visualization.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-theme.min.css">
     </head>
@@ -25,5 +26,10 @@
                 </form>
             </p>
         </div>
+        <script type="text/javascript">
+            $(function() {
+                updateData('approximate');
+            });
+        </script>
     </body>
 </html>
