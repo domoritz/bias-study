@@ -12,13 +12,17 @@
     <body>
         <div class="container theme-showcase" role="main">
             <div class="page-header">
-                <h1>Approximate visualization: #1</h1>
+                <h1>Approximate visualization: <div id="approximateVisNum"></div></h1>
             </div>
             <p>
                 Put a visualization here!
             </p>
             <p>
-                <a type="button" class="btn btn-primary" href="precise.html">Submit</a>
+                <form id="approximateForm" action="approximate.html">
+                ASDF:
+                    <input type="text" name="asdf">
+                    <input type="submit" class="btn btn-primary" value="Submit">
+                </form>
             </p>
         </div>
     </body>
