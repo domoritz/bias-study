@@ -5,6 +5,7 @@
         <script type="application/javascript" src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
         <script type="application/javascript" src="javascripts/jquery.js"></script>
         <script type="application/javascript" src="javascripts/bootstrap.min.js"></script>
+        <script type="application/javascript" src="javascripts/combinatorics.js"></script>
         <script type="application/javascript" src="main.js"></script>
         <script type="application/javascript" src="visualization.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
@@ -12,19 +13,26 @@
     </head>
     <body>
         <div class="container theme-showcase" role="main">
-            <div class="page-header">
-                <h1>Approximate visualization: <div id="approximateVisNum"></div></h1>
+            <div class="row">
+                <div class="page-header">
+                    <h1>Approximate visualization: <div id="visNum"></div></h1>
+                </div>
             </div>
-            <p>
-                Put a visualization here!
-            </p>
-            <p>
-                <form id="approximateForm" action="approximate.html">
-                ASDF:
-                    <input type="text" name="asdf">
-                    <input type="submit" class="btn btn-primary" value="Submit">
-                </form>
-            </p>
+            <div class="row">
+                <p>
+                    <div id="visualization" class='col-md-6'>
+                    </div>
+                </p>
+                <p>
+                    <div class='col-md-6'>
+                        <form id="form" action="approximate.html">
+                        ASDF:
+                            <input type="text" name="asdf">
+                            <input type="submit" class="btn btn-primary" value="Submit">
+                        </form>
+                    </div>
+                </p>
+            </div>
         </div>
         <script type="text/javascript">
             $(function() {

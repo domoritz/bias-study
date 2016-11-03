@@ -23,5 +23,3 @@ var userId = localStorage.getItem("userId");
 var newLog = database.ref("logs").child(userId);
 
 console.log(userId);
-
-var numberVisualizations = 3;
