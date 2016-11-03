@@ -8,12 +8,16 @@ var config = {
 
 firebase.initializeApp(config);
 
-// user id defined namespace
-// https://bias-study.firebaseio.com/logs/$userId
-var userId = "not-yet-set";
-
 // connect to db
 var database = firebase.database();
+
+if(!localStorage.getItem("userId")) {
+	localStorage.setItem("userId", Math.floor(Math.random() * 10e7).toString()); //TODO: better way of setting a random string.
+}
+
+// user id defined namespace
+// https://bias-study.firebaseio.com/logs/$userId
+var userId = localStorage.getItem("userId");
 var newLog = database.ref("logs").child(userId);
 
 // write some things in the users namespace
