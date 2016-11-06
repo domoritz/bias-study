@@ -6,6 +6,8 @@ var config = {
     messagingSenderId: "452394401835"
 };
 
+localStorage.clear();
+
 firebase.initializeApp(config);
 
 var amountErrorValues = ['1', '100', '200', '500', '1000']; //TODO: should we oversample the control condition?

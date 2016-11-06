@@ -2,6 +2,7 @@
 //TODO: selected these states because they were popular for particular airlines (Delta, Southwest, Alaska). But it's worth thinking more about which states we want.
 var statesUsing = Combinatorics.permutation(['GA', 'NV', 'WA']).toArray();
 var visualizationsArray = statesUsing[userId%statesUsing.length];
+var airlinesByState = {'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'], 'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'], 'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest']};
 
 var nextPage = {'approximate':'precise.html', 'precise':'questions.html'};
 
@@ -15,6 +16,12 @@ function updateData(label) {
 	} else { //Precise is always fraction 1, sequence number 0.
 		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='500px'>");
 	}
+
+	var howMany = airlinesByState[visualizationsArray[currentSeen]][Math.floor(Math.random()*airlinesByState[visualizationsArray[currentSeen]].length)];
+	var percentage = airlinesByState[visualizationsArray[currentSeen]][Math.floor(Math.random()*airlinesByState[visualizationsArray[currentSeen]].length)];
+	$('#howMany').text(howMany);
+	$('#percentage').text(percentage);
+	//TODO: store these values in the DB. Hopefully they don't influence results...
 
 	$('#visNum').text(currentSeen + 1); //1-indexted for showing to humans
 
