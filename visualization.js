@@ -1,6 +1,7 @@
 //Generate all permutations of the visualization order, select by userID (which is effectively "random")
-var permutations = Combinatorics.permutation(['A', 'B', 'C']).toArray();
-var visualizationsArray = permutations[userId%permutations.length];
+//TODO: selected these states because they were popular for particular airlines (Delta, Southwest, Alaska). But it's worth thinking more about which states we want.
+var statesUsing = Combinatorics.permutation(['GA', 'NV', 'WA']).toArray();
+var visualizationsArray = statesUsing[userId%statesUsing.length];
 
 var nextPage = {'approximate':'precise.html', 'precise':'questions.html'};
 
@@ -9,7 +10,11 @@ function updateData(label) {
 	//Update the database with how many visualizations the client claims to have seen.
 	newLog.child(label + "Seen").set(currentSeen);
 
-	$('#visualization').prepend("<img src='assets/" + label + visualizationsArray[currentSeen] + ".png' width='500px'>");
+	if(label == 'approximate') { //Always use sequence number 1
+		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_" + amountError + "_" + sequenceNumber + ".png' width='500px'>");
+	} else { //Precise is always fraction 1, sequence number 0.
+		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='500px'>");
+	}
 
 	$('#visNum').text(currentSeen + 1); //1-indexted for showing to humans
 
