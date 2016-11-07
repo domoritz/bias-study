@@ -4,6 +4,7 @@ var statesUsing = Combinatorics.permutation(['GA', 'NV', 'WA']).toArray();
 var amountErrorValues = ['1', '100', '200', '500', '1000']; //TODO: should we oversample the control condition?
 var visualizationsArray = statesUsing[userId%statesUsing.length];
 var airlinesByState = {'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'], 'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'], 'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest']};
+var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington'};
 
 var nextPage = {'approximate':'precise.html', 'precise':'questions.html'};
 
@@ -37,7 +38,7 @@ function updateData(label) {
 	$('#howMany').text(howMany);
 	$('#percentage').text(percentage);
 	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
-	$('.template-state').text(visualizationsArray[currentSeen]);
+	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
 
 	$('#form').submit(function(ev) {
 		ev.preventDefault();
