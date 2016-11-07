@@ -8,25 +8,24 @@
         <script type="application/javascript" src="javascripts/combinatorics.js"></script>
         <script type="application/javascript" src="main.js"></script>
         <script type="application/javascript" src="visualization.js"></script>
-        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     </head>
     <body>
-        <div class="container theme-showcase" role="main">
+        <div class="container wrapper" role="main">
             <div class="row">
                 <div class="page-header">
-                    <h1>Approximate visualization: <div id="visNum" class="inline"></div></h1>
+                    <h1>Approximate visualization for <span class="template-state"></span></h1>
                 </div>
             </div>
             <div class="row">
-                <div id="visualization" class="col-md-6">
-                </div>
-                <div class="col-md-6">
+                <div id="visualization" class="col-md-12"></div>
+                <div class="col-md-12">
+                    <h2>Questions</h2>
                     <form id="form" action="precise.html">
                         <div class="form-group">
                             <label for="exampleInputFile" for="mostFlights">
-                                Which airline has the most flights out of this state?
+                                Which airline has the most flights out of <span class="template-state"></span>?
                             </label>
                             <select class="form-control" name="mostFlights">
                                 <option value="Alaska">Alaska</option>

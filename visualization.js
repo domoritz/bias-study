@@ -23,7 +23,8 @@ function updateData(label) {
 	$('#percentage').text(percentage);
 	//TODO: store these values in the DB. Hopefully they don't influence results...
 
-	$('#visNum').text(currentSeen + 1); //1-indexted for showing to humans
+	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
+	$('.template-state').text(visualizationsArray[currentSeen]);
 
 	if(currentSeen >= visualizationsArray.length - 1) { //go to the next page after this visualization
 	    $('#form').attr("action", nextPage[label]);
