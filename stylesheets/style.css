@@ -1,3 +1,14 @@
 .inline {
 	display: inline-block;
 }
+
+.wrapper {
+	width: 800px;
+}
+
+#visualization {
+	padding: 30px;
+	text-align: center;
+	border: 2px solid #aaa;
+	border-radius: 5px;
+}

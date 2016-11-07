@@ -36,7 +36,8 @@ function updateData(label) {
 
 	$('#howMany').text(howMany);
 	$('#percentage').text(percentage);
-	$('#visNum').text(currentSeen + 1); //1-indexted for showing to humans
+	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
+	$('.template-state').text(visualizationsArray[currentSeen]);
 
 	$('#form').submit(function(ev) {
 		ev.preventDefault();
