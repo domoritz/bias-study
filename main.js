@@ -6,6 +6,7 @@ var config = {
     messagingSenderId: "452394401835"
 };
 
+// FIXME: we are clearning local storage on every page. That seems wrong.
 localStorage.clear();
 
 firebase.initializeApp(config);
@@ -35,4 +36,4 @@ newLog.child("sequenceNumber").set(sequenceNumber);
 
 console.log("ID: " + userId);
 console.log("Error amount: " + amountError);
-console.log("Sequence number: " + sequenceNumber)
+console.log("Sequence number: " + sequenceNumber);

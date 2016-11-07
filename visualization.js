@@ -12,9 +12,9 @@ function updateData(label) {
 	newLog.child(label + "Seen").set(currentSeen);
 
 	if(label == 'approximate') { //Always use sequence number 1
-		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_" + amountError + "_" + sequenceNumber + ".png' width='500px'>");
+		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
 	} else { //Precise is always fraction 1, sequence number 0.
-		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='500px'>");
+		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='600px'>");
 	}
 
 	var howMany = airlinesByState[visualizationsArray[currentSeen]][Math.floor(Math.random()*airlinesByState[visualizationsArray[currentSeen]].length)];

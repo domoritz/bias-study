@@ -20,44 +20,44 @@
                 </div>
             </div>
             <div class="row">
-                <p>
-                    <div id="visualization" class='col-md-6'>
-                    </div>
-                </p>
-                <p>
-                    <div class='col-md-6'>
-                        <form id="form" action="precise.html">
-                            <div class='col-md-12'>
-                                Which airline has the most flights out of this airport?
-                                <select name="mostFlights">
-                                    <option value="Alaska">Alaska</option>
-                                    <option value="American">American</option>
-                                    <option value="Delta">Delta</option>
-                                    <option value="ExpressJet">ExpressJet</option>
-                                    <option value="SkyWest">SkyWest</option>
-                                    <option value="Spirit">Spirit</option>
-                                    <option value="Southwest">Southwest</option>
-                                    <option value="United">United</option>
-                                </select>
-                            </div>
-                            <div class='col-md-12'>
+                <div id="visualization" class="col-md-6">
+                </div>
+                <div class="col-md-6">
+                    <form id="form" action="precise.html">
+                        <div class="form-group">
+                            <label for="exampleInputFile" for="mostFlights">
+                                Which airline has the most flights out of this state?
+                            </label>
+                            <select class="form-control" name="mostFlights">
+                                <option value="Alaska">Alaska</option>
+                                <option value="American">American</option>
+                                <option value="Delta">Delta</option>
+                                <option value="ExpressJet">ExpressJet</option>
+                                <option value="SkyWest">SkyWest</option>
+                                <option value="Spirit">Spirit</option>
+                                <option value="Southwest">Southwest</option>
+                                <option value="United">United</option>
+                            </select>
+                            <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one.</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputFile" for="howMany">
                                 About how many flights were there on <div id="howMany" class="inline"></div> Airlines?
-                                <input type="number" name="howMany">
-                            </div>
-                            <div class='col-md-12'>
-                                About what percentage of flights were from <div id="percentage" class="inline"></div> Airlines?
-                                <input type="number" id="percentage" name="percentage">
-                            </div>
-                            TODO: confidence values<br>
-                            TODO: text about if an airline doesn't show up<br>
-                            TODO: a few more questions, maybe some "is this airline more prominent than this other one?"
-                            TODO: nicer formatting
-                            <div class='col-md-12'>
-                                <input type="submit" class="btn btn-primary" value="Submit">
-                            </div>
-                        </form>
-                    </div>
-                </p>
+                            </label>
+                            <input type="number" class="form-control" name="howMany" min="0">
+                        </div>
+
+                        <p>
+                        TODO: confidence values<br>
+                        TODO: text about if an airline doesn't show up<br>
+                        TODO: a few more questions, maybe some "is this airline more prominent than this other one?"
+                        TODO: nicer formatting
+                        </p>
+
+                        <input type="submit" class="btn btn-primary" value="Submit">
+                    </form>
+                </div>
             </div>
         </div>
         <script type="text/javascript">
