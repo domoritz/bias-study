@@ -6,7 +6,7 @@ var visualizationsArray = statesUsing[userId%statesUsing.length];
 var airlinesByState = {'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'], 'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'], 'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest']};
 var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington'};
 
-var nextPage = {'approximate':'precise.html', 'precise':'questions.html'};
+var nextPage = {'approximate':'precise_instructions.html', 'precise':'questions.html'};
 
 function updateData(label) {
 	var currentSeen = parseInt(localStorage.getItem(label + "Seen"));
