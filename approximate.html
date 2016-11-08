@@ -25,10 +25,10 @@
                     <form id="form" action="precise.html">
                         <div class="row">
                             <div class="form-group col-md-8">
-                                <label for="exampleInputFile" for="mostFlights">
+                                <label>
                                     Which airline has the most flights out of <span class="template-state"></span>?
-
-                                    <br><small class="form-text text-muted">If two airlines have the same number of flights, pick the first one.</small>
+                                    <br>
+                                    <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one.</small>
                                 </label>
                                 
                                 <select class="form-control" name="mostFlights">
@@ -53,7 +53,7 @@
 
                         <div class="row">
                             <div class="form-group col-md-8">
-                                <label for="exampleInputFile" for="howMany">
+                                <label>
                                     About how many flights were there on <span id="howMany"></span> Airlines?
                                 </label>
                                 <input type="number" class="form-control" name="howMany" min="0">
@@ -69,8 +69,24 @@
 
                         <div class="row">
                             <div class="form-group col-md-8">
-                                <label for="exampleInputFile" for="howManyAirlines">
-                                    How many airlines fly out of <span class="template-state"></span>
+                                <label>
+                                    About how many flights were there on <span id="howManyMore0"></span> Airlines than <span id="howManyMore1"></span> Airlines?
+                                </label>
+                                <input type="number" class="form-control" name="howManyMore" min="0">
+                            </div>
+
+                        <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" min="0" max="100" value="50" width="100" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    How many airlines fly out of <span class="template-state"></span>?
                                 </label>
                                 <input type="number" class="form-control" name="howManyAirlines" min="0" max="12">
                             </div>
@@ -83,14 +99,31 @@
                             </div>
                         </div>
 
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label >
+                                    Select the airlines that fly out of <span class="template-state"></span>!
+                                </label>
+                                <br><input class="form-check-input" type="checkbox" value="AL"> Alaska
+                                <br><input class="form-check-input" type="checkbox" value="UA"> United
+                                <br><input class="form-check-input" type="checkbox" value="DL"> Delta
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" min="0" max="100" value="50" width="100" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
                         <p>
-                        TODO: confidence values<br>
                         TODO: text about if an airline doesn't show up<br>
                         TODO: a few more questions, maybe some "is this airline more prominent than this other one?"
-                        TODO: nicer formatting
                         </p>
 
-                        <input type="submit" class="btn btn-primary" value="Submit">
+                        <input type="submit" class="btn btn-primary" value="Submit answers">
                     </form>
                 </div>
             </div>
