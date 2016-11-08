@@ -1,10 +1,17 @@
 //Generate all permutations of the visualization order, select by userID (which is effectively "random")
 //TODO: selected these states because they were popular for particular airlines (Delta, Southwest, Alaska). But it's worth thinking more about which states we want.
-var statesUsing = Combinatorics.permutation(['GA', 'NV', 'WA']).toArray();
+var statesUsing = Combinatorics.permutation(['CA', 'TX', 'FL']).toArray();
 var amountErrorValues = ['1', '100', '200', '500', '1000']; //TODO: should we oversample the control condition?
 var visualizationsArray = statesUsing[userId%statesUsing.length];
-var airlinesByState = {'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'], 'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'], 'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest']};
-var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington'};
+var airlinesByState = {
+	'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'],
+	'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'],
+	'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest'],
+	'CA': ['American', 'Alaska', 'Delta', 'SkyWest', 'United', 'Virgin', 'Southwest'],
+	'TX': ['Southwest', 'American', 'ExpressJet', 'United', 'SkyWest', 'Delta', 'Spirit'],
+	'FL': ['Southwest', 'American', 'Delta', 'ExpressJet', 'United', 'Spirit', 'Frontier']
+};
+var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington', 'TX': 'Texas', 'CA': 'California', 'FL': 'Florida'};
 
 var nextPage = {'approximate':'precise_instructions.html', 'precise':'questions.html'};
 
