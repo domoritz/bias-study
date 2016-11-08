@@ -16,14 +16,16 @@ function updateData(label) {
 
 	var amountError = amountErrorValues[Math.floor(Math.random() * amountErrorValues.length)];
 	var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
-	var howMany = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	var howMany1 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	var howMany2 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
 	var percentage = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
 
 	//Store error, sequence number, question parameters in database.
 	var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
 	visRecord.child('amountError').set(amountError);
 	visRecord.child('sequenceNumber').set(sequenceNumber);
-	visRecord.child('howMany').set(howMany);
+	visRecord.child('howMany1').set(howMany1);
+	visRecord.child('howMany2').set(howMany2);
 	visRecord.child('percentage').set(percentage);
 
 	console.log("Error amount: " + amountError);
@@ -35,7 +37,8 @@ function updateData(label) {
 		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='600px'>");
 	}
 
-	$('#howMany').text(howMany);
+	$('#howMany1, small > #howMany1').text(howMany1);
+	$('#howMany2, small > #howMany2').text(howMany2);
 	$('#percentage').text(percentage);
 	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
 	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
