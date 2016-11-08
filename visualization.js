@@ -9,9 +9,15 @@ var airlinesByState = {
 	'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest'],
 	'CA': ['American', 'Alaska', 'Delta', 'SkyWest', 'United', 'Virgin', 'Southwest'],
 	'TX': ['Southwest', 'American', 'ExpressJet', 'United', 'SkyWest', 'Delta', 'Spirit'],
-	'FL': ['Southwest', 'American', 'Delta', 'ExpressJet', 'United', 'Spirit', 'Frontier']
+	'FL': ['Southwest', 'American', 'Delta', 'JetBlue', 'United', 'Spirit', 'Frontier']
 };
 var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington', 'TX': 'Texas', 'CA': 'California', 'FL': 'Florida'};
+
+var stateImages = {
+	'CA': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/California_in_United_States.svg/640px-California_in_United_States.svg.png',
+	'TX': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Texas_in_United_States.svg/640px-Texas_in_United_States.svg.png',
+	'FL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florida_in_United_States.svg/640px-Florida_in_United_States.svg.png'
+}
 
 var nextPage = {'approximate':'precise_instructions.html', 'precise':'questions.html'};
 
@@ -51,7 +57,8 @@ function updateData(label) {
 	$('#howManyMore0, small > #howManyMore0').text(howManyMore0);
 	$('#howManyMore1, small > #howManyMore1').text(howManyMore1);
 	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
-	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
+	$('.template-state').text(stateAbbreviationMap[statLookingAt]);
+	$('.image-state').attr('src', stateImages[statLookingAt])
 
 	if(label == 'approximate') {
 		$('#form').submit(function(ev) {
