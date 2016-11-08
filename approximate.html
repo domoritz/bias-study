@@ -31,7 +31,8 @@
                                     <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one alphabetically.</small>
                                 </label>
                                 
-                                <select class="form-control" name="mostFlights">
+                                <select class="form-control" name="mostFlights" required>
+                                    <option disabled selected value>--Select an Airline--</option>
                                     <option value="Alaska">Alaska</option>
                                     <option value="American">American</option>
                                     <option value="Delta">Delta</option>
@@ -46,7 +47,7 @@
                             <div class="form-group col-md-4">
                                 <label>
                                     How confident are you?<br/>
-                                    <small>not</small><input type="range" min="0" max="100" value="50" /><small>completely</small>
+                                    <small>not</small><input type="range" name="confidenceMostFlights" min="0" max="100" value="50"/><small>completely</small>
                                 </label>
                             </div>
                         </div>
@@ -56,13 +57,13 @@
                                 <label>
                                     About how many flights were there on <span id="howMany1"></span> Airlines?
                                 </label>
-                                <input type="number" class="form-control" name="howMany1" min="0">
+                                <input type="number" class="form-control" name="howManyAirlines" min="0" max="12" required>
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label>
                                     How confident are you?<br/>
-                                    <small>not</small><input type="range" min="0" max="100" value="50" /><small>completely</small>
+                                    <small>not</small><input type="range" name="confidenceHowManyAirlines" min="0" max="100" value="50" /><small>completely</small>
                                 </label>
                             </div>
                         </div>
@@ -86,7 +87,7 @@
                         <div class="row">
                             <div class="form-group col-md-8">
                                 <label>
-                                    About how many flights were there on <span id="howManyMore0"></span> Airlines than <span id="howManyMore1"></span> Airlines?
+                                    About how many more flights were there on <span id="howManyMore0"></span> Airlines than <span id="howManyMore1"></span> Airlines?
                                 </label>
                                 <input type="number" class="form-control" name="howManyMore" min="0">
                             </div>
@@ -94,15 +95,7 @@
                             <div class="form-group col-md-4">
                                 <label>
                                     How confident are you?<br/>
-                                    <small>not</small><input type="range" min="0" max="100" value="50" /><small>completely</small>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group col-md-8">
-                                <label>
-                                    How many airlines fly out of <span class="template-state"></span>?
+                                    <small>not</small><input type="range" name="confidenceHowManyMore" min="0" max="100" value="50" /><small>completely</small>
                                 </label>
                             </div>
                         </div>
@@ -114,13 +107,13 @@
 
                                     <br><small class="form-text text-muted">If <span id="howMany1"></span> does not appear in the chart, enter "0".</small>
                                 </label>
-                                <input type="number" class="form-control" name="howMany1" min="0">
+                                <input type="number" class="form-control" name="howMany1" min="0" required>
                             </div>
 
                             <div class="form-group col-md-4">
                                 <label>
                                     How confident are you?<br/>
-                                    <small>not</small><input type="range" min="0" max="100" value="50" /><small>completely</small>
+                                    <small>not</small><input type="range" name="confidenceHowMany1" min="0" max="100" value="50" /><small>completely</small>
                                 </label>
                             </div>
                         </div>
@@ -143,7 +136,7 @@
                             <div class="form-group col-md-4">
                                 <label>
                                     How confident are you?<br/>
-                                    <small>not</small><input type="range" min="0" max="100" value="50" /><small>completely</small>
+                                    <small>not</small><input type="range" name="confidenceHowMany2" min="0" max="100" value="50" /><small>completely</small>
                                 </label>
                             </div>
                         </div>
