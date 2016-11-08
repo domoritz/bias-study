@@ -26,5 +26,8 @@ form .row {
 
 .selectCarrier {
 	font-weight: normal;
-	padding-right: 5px;
+}
+
+.selectCarrier input {
+	margin-right: 5px;
 }
