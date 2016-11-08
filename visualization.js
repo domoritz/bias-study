@@ -18,7 +18,9 @@ function updateData(label) {
 	var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
 	var howMany1 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
 	var howMany2 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
-	var percentage = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	while(howMany2 == howMany1) { //TODO: could make this deterministic, but I'm lazy.
+		howMany2 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	}
 
 	//Store error, sequence number, question parameters in database.
 	var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
@@ -26,7 +28,6 @@ function updateData(label) {
 	visRecord.child('sequenceNumber').set(sequenceNumber);
 	visRecord.child('howMany1').set(howMany1);
 	visRecord.child('howMany2').set(howMany2);
-	visRecord.child('percentage').set(percentage);
 
 	console.log("Error amount: " + amountError);
 	console.log("Sequence number: " + sequenceNumber);
@@ -39,7 +40,6 @@ function updateData(label) {
 
 	$('#howMany1, small > #howMany1').text(howMany1);
 	$('#howMany2, small > #howMany2').text(howMany2);
-	$('#percentage').text(percentage);
 	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
 	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
 
