@@ -18,3 +18,8 @@ input[type=range] {
 	width: 120px;
 	margin: 0 6px;
 }
+
+label#checkbox {
+	font-weight: normal;
+	padding-right: 5px;
+}
