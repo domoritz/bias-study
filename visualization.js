@@ -24,6 +24,7 @@ var nextPage = {'approximate':'precise_instructions.html', 'precise':'questions.
 function updateData(label) {
 	var currentSeen = parseInt(localStorage.getItem(label + "Seen"));
 	var statLookingAt = visualizationsArray[currentSeen];
+	var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
 	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
 	//Update the database with how many visualizations the client claims to have seen.
 	newLog.child(label + "Seen").set(currentSeen);
@@ -32,14 +33,12 @@ function updateData(label) {
 	$('.image-state').attr('src', stateImages[statLookingAt])
 
 	if(label == 'approximate') {
-		//Always use sequence number 1
-		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
-
 		var amountError = amountErrorValues[Math.floor(Math.random() * amountErrorValues.length)];
 		var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
 
+		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
+
 		//Store error, sequence number, question parameters in database.
-		var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
 		visRecord.child('amountError').set(amountError);
 		visRecord.child('sequenceNumber').set(sequenceNumber);
 		console.log("Error amount: " + amountError);
