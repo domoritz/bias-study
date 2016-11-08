@@ -23,18 +23,20 @@ function updateData(label) {
 
 	var amountError = amountErrorValues[Math.floor(Math.random() * amountErrorValues.length)];
 	var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
-	var howMany1 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
-	var howMany2 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
-	while(howMany2 == howMany1) { //TODO: could make this deterministic, but I'm lazy.
-		howMany2 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	var howMany = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	var howManyMore0 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	var howManyMore1 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
+	while(howManyMore0 == howManyMore1) { //TODO: could make this deterministic, but I'm lazy.
+		howManyMore1 = airlinesByState[statLookingAt][Math.floor(Math.random()*airlinesByState[statLookingAt].length)];
 	}
 
 	//Store error, sequence number, question parameters in database.
 	var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
 	visRecord.child('amountError').set(amountError);
 	visRecord.child('sequenceNumber').set(sequenceNumber);
-	visRecord.child('howMany1').set(howMany1);
-	visRecord.child('howMany2').set(howMany2);
+	visRecord.child('howMany').set(howMany);
+	visRecord.child('howManyMore0').set(howManyMore0);
+	visRecord.child('howManyMore1').set(howManyMore1);
 
 	console.log("Error amount: " + amountError);
 	console.log("Sequence number: " + sequenceNumber);
@@ -45,26 +47,40 @@ function updateData(label) {
 		$('#visualization').prepend("<img src='data/images/" + visualizationsArray[currentSeen] + "_1_0.png' width='600px'>");
 	}
 
-	$('#howMany1, small > #howMany1').text(howMany1);
-	$('#howMany2, small > #howMany2').text(howMany2);
+	$('#howMany, small > #howMany').text(howMany);
+	$('#howManyMore0, small > #howManyMore0').text(howManyMore0);
+	$('#howManyMore1, small > #howManyMore1').text(howManyMore1);
 	$('.template-visNum').text(currentSeen + 1);  //1-indexted for showing to humans
 	$('.template-state').text(stateAbbreviationMap[visualizationsArray[currentSeen]]);
 
-	$('#form').submit(function(ev) {
-		ev.preventDefault();
-		currentSeen++; //increment the number we've seen
-		/*TODO: some sort of sensible bounds checking?
-		If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.*/
-		localStorage.setItem(label + "Seen", currentSeen);
-		newLog.child(label + "Seen").set(currentSeen);
-		$.each($('#form').serializeArray(), function(i, field) {
-			visRecord.child(field.name).set(field.value);
+	if(label == 'approximate') {
+		$('#form').submit(function(ev) {
+			ev.preventDefault();
+			currentSeen++; //increment the number we've seen
+			/*TODO: some sort of sensible bounds checking?
+			If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.*/
+			localStorage.setItem(label + "Seen", currentSeen);
+			newLog.child(label + "Seen").set(currentSeen);
+			$.each($('#form').serializeArray(), function(i, field) {
+				visRecord.child(field.name).set(field.value);
+			});
+			visRecord.child('whichVisualization').set(visualizationsArray[currentSeen-1]);
+			if(currentSeen >= visualizationsArray.length) { //go to the next page after this visualization
+				window.location.href = nextPage[label];
+			} else {
+				window.location.href = label + '.html';
+			}
 		});
-		visRecord.child('whichVisualization').set(visualizationsArray[currentSeen-1]);
-		if(currentSeen >= visualizationsArray.length) { //go to the next page after this visualization
-			window.location.href = nextPage[label];
-		} else {
-			window.location.href = label + '.html';
-		}
-	});
+	} else {
+		setTimeout(function() {
+			currentSeen++;
+			localStorage.setItem(label + "Seen", currentSeen);
+			newLog.child(label + "Seen").set(currentSeen);
+			visRecord.child('whichVisualization').set(visualizationsArray[currentSeen-1]);
+			if(currentSeen >= visualizationsArray.length) { //go to the next page after this visualization
+				$("#nextPage").attr("href", nextPage[label]);
+			}
+			$("#nextPage").removeClass("disabled");
+		}, 10000);
+	}
 }
