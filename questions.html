@@ -5,7 +5,9 @@
         <script type="application/javascript" src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
         <script type="application/javascript" src="javascripts/jquery.js"></script>
         <script type="application/javascript" src="javascripts/bootstrap.min.js"></script>
+        <script type="application/javascript" src="javascripts/combinatorics.js"></script>
         <script type="application/javascript" src="main.js"></script>
+        <script type="application/javascript" src="visualization.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-theme.min.css">
@@ -15,12 +17,343 @@
             <div class="page-header">
                 <h1>Questions</h1>
             </div>
-            <p>
-                Put questions here!
-            </p>
-            <p>
-                <a type="button" class="btn btn-primary" href="thanks.html">Submit</a>
-            </p>
+            <div class="row">
+                <form id="form" action="precise.html">
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Which airline has the most flights out of <span class="template-state1"></span>?
+                                    <br>
+                                    <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one alphabetically.</small>
+                                </label>
+                                
+                                <select class="form-control" name="mostFlights1" required>
+                                    <option disabled selected value>--Select an Airline--</option>
+                                    <option value="American">American</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="ExpressJet">ExpressJet</option>
+                                    <option value="Frontier">Frontier</option>
+                                    <option value="JetBlue">JetBlue</option>
+                                    <option value="SkyWest">SkyWest</option>
+                                    <option value="Spirit">Spirit</option>
+                                    <option value="Southwest">Southwest</option>
+                                    <option value="United">United</option>
+                                    <option value="Virgin">Virgin</option>
+                                    <option value="Hawaiian">Hawaiian</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceMostFlights1" min="0" max="100" value="50"/><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many flights were there on <span id="howMany1"></span> Airlines?
+
+                                    <br><small class="form-text text-muted">If <span id="howMany1"></span> does not appear in the chart, enter "0".</small>
+                                </label>
+                                <input type="number" class="form-control" name="howMany1" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowMany1" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many more flights were there on <span id="howManyMore01"></span> Airlines than <span id="howManyMore11"></span> Airlines?
+                                </label>
+                                <input type="number" class="form-control" name="howManyMore1" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowManyMore1" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    How many airlines fly out of <span class="template-state1"></span>?
+                                </label>
+                                <input type="number" class="form-control" name="howManyCarriers1" min="0" max="12" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidencehowManyCarriers1" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Select the airlines that fly out of <span class="template-state1"></span>?
+                                </label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="American">American</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Alaska">Alaska</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Delta">Delta</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="ExpressJet">ExpressJet</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Frontier">Frontier</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="JetBlue">JetBlue</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="SkyWest">SkyWest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Spirit">Spirit</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Southwest">Southwest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="United">United</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Virgin">Virgin</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Hawaiian">Hawaiian</label>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceWhichAirline1" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Which airline has the most flights out of <span class="template-state2"></span>?
+                                    <br>
+                                    <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one alphabetically.</small>
+                                </label>
+                                
+                                <select class="form-control" name="mostFlights1" required>
+                                    <option disabled selected value>--Select an Airline--</option>
+                                    <option value="American">American</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="ExpressJet">ExpressJet</option>
+                                    <option value="Frontier">Frontier</option>
+                                    <option value="JetBlue">JetBlue</option>
+                                    <option value="SkyWest">SkyWest</option>
+                                    <option value="Spirit">Spirit</option>
+                                    <option value="Southwest">Southwest</option>
+                                    <option value="United">United</option>
+                                    <option value="Virgin">Virgin</option>
+                                    <option value="Hawaiian">Hawaiian</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceMostFlights2" min="0" max="100" value="50"/><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many flights were there on <span id="howMany2"></span> Airlines?
+
+                                    <br><small class="form-text text-muted">If <span id="howMany2"></span> does not appear in the chart, enter "0".</small>
+                                </label>
+                                <input type="number" class="form-control" name="howMany2" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowMany2" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many more flights were there on <span id="howManyMore02"></span> Airlines than <span id="howManyMore12"></span> Airlines?
+                                </label>
+                                <input type="number" class="form-control" name="howManyMore2" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowManyMore2" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    How many airlines fly out of <span class="template-state2"></span>?
+                                </label>
+                                <input type="number" class="form-control" name="howManyCarriers2" min="0" max="12" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidencehowManyCarriers2" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Select the airlines that fly out of <span class="template-state2"></span>?
+                                </label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="American">American</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Alaska">Alaska</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Delta">Delta</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="ExpressJet">ExpressJet</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Frontier">Frontier</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="JetBlue">JetBlue</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="SkyWest">SkyWest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Spirit">Spirit</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Southwest">Southwest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="United">United</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Virgin">Virgin</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Hawaiian">Hawaiian</label>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceWhichAirline2" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Which airline has the most flights out of <span class="template-state3"></span>?
+                                    <br>
+                                    <small class="form-text text-muted">If two airlines have the same number of flights, pick the first one alphabetically.</small>
+                                </label>
+                                
+                                <select class="form-control" name="mostFlights3" required>
+                                    <option disabled selected value>--Select an Airline--</option>
+                                    <option value="American">American</option>
+                                    <option value="Alaska">Alaska</option>
+                                    <option value="Delta">Delta</option>
+                                    <option value="ExpressJet">ExpressJet</option>
+                                    <option value="Frontier">Frontier</option>
+                                    <option value="JetBlue">JetBlue</option>
+                                    <option value="SkyWest">SkyWest</option>
+                                    <option value="Spirit">Spirit</option>
+                                    <option value="Southwest">Southwest</option>
+                                    <option value="United">United</option>
+                                    <option value="Virgin">Virgin</option>
+                                    <option value="Hawaiian">Hawaiian</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceMostFlights3" min="0" max="100" value="50"/><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many flights were there on <span id="howMany3"></span> Airlines?
+
+                                    <br><small class="form-text text-muted">If <span id="howMany3"></span> does not appear in the chart, enter "0".</small>
+                                </label>
+                                <input type="number" class="form-control" name="howMany3" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowMany3" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    About how many more flights were there on <span id="howManyMore03"></span> Airlines than <span id="howManyMore13"></span> Airlines?
+                                </label>
+                                <input type="number" class="form-control" name="howManyMore3" min="0" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceHowManyMore3" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    How many airlines fly out of <span class="template-state3"></span>?
+                                </label>
+                                <input type="number" class="form-control" name="howManyCarriers3" min="0" max="12" required>
+                            </div>
+
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidencehowManyCarriers3" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-8">
+                                <label>
+                                    Select the airlines that fly out of <span class="template-state3"></span>?
+                                </label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="American">American</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Alaska">Alaska</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Delta">Delta</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="ExpressJet">ExpressJet</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Frontier">Frontier</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="JetBlue">JetBlue</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="SkyWest">SkyWest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Spirit">Spirit</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Southwest">Southwest</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="United">United</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Virgin">Virgin</label>
+                                <br><label class="selectCarrier"><input type="checkbox" name="whichAirline" value="Hawaiian">Hawaiian</label>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>
+                                    How confident are you?<br/>
+                                    <small>not</small><input type="range" name="confidenceWhichAirline3" min="0" max="100" value="50" /><small>completely</small>
+                                </label>
+                            </div>
+                        </div>
+
+                        <input type="submit" class="btn btn-primary" href="thanks.html" value="Submit answers">
+                    </form>
+            </div>
         </div>
+        <script type="text/javascript">
+            $(function() {
+                generatePreciseQuestions();
+            });
+        </script>
     </body>
 </html>
