@@ -1,26 +1,89 @@
 //Generate all permutations of the visualization order, select by userID (which is effectively "random")
-//TODO: selected these states because they were popular for particular airlines (Delta, Southwest, Alaska). But it's worth thinking more about which states we want.
-var statesUsing = Combinatorics.permutation(['CA', 'TX', 'FL']).toArray();
-var amountErrorValues = ['1', '100', '200', '500', '1000']; //TODO: should we oversample the control condition?
-var visualizationsArray = statesUsing[userId%statesUsing.length];
-var airlinesByState = {
-	'GA': ['Delta', 'ExpressJet', 'Southwest', 'American', 'United'],
-	'NV': ['Southwest', 'United', 'Spirit', 'Delta', 'American'],
-	'WA': ['Alaska', 'United', 'Delta', 'Southwest', 'SkyWest'],
-	'CA': ['American', 'Alaska', 'Delta', 'SkyWest', 'United', 'Virgin', 'Southwest'],
-	'TX': ['Southwest', 'American', 'ExpressJet', 'United', 'SkyWest', 'Delta', 'Spirit'],
-	'FL': ['Southwest', 'American', 'Delta', 'JetBlue', 'United', 'Spirit', 'Frontier']
-};
-var stateAbbreviationMap = {'GA': 'Georgia', 'NV': 'Nevada', 'WA': 'Washington', 'TX': 'Texas', 'CA': 'California', 'FL': 'Florida'};
+//If we ever add study conditions, make sure to update the numbers so these two variations remain independent.
+var studyCondition = userId%3 == 0 ? 'difference' : (userId%3==1 ? 'both' : 'onlyNew');
+var presentationOrder = ((userId%6) / 3) == 0 ? ['states', 'airline'] : ['airline', 'states'];
+var amountErrorValues = ['1', '100', '200', '500', '1000'];
 
-var stateImages = {
-	'CA': 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/California_in_United_States.svg/640px-California_in_United_States.svg.png',
-	'TX': 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Texas_in_United_States.svg/640px-Texas_in_United_States.svg.png',
-	'FL': 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florida_in_United_States.svg/640px-Florida_in_United_States.svg.png'
+function addVisualization(label) {
+	var currentSeen = parseInt(localStorage.getItem(label + "Seen"));
+	//TODO: bounds check this, include a default message when nagivating back.
+	var visualizationLookingAt = presentationOrder[currentSeen];
+	var visRecord = newLog.child(label + 'Vis' + (currentSeen+1)); //1-index for our own sanity
+	newLog.child(label + "Seen").set(currentSeen);
+
+	if(label == 'approximate') {
+		var amountError = amountErrorValues[Math.floor(Math.random() * amountErrorValues.length)];
+		var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
+		localStorage.setItem(visualizationLookingAt + 'AmountError', amountError);
+		localStorage.setItem(visualizationLookingAt + 'SequenceNumber', sequenceNumber);
+
+		$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
+
+		//Store error, sequence number, question parameters in database.
+		visRecord.child('amountError').set(amountError);
+		visRecord.child('sequenceNumber').set(sequenceNumber);
+		console.log("Error amount: " + amountError);
+		console.log("Sequence number: " + sequenceNumber);	
+	} else {
+		if(studyCondition == 'onlyNew') {
+			$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='600px'>");
+		} else {
+			var amountError = localStorage.getItem(visualizationLookingAt + 'AmountError');
+			var sequenceNumber = localStorage.getItem(visualizationLookingAt + 'SequenceNumber');
+			if(studyCondition == 'difference') {
+				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + "_diff.png' width='600px'>");
+			} else { //both
+				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='300px'>");
+				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='300px'>");
+			}
+		}
+	}
+
+	setTimeout(function() {
+		if(label == 'precise') {
+			currentSeen++; //increment the number we've seen
+			localStorage.setItem(label + "Seen", currentSeen);
+			newLog.child(label + "Seen").set(currentSeen);
+			if(currentSeen >= presentationOrder.length) { //go to the next page after this visualization
+				$("#nextPage").attr("href", 'precise_questions.html');
+			}
+		}
+		$("#nextPage").removeClass("disabled");
+	}, 1000);
 }
 
-var nextPage = {'approximate':'precise_instructions.html', 'precise':'questions.html'};
+function addQuestions(label) {
+	var currentSeen = parseInt(localStorage.getItem(label + "Seen"));
 
+	$('#form').submit(function(ev) {
+		ev.preventDefault();
+
+		currentSeen++; //increment the number we've seen
+		localStorage.setItem(label + "Seen", currentSeen);
+		newLog.child(label + "Seen").set(currentSeen);
+
+		$.each($('#form').serializeArray(), function(j, field) {
+			/*
+			//var visIndex = field.name[field.name.length-1];
+			var name = field.name;//.substring(0, field.name.length-1);
+			var visRecord = newLog.child('preciseVis' + visIndex);
+			visRecord.child(name).set(field.value);
+			*/
+
+		});
+
+		if(currentSeen >= presentationOrder.length) {
+			if(label == 'approximate') {
+				window.location.href = 'precise.html';
+			} else {
+				window.location.href = 'thanks.html';
+			}
+		} else {
+			window.location.href = label + '.html';
+		}
+	});
+}
+/*
 function updateData(label) {
 	var currentSeen = parseInt(localStorage.getItem(label + "Seen"));
 	var statLookingAt = visualizationsArray[currentSeen];
@@ -63,8 +126,8 @@ function updateData(label) {
 		$('#form').submit(function(ev) {
 			ev.preventDefault();
 			currentSeen++; //increment the number we've seen
-			/*TODO: some sort of sensible bounds checking?
-			If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.*/
+			//TODO: some sort of sensible bounds checking?
+			//If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.
 			localStorage.setItem(label + "Seen", currentSeen);
 			newLog.child(label + "Seen").set(currentSeen);
 			$.each($('#form').serializeArray(), function(i, field) {
@@ -119,8 +182,8 @@ function generatePreciseQuestions() {
 	$('#form').submit(function(ev) {
 		ev.preventDefault();
 
-		/*TODO: some sort of sensible bounds checking?
-		If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.*/
+		//TODO: some sort of sensible bounds checking?
+		//If someone revisits approximate.html after finishing the approximate vis's, for example, it'll try to find a 4th one.
 		$.each($('#form').serializeArray(), function(j, field) {
 			var visIndex = field.name[field.name.length-1];
 			var name = field.name.substring(0, field.name.length-1);
@@ -129,3 +192,4 @@ function generatePreciseQuestions() {
 		});
 	});
 }
+*/
