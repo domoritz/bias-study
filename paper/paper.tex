@@ -81,8 +81,8 @@
 % \ifCLASSINFOpdf conditional that works the same way.
 % When switching from latex to pdflatex and vice-versa, the compiler may
 % have to be run twice to clear warning/error messages.
-
-
+\usepackage[english]{babel}
+\usepackage{blindtext}
 
 
 
@@ -375,7 +375,7 @@
 % not capitalized unless they are the first or last word of the title.
 % Linebreaks \\ can be used within to get better formatting as desired.
 % Do not put math or special symbols in the title.
-\title{Bare Demo of IEEEtran.cls for\\ IEEE Computer Society Journals}
+\title{Examining Whether Approximate Visualizations Impact Perception of Corrected Visualizations}
 %
 %
 % author names and IEEE memberships
@@ -399,17 +399,10 @@
 % journal papers have the author affiliations above the "Manuscript
 % received ..."  text while in non-compsoc journals this is reversed. Sigh.
 
-\author{Michael~Shell,~\IEEEmembership{Member,~IEEE,}
-        John~Doe,~\IEEEmembership{Fellow,~OSA,}
-        and~Jane~Doe,~\IEEEmembership{Life~Fellow,~IEEE}% <-this % stops a space
-\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem M. Shell was with the Department
-of Electrical and Computer Engineering, Georgia Institute of Technology, Atlanta,
-GA, 30332.\protect\\
-% note need leading \protect in front of \\ to get a newline within \thanks as
-% \\ is fragile and will error, could use \hfil\break instead.
-E-mail: see http://www.michaelshell.org/contact.html
-\IEEEcompsocthanksitem J. Doe and J. Doe are with Anonymous University.}% <-this % stops an unwanted space
-\thanks{Manuscript received April 19, 2005; revised August 26, 2015.}}
+\author{Dominik~Moritz
+        and~Daniel~A.~Epstein
+\IEEEcompsocitemizethanks{\IEEEcompsocthanksitem Dominik Moritz and Daniel Epstein are with the University of Washington.}% <-this % stops an unwanted space
+\thanks{Manuscript received November 14, 2016.}}
 
 % note the % following the last \IEEEmembership and also \thanks - 
 % these prevent an unwanted space from occurring between the last author name
@@ -432,8 +425,8 @@ E-mail: see http://www.michaelshell.org/contact.html
 
 
 % The paper headers
-\markboth{Journal of \LaTeX\ Class Files,~Vol.~14, No.~8, August~2015}%
-{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Computer Society Journals}
+\markboth{Class paper for CSE599E1, User studies in software engineering}%
+{Moritz and Epstein, CSE599E1}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 % 
@@ -477,7 +470,7 @@ The abstract goes here.
 
 % Note that keywords are not normally used for peerreview papers.
 \begin{IEEEkeywords}
-Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
+Approximate visualizations, perception
 \end{IEEEkeywords}}
 
 
@@ -537,21 +530,43 @@ Computer Society, IEEE, IEEEtran, journal, \LaTeX, paper, template.
 % 
 % Here we have the typical use of a "T" for an initial drop letter
 % and "HIS" in caps to complete the first word.
-\IEEEPARstart{T}{his} demo file is intended to serve as a ``starter file''
-for IEEE Computer Society journal papers produced under \LaTeX\ using
-IEEEtran.cls version 1.8b and later.
-% You must have at least 2 lines in the paragraph with the drop letter
-% (should never be an issue)
-I wish you the best of success.
+\IEEEPARstart{A}{s} data science grows in interest and importance, data analysts want to derive insights from increasingly large datasets.
+Depending on the dataset, it could take a system seconds or minutes to construct accurate summary visualizations of the data.
+The time to generate these visualizations drastically impedes the process of exploratory data visualization, where analysts often consider many visualizations in sequence.
+A common technique to enable exploratory analysis of large datasets is to sample the data for immediate consumption \cite{moritz2017pangloss}.
+Precise results considering the entire dataset are either updated progressively \cite{fisher2012trust} or asynchronously \cite{moritz2017pangloss} \cite{kay2016ish}.
 
-\hfill mds
- 
-\hfill August 26, 2015
+By their nature, the immediate visualizations are not precise.
+Errors can affect the observations analysts make and thus the conclusions they derive from the data.
+This work considers the perceptual question of whether temporary exposure imprecise visualizations in an exploratory data analysis process influences people's recognition of the data.
+We further explore whether the design of the precise visualization can the impact of the temporary exposure to imprecise data.
+
+Specifically, this paper seeks to answer the following questions:
+\begin{enumerate}
+\item Does seeing an imprecise visualization generated from sampled data prior to a precise visualization impact people's recollection of the data viewed?
+\item Is this impact mitigated by highlighting the change from the imprecise visualization in the precise visualiztion?
+\end{enumerate}
+
+To answer these questions, we conduct a controlled experiment simulating an exploratory data analysis process with a dataset of flights in the United States.
+Participants first viewed two approximate visualizations generated by sampling the flight data, then viewed the same visualizations updated with the precise data.
+Our experiment evaluated varying levels of error and different methods for highlighting the change in the precise visualizations.
+
+Through an X-person experiment on Amazon Mechanical Turk, we found...
+
+\section{Related Work}\label{sec:related_work}
+
+\blindtext[2]
+
+\section{Experimental Setup}\label{sec:experimental_setup}
+
+\blindtext[2]
+
+\section{Statistical Analysis}\label{sec:statistical_analysis}
+
+\blindtext[2]
 
 \subsection{Subsection Heading Here}
 Subsection text here.
-
-\cite{agarwal2014knowing}
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
@@ -700,7 +715,7 @@ Appendix two text goes here.
 \fi
 
 
-The authors would like to thank...
+The authors would like to thank Michael D. Ernst for his feedback on the experimental design and writing.
 
 
 % Can use something like this to put references on a page
