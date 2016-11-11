@@ -45,9 +45,10 @@ function addVisualization(label) {
 		newLog.child(label + "Seen").set(currentSeen);
 		if(label == 'precise') {
 			if(currentSeen >= presentationOrder.length) { //go to the next page after this visualization
-				$("#nextPage").attr("href", 'precise_questions.html');
+				console.log('here');
+				$("#form").attr("action", 'precise_questions.html');
 			}
 		}
-		$("#nextPage").removeClass("disabled");
-	}, 1000);
+		$('#nextCheckbox').css('visibility', 'visible');
+	}, 10000);
 }

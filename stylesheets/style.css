@@ -35,3 +35,7 @@ form .row {
 .precise-next {
 	margin-top: 1em;
 }
+
+#nextCheckbox {
+	visibility: hidden;
+}
