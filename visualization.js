@@ -32,6 +32,7 @@ $('#visualization').each(function() {
 			var amountError = localStorage.getItem(visualizationLookingAt + 'AmountError');
 			var sequenceNumber = localStorage.getItem(visualizationLookingAt + 'SequenceNumber');
 			if(studyCondition == 'difference') {
+				$('#instructions').html("The <span class='orange'>orange</span> ticks show the approximate data you have seen previously. The <span class='blue'>blue</span> bars show precise data.");
 				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + "_diff.png' width='600px'>");
 			} else { //both
 				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='300px'>");
