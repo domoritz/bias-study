@@ -7,4 +7,5 @@ Go to [domoritz.github.io/bias-study](https://domoritz.github.io/bias-study). Th
 
 ## Run
 
-`python -m SimpleHTTPServer`
+* `bundle install`
+* `bundle exec jekyll serve`

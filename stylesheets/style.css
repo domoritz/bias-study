@@ -32,10 +32,6 @@ form .row {
 	margin-right: 5px;
 }
 
-.precise-next {
-	margin-top: 1em;
-}
-
-#nextCheckbox {
-	visibility: hidden;
+#visualization {
+	margin-bottom: 2em;
 }

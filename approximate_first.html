@@ -1,0 +1,34 @@
+---
+layout: default
+title: Approximate Visualization
+whichOne: 0
+label: 'approximate'
+---
+
+<div class="row">
+    <div id="visualization" class="col-md-12 "></div>
+</div>
+
+<div class="row">
+    <p>
+        You will be able to look at the questions after 10 seconds.
+        However, you will not be able to look at this visualization again once you clicked "Continue"!
+    </p>
+    <form id="nextCheckbox">
+        <div class="form-group">
+            <label>
+                <input disabled type="checkbox" required/> I have carefully looked at the visualization.
+            </label>
+        </div>
+        <div class="form-group col-md-12">
+            <input disabled type="submit" class="btn btn-primary" value="Continue">
+        </div>
+    </form>
+</div>
+
+<script>
+$('#nextCheckbox').submit(function(e) {
+    e.preventDefault();
+    window.location.replace('approximate_questions_first.html');
+});
+</script>

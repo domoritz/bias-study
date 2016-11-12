@@ -1,9 +1,3 @@
-//Generate all permutations of the visualization order, select by userID (which is effectively "random")
-//If we ever add study conditions, make sure to update the numbers so these two variations remain independent.
-var studyCondition = userId%3 == 0 ? 'difference' : (userId%3==1 ? 'both' : 'onlyNew');
-var presentationOrder = ((userId%6) / 3) == 0 ? ['states', 'airline'] : ['airline', 'states'];
-var selectOptions = {'airline': ['American', 'Delta', 'ExpressJet', 'Hawaiian', 'JetBlue', 'SkyWest', 'Spirit', 'Southwest', 'United', 'Virgin'], 'states': ['Arizona', 'California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'Nevada', 'New York', 'Texas', 'Washington']};
-
 function addBasicQuestions(visualizationLookingAt) {
 	var howManyOption = selectOptions[visualizationLookingAt][Math.floor(Math.random()*selectOptions[visualizationLookingAt].length)];
 
@@ -16,7 +10,7 @@ function addBasicQuestions(visualizationLookingAt) {
 	}
 }
 
-function addFormLogic(label, destination) {
+function addFormLogic(destination) {
 	$('#form').submit(function(ev) {
 		ev.preventDefault();
 
@@ -26,18 +20,17 @@ function addFormLogic(label, destination) {
 			visRecord.child(questionName[1]).set(field.value);
 		});
 
-		window.location.href = destination;
+		window.location.replace(destination);
 	});
 }
 
 function addApproximateQuestions() {
-	var currentSeen = parseInt(localStorage.getItem("approximateSeen")) - 1;
-	addBasicQuestions(presentationOrder[currentSeen]);
+	addBasicQuestions(presentationOrder[whichOne]);
 
-	if(currentSeen>=presentationOrder.length - 1) {
-		addFormLogic('precise.html');
+	if(whichOne == 1) {
+		addFormLogic('precise_instructions.html');
 	} else {
-		addFormLogic('approximate', 'approximate.html');
+		addFormLogic('approximate_second.html');
 	}
 }
 
@@ -47,7 +40,7 @@ function addPreciseQuestions() {
 	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
 	addBasicQuestions(presentationOrder[0]);
 	addQuestion(presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
-	addFormLogic('precise', 'thanks.html');
+	addFormLogic('thanks.html');
 }
 
 function addQuestion(visualizationLookingAt, questionName, questionType, questionText) {
