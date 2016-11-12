@@ -11,7 +11,7 @@ function addVisualization(label) {
 	var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt);
 	newLog.child(label + "Seen").set(currentSeen);
 
-	if(label == 'approximate') {
+	if (label == 'approximate') {
 		var amountError = amountErrorValues[Math.floor(Math.random() * amountErrorValues.length)];
 		var sequenceNumber = amountError == '1' ? '0' : Math.ceil(Math.random()*20).toString();
 		localStorage.setItem(visualizationLookingAt + 'AmountError', amountError);

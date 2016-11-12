@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Visualization study</title>
+        <title>Visualization study - Approximate</title>
     
         <script type="application/javascript" src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
         <script type="application/javascript" src="javascripts/jquery.js"></script>
@@ -26,9 +26,10 @@
                 <p>
                     You will be able to look at the next visualization after 10 seconds.
                 </p>
-                <form id="form" action="approximate_questions.html">
+                <form id="form" onsubmit="window.location.replace('approximate_questions.html')">
                     <div class="form-group col-md-12" id="nextCheckbox">
-                        <label><input type="checkbox" required> I have looked at the visualization.</label>
+                        <label><input type="checkbox" required> I have carefully looked at the isualization.</label>
+                        <br/>
                         <input id="nextPage" type="submit" class="btn btn-primary" value="Continue">
                     </div>
                 </form>

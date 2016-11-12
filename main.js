@@ -12,7 +12,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 if(!localStorage.getItem("userId")) {
-	localStorage.setItem("userId", Math.floor(Math.random() * 10e7).toString()); //TODO: better way of setting a random string.
+	localStorage.setItem("userId", Math.floor(Math.random() * 10e7).toString());
 	localStorage.setItem("approximateSeen", 0);
 	localStorage.setItem("preciseSeen", 0);
 }

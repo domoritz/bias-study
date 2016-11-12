@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Visualization study</title>
+        <title>Visualization study - Precise - Questions</title>
     
         <script type="application/javascript" src="https://www.gstatic.com/firebasejs/3.5.2/firebase.js"></script>
         <script type="application/javascript" src="javascripts/jquery.js"></script>
@@ -9,7 +9,6 @@
         <script type="application/javascript" src="main.js"></script>
         <script type="application/javascript" src="questions.js"></script>
         <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap-theme.min.css">
         <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     </head>
     <body>
@@ -21,8 +20,8 @@
                 <p>
                     Please answer questions based only on what you saw the dataset.
                 </p>
-                <form id="form" action="precise.html">
-                    <input type="submit" class="btn btn-primary" href="thanks.html" value="Submit answers">
+                <form id="form" onsubmit="window.location.replace('thanks.html')">
+                    <input type="submit" class="btn btn-primary" value="Submit answers">
                 </form>
             </div>
         </div>
