@@ -9,10 +9,13 @@ title: Thanks
 <p>
     Please submit the following number to MTurk:
     <strong id="userId">
+        waiting for data to sync...
     </strong>
     <script type="text/javascript">
         $(function() {
-            $("#userId").text(userId.toString());
+            newLog.child('done').set(true, function() {
+                $("#userId").text(userId.toString());
+            });
         });
     </script>
 </p>
