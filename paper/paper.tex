@@ -128,12 +128,12 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
   % every instance of \includegraphics
-  % \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
+  \DeclareGraphicsExtensions{.pdf,.jpeg,.png}
 \else
   % or other class option (dvipsone, dvipdf, if not using dvips). graphicx
   % will default to the driver specified in the system graphics.cfg if no
@@ -230,11 +230,11 @@
 
 
 % *** SUBFIGURE PACKAGES ***
-%\ifCLASSOPTIONcompsoc
-%  \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
-%\else
-%  \usepackage[caption=false,font=footnotesize]{subfig}
-%\fi
+\ifCLASSOPTIONcompsoc
+ \usepackage[caption=false,font=footnotesize,labelfont=sf,textfont=sf]{subfig}
+\else
+ \usepackage[caption=false,font=footnotesize]{subfig}
+\fi
 % subfig.sty, written by Steven Douglas Cochran, is the modern replacement
 % for subfigure.sty, the latter of which is no longer maintained and is
 % incompatible with some LaTeX packages including fixltx2e. However,
@@ -345,7 +345,7 @@
 
 % *** PDF, URL AND HYPERLINK PACKAGES ***
 %
-%\usepackage{url}
+\usepackage{url}
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
@@ -365,6 +365,11 @@
 
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
+
+
+\usepackage[pdftex]{hyperref}
+\newcommand{\figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
+\newcommand{\ea}{{et~al.}\xspace}
 
 
 \begin{document}
@@ -534,12 +539,12 @@ Approximate visualizations, perception
 Depending on the dataset, it could take a system seconds or minutes to construct accurate summary visualizations of the data.
 The time to generate these visualizations drastically impedes the process of exploratory data visualization, where analysts often consider many visualizations in sequence.
 A common technique to enable exploratory analysis of large datasets is to sample the data for immediate consumption \cite{moritz2017pangloss}.
-Precise results considering the entire dataset are either updated progressively \cite{fisher2012trust} or asynchronously \cite{moritz2017pangloss} \cite{kay2016ish}.
+Precise results considering the entire dataset are either updated progressively \cite{fisher2012trust} or asynchronously \cite{moritz2017pangloss, kay2016ish}.
 
 By their nature, the immediate visualizations are not precise.
 Errors can affect the observations analysts make and thus the conclusions they derive from the data.
-This work considers the perceptual question of whether temporary exposure imprecise visualizations in an exploratory data analysis process influences people's recognition of the data.
-We further explore whether the design of the precise visualization can the impact of the temporary exposure to imprecise data.
+This work considers the perceptual question of whether temporary exposure to imprecise visualizations in exploratory data analysis influences people's recognition of the data.
+We further explore whether the design of the precise visualization can reduce the impact of the temporary exposure to imprecise data.
 
 Specifically, this paper seeks to answer the following questions:
 \begin{enumerate}
@@ -574,9 +579,9 @@ Things like Weber's law, Error Bars Considered Harmful
 
 \section{Experimental Setup}\label{sec:experimental_setup}
 
-We sought to create an experiment which mimiced the experience of Exploratory Data Analysis with an approximate query system while still maintaining control over participant experiences.
+We sought to create an experiment which mimicked the experience of Exploratory Data Analysis with an approximate query system while still maintaining control over participant experiences.
 In approximate query systems, users often internalize approximate visualizations, using the gained knowledge to inform the next visualization to create.
-Systems, such as PanGloss \cite{moritz2017pangloss}, can later generate precise visualizations based on the data.
+Systems, such as Pangloss \cite{moritz2017pangloss}, can later generate precise visualizations based on the data.
 However, the user may have moved on to investigate a new visualization.
 
 Our study flow (Figure X) aimed to mimic this experience. %TODO: add; probably include a few screenshots about what participants actually saw.
@@ -585,15 +590,43 @@ The study enforced participants view the visualizations for at least 10 seconds 
 To ensure that participants had considered the approximate data, we asked a few questions after viewing each approximate visualization informed by Brehmer and Munzner's work \cite{brehmer2013multi}.
 Answering these questions simulated how a data analyst would consider and reflect on their data.
 The questions also provided us a baseline level of comprehension of visualizations of our participants.
-After viewing both precise visualizations, participants answered a larger set of questions based on Brehmer and Munzner's work \cite{brehmer2013multi}.
-Participants were asked to rate their confidence in their answer to each question in both sets on a sliding scale from "I don't remember" to "I'm certain".
-Participants were informed that first two visualizations were approximations of their data, allowing us to mimic the experience of looking at an approximate query result.
+After viewing both precise visualizations, participants answered a larger set of questions based on Brehmer and Munzner's task taxonomy \cite{brehmer2013multi}.
+Participants were asked to rate their confidence in their answer to each question in both sets on a sliding scale from ``I don't remember'' to ``I'm certain''.
+Participants were informed that the first two visualizations showed approximations of their data, allowing us to mimic the experience of looking at an approximate query result.
 %Do we want to go into more detail on the questions? In a 'dependent variables' section?
 
-The two visualizations participants saw were based on the same dataset about flights in the United States. \url{http://datahub.io/dataset/open-flights}
+\begin{figure*}[!ht]
+\centering
+\subfloat[Approximate visualization based on 0.2\% of the data. Note that ``New Yersey'' is missing and that ``Florida'' is the state with the most outgoing flights.]{\includegraphics[width=0.3\textwidth]{states5009.png}%
+\label{fig:approx}}
+\hfil
+\subfloat[Visualization of precise data.]{\includegraphics[width=0.3\textwidth]{states10.png}%
+\label{fig:precise}}
+\hfil
+\subfloat[Precise with difference visualization. The orange ticks show the user the approximate data they have previously seen.]{\includegraphics[width=0.3\textwidth]{states5009diff.png}%
+\label{fig:diff}}
+\caption{Visualizations of aproximate and precise data of the number of flight per state. (c) highlights the difference to the approximate data.}
+\label{fig:types}
+\end{figure*}
+
+The two visualizations participants saw were based on the same dataset about flights in the United States \footnote{\url{http://datahub.io/dataset/open-flights}}.
+\figref{fig:types} shows visualizations of approximate and precise data.
 Both visualizations were bar graphs, which are common in approximate query systems \cite{moritz2017pangloss}.
-The y-axis varied between the two visualizations, showing either the state the flight left from or the airline of the flight.
+The y-axis varied between the two visualizations, showing either the state the flight left from or the airline the flight was operated by.
+The bars were sorted in descending order so that the state or airline with the most flights is at the top.
 The x-axis in both visualization was a count value.
+We chose horizontal bar charts so that long labels are easier to read.
+To visually separate visualizations of approximate and precise data, we colored the bars approximate visulizations orange (\figref{fig:approx}) and prcise visualizations blue (\figref{fig:precise}). 
+
+We used one month of flight data to generate the visualizations.
+The precise visualization of number of flights per state uses data where the airline was JetBlue and the visualization of the flight per airline uses data from New York State.
+The approximate visualizations use a random subset of the data for the precise visualizations with replacement.
+We then computed the approximate values by dividing the count values by the fraction of rows used in the sample.
+
+In the visualizations of approximate data, the values can be different because the data is based on a sample.
+Groups can be missing entirely if there was no example of a particular state or airline in the random sample (e.g. \figref{fig:approx}).
+Moreover, the order of bars can be incorrect because we always sort by the values.
+The questions we ask participants of our study are designed to fit these errors that can occur.
 
 Participants were recruited from Amazon Mechanical Turk (AMT).
 Similar to other studies of human perception of visualizations, we restricted participation to people on AMT with at least 1,000 tasks completed and an approval rate above 95\%.
@@ -604,27 +637,22 @@ Participants were compensated \$2.00 for completing the study.
 
 %Probably make a figure for this too.
 We evaluated three techniques for presenting the precise visualization.
-Our control condition presented just the updated, precise data, as in PanGloss and other systems \cite{moritz2017pangloss}.
-We further tested presenting the approximate and precise visualizations side-by-side, and a visualization highlighting the approximate data on the precise visualization.
+Our control condition presented the precise data as both the approximate and precise data.
+We further tested presenting the approximate and precise visualizations side-by-side, and a visualization highlighting the difference to approximate data on the precise visualization (\figref{fig:diff}).
+The difference visualization aims to highlight the errors of the approximation as done in Pangloss \cite{moritz2017pangloss}.
 
 We varied how much of the dataset was sampled for each approximate visualization.
-We tested sample levels of 0.1\%, 0.2\%, 0.5\%, and 1\%, with an additional control condition of 100\% (e.g., the approximate visualization was identical to the precise visualization).
+We tested sample levels of 0.1\%, 0.2\%, 0.5\%, 1\%, and 10\%, with an additional control condition of 100\% (e.g., the approximate visualization was identical to the precise visualization).
 Smaller samples tended to have greater difference from the precise visualizations.
 For each approximate visualization, we recorded the difference from the precise visualization relative to the questions we asked.
-For example, if a participant was asked "How many flights were there on Alaska Airlines?", we record the difference in flights between the approximate and precise visualization.
+For example, if a participant was asked ``How many flights were there on Alaska Airlines?'', we record the difference in number of flights between the approximate and precise visualization.
 
 We randomized visualization order, approximate sample, and study condition for each participant.
 As previously stated, the variation level of the approximate visualizations varied by visualization.
 
 \subsection{Statistical Analysis}
 
-\blindtext[2]
-
 \section{Results}\label{sec:results}
-
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
-
 
 \section{Discussion}\label{sec:discussion}
 
@@ -734,34 +762,6 @@ We had no way of ensuring that participants did not take screenshots in order to
 
 \section{Conclusion}
 The conclusion goes here.
-
-
-
-
-
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
-
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
-
-
-\appendices
-\section{Proof of the First Zonklar Equation}
-Appendix one text goes here.
-
-% you can choose not to have a title for an appendix
-% if you want by leaving the argument blank
-\section{}
-Appendix two text goes here.
 
 
 % use section* for acknowledgment
