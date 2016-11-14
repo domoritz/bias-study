@@ -555,25 +555,84 @@ Through an X-person experiment on Amazon Mechanical Turk, we found...
 
 \section{Related Work}\label{sec:related_work}
 
-\blindtext[2]
+This paper builds from literature on exploring large datasets, visualizing uncertainty, and studies of human perception of visualizations.
+
+I'm punting on this section. Dominik, all you :-)
+
+\subsection{Exploring Large Datasets through Interactive Visualization}
+
+\cite{moritz2017pangloss} \cite{fisher2012trust}
+
+\subsection{Visualizing Uncertainty}
+
+\cite{kay2016ish}
+
+\subsection{Understanding Human Perception of Visualization}
+
+\cite{brehmer2013multi} \cite{heer2010crowdsourcing}
+Things like Weber's law, Error Bars Considered Harmful
 
 \section{Experimental Setup}\label{sec:experimental_setup}
 
+We sought to create an experiment which mimiced the experience of Exploratory Data Analysis with an approximate query system while still maintaining control over participant experiences.
+In approximate query systems, users often internalize approximate visualizations, using the gained knowledge to inform the next visualization to create.
+Systems, such as PanGloss \cite{moritz2017pangloss}, can later generate precise visualizations based on the data.
+However, the user may have moved on to investigate a new visualization.
+
+Our study flow (Figure X) aimed to mimic this experience. %TODO: add; probably include a few screenshots about what participants actually saw.
+Participants viewed two approximate visualizations followed by two precise visualizations.
+The study enforced participants view the visualizations for at least 10 seconds before advancing. %TODO: why do we pick 10 seconds?
+To ensure that participants had considered the approximate data, we asked a few questions after viewing each approximate visualization informed by Brehmer and Munzner's work \cite{brehmer2013multi}.
+Answering these questions simulated how a data analyst would consider and reflect on their data.
+The questions also provided us a baseline level of comprehension of visualizations of our participants.
+After viewing both precise visualizations, participants answered a larger set of questions based on Brehmer and Munzner's work \cite{brehmer2013multi}.
+Participants were asked to rate their confidence in their answer to each question in both sets on a sliding scale from "I don't remember" to "I'm certain".
+Participants were informed that first two visualizations were approximations of their data, allowing us to mimic the experience of looking at an approximate query result.
+%Do we want to go into more detail on the questions? In a 'dependent variables' section?
+
+The two visualizations participants saw were based on the same dataset about flights in the United States. \url{http://datahub.io/dataset/open-flights}
+Both visualizations were bar graphs, which are common in approximate query systems \cite{moritz2017pangloss}.
+The y-axis varied between the two visualizations, showing either the state the flight left from or the airline of the flight.
+The x-axis in both visualization was a count value.
+
+Participants were recruited from Amazon Mechanical Turk (AMT).
+Similar to other studies of human perception of visualizations, we restricted participation to people on AMT with at least 1,000 tasks completed and an approval rate above 95\%.
+Participation was restricted to the United States to ensure familiarity with the airlines and states in the dataset.
+Participants were compensated \$2.00 for completing the study.
+
+\subsubsection{Independent Variables}
+
+%Probably make a figure for this too.
+We evaluated three techniques for presenting the precise visualization.
+Our control condition presented just the updated, precise data, as in PanGloss and other systems \cite{moritz2017pangloss}.
+We further tested presenting the approximate and precise visualizations side-by-side, and a visualization highlighting the approximate data on the precise visualization.
+
+We varied how much of the dataset was sampled for each approximate visualization.
+We tested sample levels of 0.1\%, 0.2\%, 0.5\%, and 1\%, with an additional control condition of 100\% (e.g., the approximate visualization was identical to the precise visualization).
+Smaller samples tended to have greater difference from the precise visualizations.
+For each approximate visualization, we recorded the difference from the precise visualization relative to the questions we asked.
+For example, if a participant was asked "How many flights were there on Alaska Airlines?", we record the difference in flights between the approximate and precise visualization.
+
+We randomized visualization order, approximate sample, and study condition for each participant.
+As previously stated, the variation level of the approximate visualizations varied by visualization.
+
+\subsection{Statistical Analysis}
+
 \blindtext[2]
 
-\section{Statistical Analysis}\label{sec:statistical_analysis}
-
-\blindtext[2]
-
-\subsection{Subsection Heading Here}
-Subsection text here.
-
-% needed in second column of first page if using \IEEEpubid
-%\IEEEpubidadjcol
+\section{Results}\label{sec:results}
 
 \subsubsection{Subsubsection Heading Here}
 Subsubsection text here.
 
+
+\section{Discussion}\label{sec:discussion}
+
+Tie to crowdsourcing literature here, about what our work could inform over there.
+
+\subsubsection{Threads to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
+
+We had no way of ensuring that participants did not take screenshots in order to answer later questions about the precise visualizations.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
