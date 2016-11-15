@@ -7,3 +7,4 @@ paper.pdf
 *.bbl
 *.blg
 _site
+*.out
