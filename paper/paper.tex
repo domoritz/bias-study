@@ -574,18 +574,18 @@ In exploratory data analysis (EDA)~\cite{tukey1977exploratory} analysts example 
 This process is iterative and an analyst might look at dozens of graphs as they get to know the data~\cite{card1991information}. Some of these charts contain observations that allows analysts to move on to the next step of their analysis ~\cite{yi2008understanding}.
 For instance, when examining a dataset of flights, an observation might be ``Most flights are out of New York State.''
 
-A Visualization system must be fast enough to enable fast iterations; with delays of more than 500ms analysts become less effective ~\cite{liu2014effects} or even lose their flow of though if delays are more than a second~\cite{nielsen1993response}. 
+A Visualization system must be fast enough to enable fast iterations; with delays of more than 500ms analysts become less effective ~\cite{liu2014effects} or even lose their flow of thought if delays are more than a second~\cite{nielsen1993response}. 
 
 To enable fast response times over large data, visualization system use sampling and approximation to reduce the amount of data that has to be evaluated to compute the results of a query~\cite{agarwal2013blinkdb,ding2016sample+,kamat2014distributed}.
 
-The HCI community found that approximate visualizations can be used in exploratory data analsis~\cite{fisher2012trust, moritz2017pangloss}.
+The HCI community found that approximate visualizations can be used in exploratory data analysis~\cite{fisher2012trust, moritz2017pangloss}.
 However, there is no prior work on how exposure to approximate visualizations biases the observations and insights analysts make.
 
 \subsection{Visualizing Uncertainty and Human Perception of Visualization}
 
 There are a number of techniques for communicating uncertainty using visualizations~\cite{kay2016ish, olston2002visualizing}.
 However, often users often struggle to correctly interpret the uncertainty or even draw incorrect conclusions~\cite{joslyn2013decisions}.
-Moreover, in many models in the real world no statistial model is available to estimate the uncertaintly so that the approximate visualizations in our study do not show uncertainties.
+Moreover, in many models in the real world no statistical model is available to estimate the uncertainty so that the approximate visualizations in our study do not show uncertainties.
 
 Borkin et.al. \cite{borkin2013makes} and others have studied the memorability of data visualizations.
 Prior work distinguishes memorability of the visualization itself and the underlying data.
@@ -665,7 +665,7 @@ The y-axis varied between the two visualizations, showing either the state the f
 The bars were sorted in descending order so that the state or airline with the most flights is at the top.
 The x-axis in both visualization was a count value.
 We chose horizontal bar charts so that long labels are easier to read.
-To visually separate visualizations of approximate and precise data, we colored the bars approximate visulizations orange (\figref{fig:approx}) and prcise visualizations blue (\figref{fig:precise}). 
+To visually separate visualizations of approximate and precise data, we colored the bars approximate visualizations orange (\figref{fig:approx}) and precise visualizations blue (\figref{fig:precise}). 
 
 We used one month of flight data to generate the visualizations.
 The precise visualization of number of flights per state uses data where the airline was ``JetBlue'' and the visualization of the flight per airline uses data from ``New York State''.
@@ -708,9 +708,9 @@ Further, each participant will be treated as a random effect.
 
 We are asking three types of questions in our study with different dependent variables:
 \begin{enumerate}
-\item Was there a difference between the precise and approximate visualizations (categorial dependent variable)
+\item Was there a difference between the precise and approximate visualizations (categorical dependent variable)
 \item Which airline or state had the most or least flights (categorical dependent variable)
-\item How many flights were on a particular airline or from a particular state (interval depdendent variable)
+\item How many flights were on a particular airline or from a particular state (interval dependent variable)
 \item Confidence in answers to the above questions (interval dependent variable)
 \end{enumerate}
 
