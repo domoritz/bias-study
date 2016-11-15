@@ -566,22 +566,31 @@ Through an X-person experiment on Amazon Mechanical Turk, we found \todo{write w
 
 \section{Related Work}\label{sec:related_work}
 
-This paper builds from literature on exploring large datasets, visualizing uncertainty, and studies of human perception of visualizations.
+This paper builds from literature on exploratory data analysis visualizing uncertainty, and studies of human perception of visualizations.
 
-I'm punting on this section. Dominik, all you :-)
+\subsection{Exploratory data analysis for large datasets}
 
-\subsection{Exploring Large Datasets through Interactive Visualization}
+In exploratory data analysis (EDA)~\cite{tukey1977exploratory} analysts example multi-dimensional data by looking at the distributions and correlations of fields.
+This process is iterative and an analyst might look at dozens of graphs as they get to know the data~\cite{card1991information}. Some of these charts contain observations that allows analysts to move on to the next step of their analysis ~\cite{yi2008understanding}.
+For instance, when examining a dataset of flights, an observation might be ``Most flights are out of New York State.''
 
-\cite{moritz2017pangloss} \cite{fisher2012trust}
+A Visualization system must be fast enough to enable fast iterations; with delays of more than 500ms analysts become less effective ~\cite{liu2014effects} or even lose their flow of though if delays are more than a second~\cite{nielsen1993response}. 
 
-\subsection{Visualizing Uncertainty}
+To enable fast response times over large data, visualization system use sampling and approximation to reduce the amount of data that has to be evaluated to compute the results of a query~\cite{agarwal2013blinkdb,ding2016sample+,kamat2014distributed}.
 
-\cite{kay2016ish}
+The HCI community found that approximate visualizations can be used in exploratory data analsis~\cite{fisher2012trust, moritz2017pangloss}.
+However, there is no prior work on how exposure to approximate visualizations biases the observations and insights analysts make.
 
-\subsection{Understanding Human Perception of Visualization}
+\subsection{Visualizing Uncertainty and Human Perception of Visualization}
 
-\cite{brehmer2013multi} \cite{heer2010crowdsourcing}
-Things like Weber's law, Error Bars Considered Harmful
+There are a number of techniques for communicating uncertainty using visualizations~\cite{kay2016ish, olston2002visualizing}.
+However, often users often struggle to correctly interpret the uncertainty or even draw incorrect conclusions~\cite{joslyn2013decisions}.
+Moreover, in many models in the real world no statistial model is available to estimate the uncertaintly so that the approximate visualizations in our study do not show uncertainties.
+
+Borkin et.al. \cite{borkin2013makes} and others have studied the memorability of data visualizations.
+Prior work distinguishes memorability of the visualization itself and the underlying data.
+In this paper, we only focus on what data users remember because the mental models users build of the data are what influences their decisions on what to look at next.
+To the best of our knowledge there are no studies on the biases that exposure to imprecise visualizations introduces.
 
 \section{Experimental Setup}\label{sec:experimental_setup}
 
@@ -668,7 +677,7 @@ Groups can be missing entirely if there was no example of a particular state or 
 Moreover, the order of bars can be incorrect because we always sort by the values.
 The questions we ask participants of our study are designed to fit these errors that can occur.
 
-Participants were recruited from Amazon Mechanical Turk (AMT).
+Participants were recruited from Amazon Mechanical Turk (AMT), a common tool to run perception studies for visualizations~\cite{heer2010crowdsourcing}.
 Similar to other studies of human perception of visualizations, we restricted participation to people on AMT with at least 1,000 tasks completed and an approval rate above 95\%.
 Participation was restricted to the United States to ensure familiarity with the airlines and states in the dataset.
 Participants were compensated \$2.00 for completing the study.
