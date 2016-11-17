@@ -43,11 +43,44 @@ function addPreciseQuestions() {
 	addFormLogic('thanks.html');
 }
 
+function generateLikertString(questionName) {
+	return "<div class='form-group col-md-12'><label>How confident are you of your answer?</label><ul class='likert'>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='strong_agree' required>\
+        <label>Very Confident</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='agree' required>\
+        <label>Somewhat Confident</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='weak_agree' required>\
+        <label>Slightly Confident</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='neutral' required>\
+        <label>Neutral</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='weak_disagree' required>\
+        <label>Slightly Not Confident</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='disagree' required>\
+        <label>Somewhat Not Confident</label>\
+      </li>\
+      <li>\
+        <input type='radio' name='" + questionName + "' value='strong_disagree' required>\
+        <label>Not at All Confident</label>\
+      </li>\
+    </ul></div>";
+}
+
 function addQuestion(visualizationLookingAt, questionName, questionType, questionText) {
 	questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
 
 	var preamble = "<div class='row'><div class='form-group col-md-12'>";
-	var confidenceSlider = "<div class='form-group col-md-12'><label>How confident are you?<br/><small>I don't remember</small><input type='range' name='confidence" + questionName + "' min='0' max='100' value='50'/><small>I'm certain</small></label></div>";
+	var confidenceSlider = generateLikertString("confidence" + questionName);
 	var postamble = "</div></div>";
 	var question = "<label>" + questionText + "</label>";
 	if(questionType == 'select') {
