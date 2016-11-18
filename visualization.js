@@ -34,7 +34,7 @@ $('#nextCheckbox').each(function(_, el) {
 	// timeout of 10 unless we are on localhost
 	setTimeout(function() {
 		$(el).find('input').prop('disabled', false);
-	}, location.hostname === "localhost" || location.hostname === "127.0.0.1" ? 1000 : 10000);
+	}, DEBUG ? 1000 : 10000);
 });
 
 });

@@ -12,7 +12,9 @@ function addBasicQuestions(visualizationLookingAt) {
 }
 
 function addFormLogic(destination) {
-	$('#form').submit(function(ev) {
+	var btn = (DEBUG ? '<input type="submit" class="btn btn-secondary value="Ignore" formnovalidate>' : '') + '<input type="submit" class="btn btn-primary" value="Submit answers">';
+	
+	$('#form').append(btn).submit(function(ev) {
 		ev.preventDefault();
 
 		$.each($('#form').serializeArray(), function(j, field) {

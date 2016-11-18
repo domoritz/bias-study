@@ -22,6 +22,8 @@ var newLog = database.ref("logs").child(userId);
 
 console.log("ID:", userId);
 
+var DEBUG = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
 var amountErrorValues = [1, 100, 200, 500, 1000];
 
 //Generate all permutations of the visualization order, select by userID (which is effectively "random")
