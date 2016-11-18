@@ -20,9 +20,11 @@ if(!localStorage.getItem("userId")) {
 var userId = localStorage.getItem("userId");
 var newLog = database.ref("logs").child(userId);
 
-console.log("ID:", userId);
-
 var DEBUG = location.hostname === "localhost" || location.hostname === "127.0.0.1";
+
+if(!DEBUG) { //Disable console output when running on server
+    console.log = function() {};
+}
 
 var amountErrorValues = [1, 100, 200, 500, 1000];
 
@@ -39,6 +41,7 @@ function getSequence(visualizationLookingAt) {
     return 1 + pseudo_random(visualizationLookingAt + 'SequenceNumber') % 20;
 }
 
+console.log("ID:", userId);
 console.log("condition:", studyCondition);
 console.log("order:", presentationOrder);
 console.log("error airline:", getError('airline'));
