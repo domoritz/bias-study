@@ -1,11 +1,12 @@
 function addBasicQuestions(visualizationLookingAt) {
-	var howManyOption = selectOptions[visualizationLookingAt][Math.floor(Math.random()*selectOptions[visualizationLookingAt].length)];
+	var options = Object.keys(getSelectOptions(visualizationLookingAt));
+	var howManyOption = options[pseudo_random(visualizationLookingAt + 'count') % options.length];
 
-	if(visualizationLookingAt == 'airline') {
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + howManyOption + '?');
+	if(visualizationLookingAt === 'airline') {
+		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[howManyOption] + '?');
 		addQuestion(visualizationLookingAt, 'MostPopular', 'select', 'Which airline had the most flights in the dataset?');
 	} else { //states
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + howManyOption + '?');
+		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[howManyOption] + '?');
 		addQuestion(visualizationLookingAt, 'MostPopular', 'select', 'Which state had the most flights in the dataset?');
 	}
 }
@@ -44,7 +45,7 @@ function addPreciseQuestions() {
 }
 
 function generateLikertString(questionName) {
-	return "<div class='form-group col-md-12'><label>How confident are you of your answer?</label><ul class='likert'>\
+	return "<div class='col-md-12 likert-group'><label>How confident are you of your answer?</label><ul class='likert'>\
       <li>\
         <input type='radio' name='" + questionName + "' value='strong_agree' required>\
         <label>Very Confident</label>\
@@ -79,19 +80,21 @@ function generateLikertString(questionName) {
 function addQuestion(visualizationLookingAt, questionName, questionType, questionText) {
 	questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
 
-	var preamble = "<div class='row'><div class='form-group col-md-12'>";
+	var preamble = "<div class='row questions'><div class='form-group col-md-12'>";
 	var confidenceSlider = generateLikertString("confidence" + questionName);
 	var postamble = "</div></div>";
 	var question = "<label>" + questionText + "</label>";
 	if(questionType == 'select') {
+		var options = selectOptions[visualizationLookingAt].sort();
+
 		question += "<select class='form-control' name='" + questionName + "' required><option disabled selected value>--Select an option--</option>";
-		question += selectOptions[visualizationLookingAt].map(function(m) {return "<option value=" + m + ">" + m + "</option>"}).join("\n");
+		question += options.map(function(m) {return "<option value=" + m + ">" + m + "</option>"}).join("\n");
 		question += "</select>";
 	} else if(questionType == 'number') { //TODO: consider bounds checking this.
 		question += "<input type='number' class='form-control' name='" + questionName + "' required>";
 	} else if(questionType == 'yesno') {
-		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='yes' name='" + questionName + "' required>Yes</label></div>";
-		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required>No</label></div>";
+		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='yes' name='" + questionName + "' required> Yes</label></div>";
+		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required> No</label></div>";
 	}
 	$('#form').prepend(preamble + question + confidenceSlider + postamble);
 }

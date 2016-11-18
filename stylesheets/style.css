@@ -77,4 +77,20 @@ form .likert li input[type=radio] {
   margin-left:-6px;
   
 }
-form .likert li label {width:100%;}
+form .likert li label {
+  width:100%;
+  font-weight: 400;
+}
+
+.likert-group {
+  margin-top: 0.5em;
+}
+
+.questions .form-group {
+  border: 1px solid lightgray;
+  padding-top: 1em;
+}
+
+.form-group > label {
+  font-size: 1.2em;
+}
