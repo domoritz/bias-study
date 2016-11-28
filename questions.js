@@ -1,26 +1,47 @@
 function addBasicQuestions(visualizationLookingAt) {
-	var options = Object.keys(getSelectOptions(visualizationLookingAt));
-	var howManyOption = options[pseudo_random(visualizationLookingAt + 'count') % options.length];
+	var options = getSelectOptions(visualizationLookingAt);
 
 	if(visualizationLookingAt === 'airline') {
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[howManyOption] + '?');
-		addQuestion(visualizationLookingAt, 'MostPopular', 'select', 'Which airline had the most flights in the dataset?');
+		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[focusAirline] + '?');
+		var focusAmount = options[focusAirline];
+		delete options[focusAirline];
+		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count') % Object.keys(options).length];
+		if(focusAmount >= compareOption) {
+			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many more flights were there on ' + CARRIER_NAMES[focusAirline] + ' than ' + CARRIER_NAMES[compareOption] + '?');
+		} else {
+			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many fewer flights were there on ' + CARRIER_NAMES[focusAirline] + ' than ' + CARRIER_NAMES[compareOption] + '?');
+		}
 	} else { //states
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[howManyOption] + '?');
-		addQuestion(visualizationLookingAt, 'MostPopular', 'select', 'Which state had the most flights in the dataset?');
+		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[focusState] + '?');
+		var focusAmount = options[focusState];
+		delete options[focusState];
+		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count') % Object.keys(options).length];
+		if(focusAmount >= compareOption) {
+			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many more flights were there out of ' + STATE_NAMES[focusState] + ' than ' + STATE_NAMES[compareOption] + '?');
+		} else {
+			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many fewer flights were there out of ' + STATE_NAMES[focusState] + ' than ' + STATE_NAMES[compareOption] + '?');
+		}
 	}
 }
 
-function addFormLogic(destination) {
+function addFormLogic(visualizationLookingAt, destination) {
 	var btn = (DEBUG ? '<input type="submit" class="btn btn-secondary value="Ignore" formnovalidate>' : '') + '<input type="submit" class="btn btn-primary" value="Submit answers">';
 	
 	$('#form').append(btn).submit(function(ev) {
 		ev.preventDefault();
 
-		$.each($('#form').serializeArray(), function(j, field) {
-			var questionName = field.name.split("_");
-			var visRecord = newLog.child(label + 'Vis_' + questionName[0]);
-			visRecord.child(questionName[1]).set(field.value);
+		$.each($('#form').serializeArray(), function(j, field) { //Important assumption being utilized here: the confidence is always paired with each question.
+			var actualName = field.name.split("_");
+			var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt).child(Math.floor(j/2));
+			if(j%2 == 0) { //The actual question
+				visRecord.child("type").set(actualName[0]);
+				if(actualName.length > 1) { //There's a data field to store
+					visRecord.child("data").set(actualName[1])
+				}
+				visRecord.child("answer").set(field.value);
+			} else { //The confidence slider
+				visRecord.child("confidence").set(field.value);
+			}
 		});
 
 		window.location.replace(destination);
@@ -31,9 +52,9 @@ function addApproximateQuestions() {
 	addBasicQuestions(presentationOrder[whichOne]);
 
 	if(whichOne == 1) {
-		addFormLogic('precise_instructions.html');
+		addFormLogic(presentationOrder[whichOne], 'precise_instructions.html');
 	} else {
-		addFormLogic('approximate_second.html');
+		addFormLogic(presentationOrder[whichOne], 'approximate_second.html');
 	}
 }
 
@@ -79,8 +100,8 @@ function generateLikertString(questionName) {
     </ul></div>";
 }
 
-function addQuestion(visualizationLookingAt, questionName, questionType, questionText) {
-	questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
+function addQuestion(visualizationLookingAt, questionName, questionType, questionText, data) {
+	//questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
 
 	var preamble = "<div class='row questions'><div class='form-group col-md-12'>";
 	var confidenceSlider = generateLikertString("confidence" + questionName);
