@@ -207,3 +207,14 @@ function crc32(str) {
 function pseudo_random(n) {
     return crc32('' + userId + n);
 }
+
+$('#demographics-form').submit(function(ev) {
+    ev.preventDefault();
+    var dem = newLog.child("demographics");
+    var data = $('#demographics-form').serializeArray();
+    console.log(data);
+    $.each(data, function(j, field) {
+        dem.child(field.name).set(field.value || '-');
+    });
+    window.location.replace("thanks.html");
+});

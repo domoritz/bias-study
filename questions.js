@@ -63,7 +63,7 @@ function addPreciseQuestions() {
 	addBasicQuestions(presentationOrder[0]);
 	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
 	addBasicQuestions(presentationOrder[1]);
-	addFormLogic('thanks.html');
+	addFormLogic('precise', 'demographics.html');
 }
 
 function generateLikertString(questionName) {
