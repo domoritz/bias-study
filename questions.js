@@ -69,33 +69,33 @@ function addPreciseQuestions() {
 
 function generateLikertString(questionName) {
 	return "<div class='col-md-12 likert-group'><label>How confident are you of your answer?</label><ul class='likert'>\
-      <li>\
-        <input type='radio' name='" + questionName + "' value='strong_agree' required>\
-        <label>Very Confident</label>\
+       <li>\
+        <input type='radio' name='" + questionName + "' value='strong_disagree' required>\
+        <label>Not at All Confident</label>\
       </li>\
-      <li>\
-        <input type='radio' name='" + questionName + "' value='agree' required>\
-        <label>Somewhat Confident</label>\
+			<li>\
+        <input type='radio' name='" + questionName + "' value='disagree' required>\
+        <label>Somewhat Not Confident</label>\
       </li>\
-      <li>\
-        <input type='radio' name='" + questionName + "' value='weak_agree' required>\
-        <label>Slightly Confident</label>\
+			<li>\
+        <input type='radio' name='" + questionName + "' value='weak_disagree' required>\
+        <label>Slightly Not Confident</label>\
       </li>\
       <li>\
         <input type='radio' name='" + questionName + "' value='neutral' required>\
         <label>Neutral</label>\
       </li>\
       <li>\
-        <input type='radio' name='" + questionName + "' value='weak_disagree' required>\
-        <label>Slightly Not Confident</label>\
+        <input type='radio' name='" + questionName + "' value='weak_agree' required>\
+        <label>Slightly Confident</label>\
       </li>\
-      <li>\
-        <input type='radio' name='" + questionName + "' value='disagree' required>\
-        <label>Somewhat Not Confident</label>\
+			<li>\
+        <input type='radio' name='" + questionName + "' value='agree' required>\
+        <label>Somewhat Confident</label>\
       </li>\
-      <li>\
-        <input type='radio' name='" + questionName + "' value='strong_disagree' required>\
-        <label>Not at All Confident</label>\
+			<li>\
+        <input type='radio' name='" + questionName + "' value='strong_agree' required>\
+        <label>Very Confident</label>\
       </li>\
     </ul></div>";
 }
