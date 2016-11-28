@@ -84,7 +84,7 @@ newLog.child('isMobile').set(window.mobilecheck());
 
 // all airlines or states
 var allOptions = {
-    'airline': ['DL','B6','AA','WN','EV','UA','VX','UA','OO'],
+    'airline': ['DL','B6','AA','WN','EV','UA','VX','OO', 'AS'],
     'states': ['NY','FL','MA','CA','VA','PR','NJ','TX','GA','IL']
 };
 

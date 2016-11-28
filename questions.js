@@ -123,7 +123,7 @@ function addQuestion(visualizationLookingAt, questionName, questionType, questio
 	} else if(questionType == 'checkbox') {
 		question += "<div class='form-check'>"
 		var options = getAllOptions(visualizationLookingAt).sort();
-		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' required value='" + m + "'> " + m + "</label>"}).join("<br>\n");
+		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' value='" + m + "'> " + m + "</label>"}).join("<br>\n");
 		question += "</div>"
 	}
 	$('#form').append(preamble + question + confidenceSlider + postamble);
