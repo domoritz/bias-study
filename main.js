@@ -27,11 +27,15 @@ if(!DEBUG) { //Disable console output when running on server
 }
 
 var amountErrorValues = [1, 100, 200, 500, 1000];
+var stateOptions = ['NY', 'FL', 'MA'];
+var airlineOptions = ['DL', 'B6', 'AA'];
 
 //Generate all permutations of the visualization order, select by userID (which is effectively "random")
 var cond = pseudo_random('condition') % 3;
 var studyCondition = cond === 0 ? 'difference' : (cond === 1 ? 'both' : 'onlyNew');
 var presentationOrder = pseudo_random('presentation_order') % 2 == 0 ? ['states', 'airline'] : ['airline', 'states'];
+var focusState = stateOptions[pseudo_random('focus_state') % 3];
+var focusAirline = airlineOptions[pseudo_random('focus_airline') % 3];
 
 function getError(visualizationLookingAt) {
     return amountErrorValues[pseudo_random(visualizationLookingAt + 'AmountError') % amountErrorValues.length];
@@ -41,9 +45,16 @@ function getSequence(visualizationLookingAt) {
     return 1 + pseudo_random(visualizationLookingAt + 'SequenceNumber') % 20;
 }
 
+function addFocusStateAndAirline() {
+    $('#airline').html(CARRIER_NAMES[focusAirline]);
+    $('#state').html(STATE_NAMES[focusState]);
+}
+
 console.log("ID:", userId);
 console.log("condition:", studyCondition);
 console.log("order:", presentationOrder);
+console.log("focus state:", focusState);
+console.log("focus airline:", focusAirline);
 console.log("error airline:", getError('airline'));
 console.log("error states:", getError('states'));
 console.log("seq airline:", getSequence('airline'));

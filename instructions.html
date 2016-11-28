@@ -1,35 +1,32 @@
-<html>
-    <head>
-        <title>Visualization study - Instructions</title>
-    
-        <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    </head>
-    <body>
-        <div class="container wrapper" role="main">
-            <div class="page-header">
-                <h1>Instructions</h1>
-            </div>
-            <p>
-                In this study, you will look at visualizations from a large dataset about recent flights across the United States. The dataset is quite large, and takes a while for a computer to analyze. You will first view sets of visualizations which will be <i>approximately</i> the overall results. Later in the study, once the computation is complete, these visualizations will then be corrected to show the <i>precise</i> results. You will answer some questions at each stage.
-            </p>
-            <p>
-                The study consists of three major parts:
-                <ol>
-                    <li>Viewing 2 approximate visualizations from the flights dataset and answering a few questions about them.</li>
-                    <li>Viewing 2 updated, precise visualizations from the flights dataset.</li>
-                    <li>Answer a few questions about the dataset.</li>
-                </ol>
-            </p>
-            <p>
-                Upon answering the questions about the dataset, we will provide you with a code to enter into Amazon Mechanical Turk to denote that you have successfully completed the study.
-            </p>
-            <p>
-                We expect the study to take 10 minutes to complete, and will compensate $2.00 for completing it.
-            </p>
-            <p>
-                <a type="button" class="btn btn-primary" onclick="window.location.replace('approximate_first.html')">I understand</a>
-            </p>
-        </div>
-    </body>
-</html>
+---
+layout: default
+title: Instructions
+---
+
+
+<p>
+    In this study, you will look at visualizations from a large dataset about recent flights across the United States. The dataset is quite large, and takes a while for a computer to analyze. You will first view sets of visualizations which will be <i>approximately</i> the overall results. Later in the study, once the computation is complete, these visualizations will then be corrected to show the <i>precise</i> results. You will answer some questions at each stage.
+</p>
+<p>
+    The study consists of three major parts:
+    <ol>
+        <li>Viewing 2 approximate visualizations from the flights dataset and answering a few questions about them.</li>
+        <li>Viewing 2 updated, precise visualizations from the flights dataset.</li>
+        <li>Answer a few questions about the dataset.</li>
+    </ol>
+</p>
+<p>
+    Upon answering the questions about the dataset, we will provide you with a code to enter into Amazon Mechanical Turk to denote that you have successfully completed the study.
+</p>
+<p>
+    When completing this task, please imagine that you are an analyst interested in flights on <strong id="airline"></strong> and flights originating out of <strong id="state"></strong>.
+</p>
+<p>
+    <a type="button" class="btn btn-primary" onclick="window.location.replace('approximate_first.html')">I understand</a>
+</p>
+
+<script type="text/javascript">
+    $(function() {
+        addFocusStateAndAirline();
+    });
+</script>
