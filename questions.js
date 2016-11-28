@@ -64,12 +64,9 @@ function addPreciseQuestions() {
 	addQuestion(presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
 	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
 	addBasicQuestions(presentationOrder[1]);
-<<<<<<< HEAD
-	addFormLogic('precise', 'demographics.html');
-=======
 	addQuestion(presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
-	addFormLogic('thanks.html');
->>>>>>> a2bd0fc8041dd10d2a9511085826bdcd6697d666
+
+	addFormLogic('precise', 'demographics.html');
 }
 
 function generateLikertString(questionName) {
