@@ -1,26 +1,23 @@
 function addBasicQuestions(visualizationLookingAt) {
-	var options = getSelectOptions(visualizationLookingAt);
-
 	if(visualizationLookingAt === 'airline') {
 		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[focusAirline] + '?');
-		var focusAmount = options[focusAirline];
-		delete options[focusAirline];
-		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count') % Object.keys(options).length];
-		if(focusAmount >= compareOption) {
-			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many more flights were there on ' + CARRIER_NAMES[focusAirline] + ' than ' + CARRIER_NAMES[compareOption] + '?');
-		} else {
-			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many fewer flights were there on ' + CARRIER_NAMES[focusAirline] + ' than ' + CARRIER_NAMES[compareOption] + '?');
-		}
+		addCompareQuestions(visualizationLookingAt, focusAirline, 2);
 	} else { //states
 		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[focusState] + '?');
-		var focusAmount = options[focusState];
-		delete options[focusState];
-		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count') % Object.keys(options).length];
-		if(focusAmount >= compareOption) {
-			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many more flights were there out of ' + STATE_NAMES[focusState] + ' than ' + STATE_NAMES[compareOption] + '?');
-		} else {
-			addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many fewer flights were there out of ' + STATE_NAMES[focusState] + ' than ' + STATE_NAMES[compareOption] + '?');
-		}
+		addCompareQuestions(visualizationLookingAt, focusState, 2);
+	}
+}
+
+function addCompareQuestions(visualizationLookingAt, focus, comparisons) {
+	var options = getSelectOptions(visualizationLookingAt);
+	var focusAmount = options[focus];
+	delete options[focus];
+	for(var i=0;i<comparisons;i++) {
+		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count' + label + i) % Object.keys(options).length];
+		var moreOrLess = focusAmount >= options[compareOption] ? 'more' : 'fewer';
+		var compareText = visualizationLookingAt === 'airline' ? ('on ' + CARRIER_NAMES[focus] + ' than ' + CARRIER_NAMES[compareOption] + '?') : ('out of ' + STATE_NAMES[focus] + ' than ' + STATE_NAMES[compareOption] + '?');
+		addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many ' + moreOrLess + ' flights were there ' + compareText);
+		delete options[compareOption];
 	}
 }
 
@@ -59,11 +56,20 @@ function addApproximateQuestions() {
 }
 
 function addPreciseQuestions() {
+	function plural(singular) {
+		return (singular === 'airline') ? 'airlines' : 'states';
+	}
 	addQuestion(presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
 	addBasicQuestions(presentationOrder[0]);
+	addQuestion(presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
 	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
 	addBasicQuestions(presentationOrder[1]);
+<<<<<<< HEAD
 	addFormLogic('precise', 'demographics.html');
+=======
+	addQuestion(presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
+	addFormLogic('thanks.html');
+>>>>>>> a2bd0fc8041dd10d2a9511085826bdcd6697d666
 }
 
 function generateLikertString(questionName) {
@@ -107,7 +113,7 @@ function addQuestion(visualizationLookingAt, questionName, questionType, questio
 	var postamble = "</div></div>";
 	var question = "<label>" + questionText + "</label>";
 	if(questionType == 'select') {
-		var options = selectOptions[visualizationLookingAt].sort();
+		var options = getAllOptions(visualizationLookingAt).sort();
 
 		question += "<select class='form-control' name='" + questionName + "' required><option disabled selected value>--Select an option--</option>";
 		question += options.map(function(m) {return "<option value=" + m + ">" + m + "</option>"}).join("\n");
@@ -117,6 +123,11 @@ function addQuestion(visualizationLookingAt, questionName, questionType, questio
 	} else if(questionType == 'yesno') {
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='yes' name='" + questionName + "' required> Yes</label></div>";
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required> No</label></div>";
+	} else if(questionType == 'checkbox') {
+		question += "<div class='form-check'>"
+		var options = getAllOptions(visualizationLookingAt).sort();
+		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' required value='" + m + "'> " + m + "</label>"}).join("<br>\n");
+		question += "</div>"
 	}
 	$('#form').append(preamble + question + confidenceSlider + postamble);
 }

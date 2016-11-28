@@ -83,9 +83,9 @@ window.mobilecheck = function() {
 newLog.child('isMobile').set(window.mobilecheck());
 
 // all airlines or states
-var selectOptions = {
-    'airline': ['American', 'Delta', 'ExpressJet', 'Hawaiian', 'JetBlue', 'SkyWest', 'Spirit', 'Southwest', 'United', 'Virgin'],
-    'states': ['Arizona', 'California', 'Colorado', 'Florida', 'Georgia', 'Illinois', 'Nevada', 'New York', 'Texas', 'Washington']
+var allOptions = {
+    'airline': ['DL','B6','AA','WN','EV','UA','VX','UA','OO'],
+    'states': ['NY','FL','MA','CA','VA','PR','NJ','TX','GA','IL']
 };
 
 // the actual data
@@ -177,6 +177,14 @@ function getSelectOptions(visualizationLookingAt) {
         return airlinesData[key];
     } else {
         return statesData[key];
+    }
+}
+
+function getAllOptions(visualizationLookingAt) {
+    if(visualizationLookingAt === 'airline') {
+        return allOptions['airline'].map(function(m) {return CARRIER_NAMES[m]});
+    } else {
+        return allOptions['states'].map(function(m) {return STATE_NAMES[m]});
     }
 }
 
