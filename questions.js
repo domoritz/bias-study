@@ -59,11 +59,10 @@ function addApproximateQuestions() {
 }
 
 function addPreciseQuestions() {
-	//TODO: figure out what order to put these questions in? Currently reverse order because prepending, but that's a hack.
-	addBasicQuestions(presentationOrder[1]);
-	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
-	addBasicQuestions(presentationOrder[0]);
 	addQuestion(presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
+	addBasicQuestions(presentationOrder[0]);
+	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
+	addBasicQuestions(presentationOrder[1]);
 	addFormLogic('thanks.html');
 }
 
@@ -114,10 +113,10 @@ function addQuestion(visualizationLookingAt, questionName, questionType, questio
 		question += options.map(function(m) {return "<option value=" + m + ">" + m + "</option>"}).join("\n");
 		question += "</select>";
 	} else if(questionType == 'number') { //TODO: consider bounds checking this.
-		question += "<input type='number' class='form-control' name='" + questionName + "' required>";
+		question += "<input type='number' class='form-control' min='0' name='" + questionName + "' required>";
 	} else if(questionType == 'yesno') {
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='yes' name='" + questionName + "' required> Yes</label></div>";
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required> No</label></div>";
 	}
-	$('#form').prepend(preamble + question + confidenceSlider + postamble);
+	$('#form').append(preamble + question + confidenceSlider + postamble);
 }
