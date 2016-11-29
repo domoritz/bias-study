@@ -148,7 +148,7 @@ function addQuestion(form, visualizationLookingAt, questionName, questionType, q
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required> No</label></div>";
 	} else if(questionType == 'checkbox') {
 		question += "<div class='form-check'>"
-		var options = getAllOptions(visualizationLookingAt).sort();
+		var options = getAllOptions(visualizationLookingAt).sort(function(a, b) {return a.long.localeCompare(b.long)});
 		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' value='" + m.short + "'> " + m.long + "</label>"}).join("<br>\n");
 		question += "</div>"
 	}
