@@ -94,3 +94,7 @@ form .likert li label {
 .form-group > label {
   font-size: 1.2em;
 }
+
+label > small {
+  font-weight: normal;
+}

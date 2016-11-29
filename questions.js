@@ -14,9 +14,9 @@ function addCompareQuestions(form, visualizationLookingAt, focus, comparisons) {
 	delete options[focus];
 	for(var i=0;i<comparisons;i++) {
 		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count' + label + i) % Object.keys(options).length];
-		var moreOrLess = focusAmount >= options[compareOption] ? 'more' : 'fewer';
 		var compareText = visualizationLookingAt === 'airline' ? ('on ' + CARRIER_NAMES[focus] + ' than ' + CARRIER_NAMES[compareOption] + '?') : ('out of ' + STATE_NAMES[focus] + ' than ' + STATE_NAMES[compareOption] + '?');
-		addQuestion(form, visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many ' + moreOrLess + ' flights were there ' + compareText);
+		var subText = "<br><small>If there were fewer flights " + (visualizationLookingAt === 'airline' ? ('on ' + CARRIER_NAMES[focus]) : ('out of ' + STATE_NAMES[focus])) + ", enter the difference as a negative number.</small>";
+		addQuestion(form, visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many more flights were there ' + compareText + subText);
 		delete options[compareOption];
 	}
 }
@@ -141,8 +141,8 @@ function addQuestion(form, visualizationLookingAt, questionName, questionType, q
 		question += "<select class='form-control' name='" + questionName + "' required><option disabled selected value>--Select an option--</option>";
 		question += options.map(function(m) {return "<option value=" + m + ">" + m + "</option>"}).join("\n");
 		question += "</select>";
-	} else if(questionType == 'number') { //TODO: consider bounds checking this.
-		question += "<input type='number' class='form-control' min='0' name='" + questionName + "' required>";
+	} else if(questionType == 'number') {
+		question += "<input type='number' class='form-control' name='" + questionName + "' required>";
 	} else if(questionType == 'yesno') {
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='yes' name='" + questionName + "' required> Yes</label></div>";
 		question += "<div class='form-check'><label class='form-check-label'><input type='radio' class='form-check-input' value='no' name='" + questionName + "' required> No</label></div>";
