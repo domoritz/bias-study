@@ -12,6 +12,9 @@ label: 'precise'
 <div class="row">
     <p id="instructions"></p>
     <p>
+        As a reminder, you are interested in flights on <strong id="airline"></strong> and flights originating out of <strong id="state"></strong>.
+    <p>
+    <p>
         You will be able to look at the questions after 10 seconds.
         However, you will not be able to look at this visualization again once you clicked "Continue"!
     </p>
@@ -28,6 +31,9 @@ label: 'precise'
 </div>
 
 <script>
+$(function() {
+        addFocusStateAndAirline();
+});
 $('#nextCheckbox').submit(function(e) {
     e.preventDefault();
     window.location.replace('precise_questions.html');
