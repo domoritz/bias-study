@@ -1,14 +1,14 @@
-function addBasicQuestions(visualizationLookingAt) {
+function addBasicQuestions(form, visualizationLookingAt) {
 	if(visualizationLookingAt === 'airline') {
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[focusAirline] + '?');
-		addCompareQuestions(visualizationLookingAt, focusAirline, 2);
+		addQuestion(form, visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[focusAirline] + '?');
+		addCompareQuestions(form, visualizationLookingAt, focusAirline, 2);
 	} else { //states
-		addQuestion(visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[focusState] + '?');
-		addCompareQuestions(visualizationLookingAt, focusState, 2);
+		addQuestion(form, visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[focusState] + '?');
+		addCompareQuestions(form, visualizationLookingAt, focusState, 2);
 	}
 }
 
-function addCompareQuestions(visualizationLookingAt, focus, comparisons) {
+function addCompareQuestions(form, visualizationLookingAt, focus, comparisons) {
 	var options = getSelectOptions(visualizationLookingAt);
 	var focusAmount = options[focus];
 	delete options[focus];
@@ -16,37 +16,63 @@ function addCompareQuestions(visualizationLookingAt, focus, comparisons) {
 		var compareOption = Object.keys(options)[pseudo_random(visualizationLookingAt + 'count' + label + i) % Object.keys(options).length];
 		var moreOrLess = focusAmount >= options[compareOption] ? 'more' : 'fewer';
 		var compareText = visualizationLookingAt === 'airline' ? ('on ' + CARRIER_NAMES[focus] + ' than ' + CARRIER_NAMES[compareOption] + '?') : ('out of ' + STATE_NAMES[focus] + ' than ' + STATE_NAMES[compareOption] + '?');
-		addQuestion(visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many ' + moreOrLess + ' flights were there ' + compareText);
+		addQuestion(form, visualizationLookingAt, 'HowManyCompare_' + compareOption, 'number', 'About how many ' + moreOrLess + ' flights were there ' + compareText);
 		delete options[compareOption];
 	}
+}
+
+function saveData(form, visualizationLookingAt) {
+	$.each($(form).serializeArray(), function(j, field) { //Important assumption being utilized here: the confidence is always paired with each question.
+		var confidenceName = field.name.split("+");
+		var actualName = confidenceName[0].split("_");
+		var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt).child(confidenceName[0]);
+		if(confidenceName.length == 1) { //The actual question
+			visRecord.child("type").set(actualName[0]);
+			if(actualName.length > 1) { //There's a data field to store
+				visRecord.child("data").set(actualName[1])
+			}
+			if(actualName[0] === "SelectAll") {
+				if(visRecord.child(field.value).set(true));
+			} else {
+				visRecord.child("answer").set(field.value);
+			}
+		} else { //The confidence slider
+			visRecord.child("confidence").set(field.value);
+		}
+	});
 }
 
 function addFormLogic(visualizationLookingAt, destination) {
 	var btn = (DEBUG ? '<input type="submit" class="btn btn-secondary value="Ignore" formnovalidate>' : '') + '<input type="submit" class="btn btn-primary" value="Submit answers">';
 	
-	$('#form').append(btn).submit(function(ev) {
-		ev.preventDefault();
-
-		$.each($('#form').serializeArray(), function(j, field) { //Important assumption being utilized here: the confidence is always paired with each question.
-			var actualName = field.name.split("_");
-			var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt).child(Math.floor(j/2));
-			if(j%2 == 0) { //The actual question
-				visRecord.child("type").set(actualName[0]);
-				if(actualName.length > 1) { //There's a data field to store
-					visRecord.child("data").set(actualName[1])
-				}
-				visRecord.child("answer").set(field.value);
-			} else { //The confidence slider
-				visRecord.child("confidence").set(field.value);
-			}
+	if(visualizationLookingAt === 'precise') {
+		$('.form1').submit(function(ev) {
+			ev.preventDefault();
+			newLog.child(label + 'Vis_' + presentationOrder[0]).remove();
+			saveData('.form1', presentationOrder[0]);
 		});
+		$('.form2').append(btn).submit(function(ev) {
+			ev.preventDefault();
+			$('.form1').submit();
 
-		window.location.replace(destination);
-	});
+			newLog.child(label + 'Vis_' + presentationOrder[1]).remove();
+			saveData('.form2', presentationOrder[1]);
+
+			window.location.replace(destination);
+		});
+	} else {
+		$('.form').append(btn).submit(function(ev) {
+			ev.preventDefault();
+			newLog.child(label + 'Vis_' + visualizationLookingAt).remove();
+			saveData('.form', visualizationLookingAt);
+
+			window.location.replace(destination);
+		});
+	}
 }
 
 function addApproximateQuestions() {
-	addBasicQuestions(presentationOrder[whichOne]);
+	addBasicQuestions('.form', presentationOrder[whichOne]);
 
 	if(whichOne == 1) {
 		addFormLogic(presentationOrder[whichOne], 'precise_instructions.html');
@@ -59,12 +85,12 @@ function addPreciseQuestions() {
 	function plural(singular) {
 		return (singular === 'airline') ? 'airlines' : 'states';
 	}
-	addQuestion(presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
-	addBasicQuestions(presentationOrder[0]);
-	addQuestion(presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
-	addQuestion(presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
-	addBasicQuestions(presentationOrder[1]);
-	addQuestion(presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
+	addQuestion('.form1', presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
+	addBasicQuestions('.form1', presentationOrder[0]);
+	addQuestion('.form1', presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
+	addQuestion('.form2', presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
+	addBasicQuestions('.form2', presentationOrder[1]);
+	addQuestion('.form2', presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
 
 	addFormLogic('precise', 'demographics.html');
 }
@@ -102,11 +128,11 @@ function generateLikertString(questionName) {
     </ul></div>";
 }
 
-function addQuestion(visualizationLookingAt, questionName, questionType, questionText, data) {
+function addQuestion(form, visualizationLookingAt, questionName, questionType, questionText, data) {
 	//questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
 
 	var preamble = "<div class='row questions'><div class='form-group col-md-12'>";
-	var confidenceSlider = generateLikertString("confidence" + questionName);
+	var confidenceSlider = generateLikertString(questionName + "+confidence");
 	var postamble = "</div></div>";
 	var question = "<label>" + questionText + "</label>";
 	if(questionType == 'select') {
@@ -123,8 +149,8 @@ function addQuestion(visualizationLookingAt, questionName, questionType, questio
 	} else if(questionType == 'checkbox') {
 		question += "<div class='form-check'>"
 		var options = getAllOptions(visualizationLookingAt).sort();
-		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' value='" + m + "'> " + m + "</label>"}).join("<br>\n");
+		question += options.map(function(m) {return "<label class='form-check-label'><input type='checkbox' class='form-check-input' name='" + questionName + "' value='" + m.short + "'> " + m.long + "</label>"}).join("<br>\n");
 		question += "</div>"
 	}
-	$('#form').append(preamble + question + confidenceSlider + postamble);
+	$(form).append(preamble + question + confidenceSlider + postamble);
 }

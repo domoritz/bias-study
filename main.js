@@ -182,9 +182,9 @@ function getSelectOptions(visualizationLookingAt) {
 
 function getAllOptions(visualizationLookingAt) {
     if(visualizationLookingAt === 'airline') {
-        return allOptions['airline'].map(function(m) {return CARRIER_NAMES[m]});
+        return allOptions['airline'].map(function(m) {return {'short':m, 'long':CARRIER_NAMES[m]}});
     } else {
-        return allOptions['states'].map(function(m) {return STATE_NAMES[m]});
+        return allOptions['states'].map(function(m) {return {'short':m, 'long':STATE_NAMES[m]}});
     }
 }
 
