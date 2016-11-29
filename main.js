@@ -233,5 +233,5 @@ $('#demographics-form').submit(function(ev) {
 var start = new Date();
 window.onbeforeunload = function(ev) {
     var end = new Date();
-    newLog.child("timing").child(window.location.pathname.replace('/', '').replace('.', '_')).set(end.getTime() - start.getTime());
+    newLog.child("timing").child(window.location.pathname.replace('/', '').replace('bias-study', '').replace('.', '_')).set(end.getTime() - start.getTime());
 };
