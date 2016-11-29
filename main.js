@@ -220,9 +220,15 @@ $('#demographics-form').submit(function(ev) {
     ev.preventDefault();
     var dem = newLog.child("demographics");
     var data = $('#demographics-form').serializeArray();
-    console.log(data);
     $.each(data, function(j, field) {
         dem.child(field.name).set(field.value || '-');
     });
     window.location.replace("thanks.html");
 });
+
+// store time on page
+var start = new Date();
+window.onbeforeunload = function(ev) {
+    var end = new Date();
+    newLog.child("timing").child(window.location.pathname.replace('/', '').replace('.', '_')).set(end.getTime() - start.getTime());
+};
