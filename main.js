@@ -42,6 +42,9 @@ function getError(visualizationLookingAt) {
 }
 
 function getSequence(visualizationLookingAt) {
+    if(getError(visualizationLookingAt) == 1) {
+        return 1;
+    }
     return 1 + pseudo_random(visualizationLookingAt + 'SequenceNumber') % 20;
 }
 
