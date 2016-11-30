@@ -8,7 +8,7 @@ $('#visualization').each(function() {
     var sequenceNumber = getSequence(visualizationLookingAt);
 
 	if (label == 'approximate') {
-		$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
+		$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
 
 		//Store error, sequence number, question parameters in database.
 		visRecord.child('amountError').set(amountError);
@@ -17,14 +17,14 @@ $('#visualization').each(function() {
 		console.log("Sequence number: " + sequenceNumber);	
 	} else {
 		if(studyCondition == 'onlyNew') {
-			$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='600px'>");
+			$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='600px'>");
 		} else {
 			if(studyCondition == 'difference') {
 				$('#instructions').html("The <span class='orange'>orange</span> ticks show the approximate data you have seen previously. The <span class='blue'>blue</span> bars show precise data. If there is no orange tick, the bar was missing in the apprxoimate visualization.");
-				$('#visualization').prepend("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + "_diff.png' width='600px'>");
+				$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + "_diff.png' width='600px'>");
 			} else { //both
-				$('#visualization').prepend("<div class='col-md-6'><img src='data/images/" + visualizationLookingAt + "_1_0.png' width='100%'></div><div class='col-md-6'><img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='100%'></div>");
-				$('#visualization').prepend("<div class='col-md-6'><h2>Approximate</h2></div><div class='col-md-6'><h2>Precise</h2></div>")
+				$('#visualization').append("<div class='col-md-6'><h2>Approximate</h2></div><div class='col-md-6'><h2>Precise</h2></div>")
+				$('#visualization').append("<div class='col-md-6'><img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='100%' max-width='600px'></div><div class='col-md-6'><img src='data/images/" + visualizationLookingAt + "_1_0.png' width='100%' max-width='600px'></div>");
 			}
 		}
 	}
