@@ -1,5 +1,146 @@
 {
   "logs" : {
+    "57003634" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "2000",
+          "confidence" : "neutral",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "1000",
+          "confidence" : "strong_disagree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        }
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "4500",
+          "confidence" : "disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "1000",
+          "confidence" : "neutral",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "3000",
+          "confidence" : "disagree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        }
+      },
+      "cond" : {
+        "errorAirline" : 500,
+        "errorStates" : 1000,
+        "firstCondition" : "airline",
+        "focusAirline" : "DL",
+        "focusState" : "MA",
+        "secondCondition" : "states",
+        "seqAirline" : 10,
+        "seqStates" : 14,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "26",
+        "familiar" : "expert",
+        "gender" : "female",
+        "improved" : "Separate the two comparisons of precise & approximate charts, since others may also have the memory of a goldfish :P (or if not that, randomize the ordering if you don't already)",
+        "problems" : "Small image sizes",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "100",
+          "confidence" : "agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "WN" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4000",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "100",
+          "confidence" : "strong_disagree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "-1000",
+          "confidence" : "neutral",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NY" : true,
+          "VA" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 48561,
+        "approximate_questions_first_html" : 83389,
+        "approximate_questions_second_html" : 65808,
+        "approximate_second_html" : 32497,
+        "demographics_html" : 75575,
+        "index_html" : 7427,
+        "instructions_html" : 59095,
+        "precise_first_html" : 82119,
+        "precise_instructions_html" : 6722,
+        "precise_questions_html" : 146884,
+        "precise_second_html" : 40592
+      },
+      "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
+    },
     "82534293" : {
       "approximateVis_airline" : {
         "HowMany" : {
@@ -143,7 +284,7 @@
           "precise_questions_html" : 187490,
           "precise_second_html" : 16279,
           "thanks_html" : 1199315
-      },
+        },
       "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.59 Safari/537.36"
     }
   }
