@@ -49,8 +49,8 @@ function getSequence(visualizationLookingAt) {
 }
 
 function addFocusStateAndAirline() {
-    $('#airline').html(CARRIER_NAMES[focusAirline]);
-    $('#state').html(STATE_NAMES[focusState]);
+    $('.airline').html(CARRIER_NAMES[focusAirline]);
+    $('.state').html(STATE_NAMES[focusState]);
 }
 
 console.log("ID:", userId);
