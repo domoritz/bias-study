@@ -96,7 +96,7 @@ function addPreciseQuestions() {
 }
 
 function generateLikertString(questionName) {
-	return "<div class='col-md-12 likert-group'><label>How confident are you of your answer?</label><ul class='likert'>\
+	return "<div class='col-xs-12 likert-group'><label>How confident are you of your answer?</label><ul class='likert'>\
        <li>\
         <input type='radio' name='" + questionName + "' value='strong_disagree' required>\
         <label>Not at All Confident</label>\
@@ -131,7 +131,7 @@ function generateLikertString(questionName) {
 function addQuestion(form, visualizationLookingAt, questionName, questionType, questionText, data) {
 	//questionName = visualizationLookingAt + '_' + questionName; //Ensure the question's name specifies which visualization it refers to.
 
-	var preamble = "<div class='row questions'><div class='form-group col-md-12'>";
+	var preamble = "<div class='row questions'><div class='form-group col-xs-12'>";
 	var confidenceSlider = generateLikertString(questionName + "+confidence");
 	var postamble = "</div></div>";
 	var question = "<label>" + questionText + "</label>";

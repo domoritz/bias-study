@@ -3,7 +3,8 @@
 }
 
 .wrapper {
-	width: 800px;
+	width: 900px;
+  min-width: 900px;
 	margin-bottom: 3em;
 }
 
@@ -97,4 +98,15 @@ form .likert li label {
 
 label > small {
   font-weight: normal;
+}
+
+#visualization div {
+  padding: 0;
+}
+
+#visualization div:nth-child(3) img {
+  margin-left: -30px;
+}
+#visualization div:nth-child(4) img {
+  margin-right: -30px;
 }
