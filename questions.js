@@ -1,10 +1,10 @@
-function addBasicQuestions(form, visualizationLookingAt) {
+function addBasicQuestions(form, visualizationLookingAt, comparisons) {
 	if(visualizationLookingAt === 'airline') {
 		addQuestion(form, visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there on ' + CARRIER_NAMES[focusAirline] + '?');
-		addCompareQuestions(form, visualizationLookingAt, focusAirline, 2);
+		addCompareQuestions(form, visualizationLookingAt, focusAirline, comparisons);
 	} else { //states
 		addQuestion(form, visualizationLookingAt, 'HowMany', 'number', 'About how many flights were there out of ' + STATE_NAMES[focusState] + '?');
-		addCompareQuestions(form, visualizationLookingAt, focusState, 2);
+		addCompareQuestions(form, visualizationLookingAt, focusState, comparisons);
 	}
 }
 
@@ -72,7 +72,7 @@ function addFormLogic(visualizationLookingAt, destination) {
 }
 
 function addApproximateQuestions() {
-	addBasicQuestions('.form', presentationOrder[whichOne]);
+	addBasicQuestions('.form', presentationOrder[whichOne], 2);
 
 	if(whichOne == 1) {
 		addFormLogic(presentationOrder[whichOne], 'precise_instructions.html');
@@ -86,10 +86,10 @@ function addPreciseQuestions() {
 		return (singular === 'airline') ? 'airlines' : 'states';
 	}
 	addQuestion('.form1', presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
-	addBasicQuestions('.form1', presentationOrder[0]);
+	addBasicQuestions('.form1', presentationOrder[0], 2);
 	addQuestion('.form1', presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
 	addQuestion('.form2', presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
-	addBasicQuestions('.form2', presentationOrder[1]);
+	addBasicQuestions('.form2', presentationOrder[1], 2);
 	addQuestion('.form2', presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
 
 	addFormLogic('precise', 'demographics.html');
