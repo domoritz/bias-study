@@ -1,0 +1,150 @@
+{
+  "logs" : {
+    "82534293" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "4000",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "2000",
+          "confidence" : "weak_agree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VX" : {
+          "answer" : "3500",
+          "confidence" : "neutral",
+          "data" : "VX",
+          "type" : "HowManyCompare"
+        }
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "6000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "3000",
+          "confidence" : "agree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        }
+      },
+      "cond" : {
+        "errorAirline" : 1,
+        "errorStates" : 1000,
+        "firstCondition" : "states",
+        "focusAirline" : "AA",
+        "focusState" : "NY",
+        "secondCondition" : "airline",
+        "seqAirline" : 1,
+        "seqStates" : 11,
+        "studyCondition" : "onlyNew"
+      },
+      "demographics" : {
+        "age" : "26",
+        "familiar" : "expert",
+        "gender" : "male",
+        "improved" : "nope",
+        "problems" : "nope",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4000",
+          "confidence" : "weak_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "1000",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "1000",
+          "confidence" : "weak_disagree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "6000",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "1000",
+          "confidence" : "weak_disagree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_FL" : {
+          "answer" : "200",
+          "confidence" : "weak_agree",
+          "data" : "FL",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "VA" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+          "approximate_first_html" : 40055,
+          "approximate_questions_first_html" : 31409,
+          "approximate_questions_second_html" : 29924,
+          "approximate_second_html" : 145279,
+          "demographics_html" : 12491,
+          "index_html" : 8695,
+          "instructions_html" : 26016,
+          "precise_first_html" : 55636,
+          "precise_instructions_html" : 1501,
+          "precise_questions_html" : 187490,
+          "precise_second_html" : 16279,
+          "thanks_html" : 1199315
+      },
+      "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/55.0.2883.59 Safari/537.36"
+    }
+  }
+}
