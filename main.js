@@ -45,7 +45,7 @@ function getSequence(visualizationLookingAt) {
     if(getError(visualizationLookingAt) == 1) {
         return 1;
     }
-    return 1 + pseudo_random(visualizationLookingAt + 'SequenceNumber') % 20;
+    return 2 + pseudo_random(visualizationLookingAt + 'SequenceNumber') % 19;
 }
 
 function addFocusStateAndAirline() {
