@@ -137,7 +137,8 @@
         "precise_first_html" : 82119,
         "precise_instructions_html" : 6722,
         "precise_questions_html" : 146884,
-        "precise_second_html" : 40592
+        "precise_second_html" : 40592,
+        "thanks_html" : 0
       },
       "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
     },
