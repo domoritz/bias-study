@@ -819,6 +819,7 @@
         },
         "HowManyCompare_B6" : {
           "answer" : "2000",
+          "confidence": "unknown",
           "data" : "B6",
           "type" : "HowManyCompare"
         }
@@ -1037,7 +1038,8 @@
           "UA" : true,
           "VX" : true,
           "WN" : true,
-          "type" : "SelectAll"
+          "type" : "SelectAll",
+          "confidence": "unknown"
         }
       },
       "preciseVis_states" : {
@@ -1354,7 +1356,8 @@
         "SelectAll" : {
           "CA" : true,
           "FL" : true,
-          "type" : "SelectAll"
+          "type" : "SelectAll",
+          "confidence": "unknown"
         }
       },
       "timing" : {
@@ -1452,6 +1455,7 @@
         },
         "HowManyCompare_WN" : {
           "answer" : "200",
+          "confidence": "unknown",
           "data" : "WN",
           "type" : "HowManyCompare"
         },
