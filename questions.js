@@ -86,10 +86,10 @@ function addPreciseQuestions() {
 		return (singular === 'airline') ? 'airlines' : 'states';
 	}
 	addQuestion('.form1', presentationOrder[0], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[0] + '?');
-	addBasicQuestions('.form1', presentationOrder[0], 2);
+	addBasicQuestions('.form1', presentationOrder[0], 3);
 	addQuestion('.form1', presentationOrder[0], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[0]) + ' with flights in the dataset.');
 	addQuestion('.form2', presentationOrder[1], 'DidYouNotice', 'yesno', 'Was there a difference between the precise and approximate visualization for ' + presentationOrder[1] + '?');
-	addBasicQuestions('.form2', presentationOrder[1], 2);
+	addBasicQuestions('.form2', presentationOrder[1], 3);
 	addQuestion('.form2', presentationOrder[1], 'SelectAll', 'checkbox', 'Select all ' + plural(presentationOrder[1]) + ' with flights in the dataset.');
 
 	addFormLogic('precise', 'demographics.html');
