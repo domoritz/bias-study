@@ -17,7 +17,7 @@ $('#visualization').each(function() {
 				$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + "_diff.png' width='600px'>");
 			} else { //both
 				$('#visualization').append("<div class='col-xs-6'><h2>Approximate</h2></div><div class='col-xs-6'><h2>Precise</h2></div>")
-				$('#visualization').append("<div class='col-xs-6'><img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='450px'></div><div class='col-xs-6'><img src='data/images/" + visualizationLookingAt + "_1_0.png' width='450px'></div>");
+				$('#visualization').append("<div class='col-xs-6'><img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='445px'></div><div class='col-xs-6'><img src='data/images/" + visualizationLookingAt + "_1_0.png' width='445px'></div>");
 			}
 		}
 	}
