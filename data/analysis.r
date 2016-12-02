@@ -1,6 +1,7 @@
 setwd("~/GitHub/bias-study/data") #machine-dependent... sorry. probably a better way of doing this
 library(ggplot2)
 library(mefa)
+library(lsmeans)
 
 bias_data <- read.csv("first-batch.csv")
 #Select the columns for statistics
@@ -25,7 +26,7 @@ how_many_precise$expected_bias <- (precise_howMany_precise - approx_howMany_appr
 how_many_precise$measured_bias <- (precise_howMany_precise - precise_howMany_answer)/ precise_howMany_precise
 
 #One would hope we can remove: visType, focus, sequence, order
-how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, F, T, T, T),] #remove outlier answer
+#how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, F, T, T, T),] #remove outlier answer
 how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + visType + condition + focus + sequence + order + (1 | id), data=how_many_precise)
 how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=how_many_precise)
 
@@ -58,7 +59,13 @@ compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias
 ggsave("plots/compare_precise.png", compare_precise_plot)
 
 #-----Question of "how many of X were there?-----
-#jaccard_precise <- rep(cleaned_data_frame, 2)
+jaccard_precise <- cleaned_data_frame
 
-#jaccard_precise$precise <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_answer_precise", "precise.airline.SelectAll.jaccard_answer_precise")]))
-#jaccard_precise$approx <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_approx_precise", "precise.airline.SelectAll.jaccard_approx_precise")]))
+jaccard_precise$expected_bias <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_answer_precise", "precise.airline.SelectAll.jaccard_answer_precise")]))
+jaccard_precise$approximate_error <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_approx_precise", "precise.airline.SelectAll.jaccard_approx_precise")]))
+jaccard_precise$measured_bias <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_approx_answer", "precise.airline.SelectAll.jaccard_approx_answer")]))
+
+jaccard_precise_test <- lm(expected_bias ~ approximate_error + measured_bias + condition + (1 | id), data=jaccard_precise)
+
+jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition)) + geom_jitter()
+ggsave("plots/jaccard_precise_jitter.png", jaccard_precise_plot)
