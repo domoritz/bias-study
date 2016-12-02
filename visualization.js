@@ -2,19 +2,12 @@ $(function(){
 
 $('#visualization').each(function() {
 	var visualizationLookingAt = presentationOrder[whichOne];
-	var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt);
 
 	var amountError = getError(visualizationLookingAt);
     var sequenceNumber = getSequence(visualizationLookingAt);
 
 	if (label == 'approximate') {
 		$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_" + amountError + "_" + sequenceNumber + ".png' width='600px'>");
-
-		//Store error, sequence number, question parameters in database.
-		visRecord.child('amountError').set(amountError);
-		visRecord.child('sequenceNumber').set(sequenceNumber);
-		console.log("Error amount: " + amountError);
-		console.log("Sequence number: " + sequenceNumber);	
 	} else {
 		if(studyCondition == 'onlyNew') {
 			$('#visualization').append("<img src='data/images/" + visualizationLookingAt + "_1_0.png' width='600px'>");
