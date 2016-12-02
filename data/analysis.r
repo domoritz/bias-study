@@ -25,9 +25,12 @@ how_many_precise$expected_bias <- (precise_howMany_precise - approx_howMany_appr
 how_many_precise$measured_bias <- (precise_howMany_precise - precise_howMany_answer)/ precise_howMany_precise
 
 #One would hope we can remove: visType, focus, sequence, order
-how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, F, T, T, T, T, T, T, T, T, T),] #remove outlier answer
+how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, F, T, T, T),] #remove outlier answer
 how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + visType + condition + focus + sequence + order + (1 | id), data=how_many_precise)
-how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + condition + (1 | id), data=how_many_precise)
+how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=how_many_precise)
+
+how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
+ggsave("plots/how_many_precise.png", how_many_precise_plot)
 
 #-----Comparison questions when viewing the precise data-----
 compare_precise <- rep(cleaned_data_frame, 2)
@@ -49,7 +52,13 @@ compare_precise$precise_comparison <- rep(precise_compare_comparison)
 
 #One would hope we can remove: visType, focus, sequence, order, approximate_comparison, precise_comparison
 compare_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + approximate_comparison + precise_comparison + visType + condition + focus + sequence + order + (1 | id), data=compare_precise)
-compare_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + condition + (1 | id), data=compare_precise)
+compare_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=compare_precise)
 
-qplot(measured_bias, expected_bias, data=compare_precise)
+compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
+ggsave("plots/compare_precise.png", compare_precise_plot)
 
+#-----Question of "how many of X were there?-----
+#jaccard_precise <- rep(cleaned_data_frame, 2)
+
+#jaccard_precise$precise <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_answer_precise", "precise.airline.SelectAll.jaccard_answer_precise")]))
+#jaccard_precise$approx <- as.vector(t(bias_data[c("precise.states.SelectAll.jaccard_approx_precise", "precise.airline.SelectAll.jaccard_approx_precise")]))
