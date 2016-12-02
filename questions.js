@@ -62,6 +62,7 @@ function addFormLogic(visualizationLookingAt, destination) {
 			saveData('.form2', presentationOrder[1]);
 
 			Promise.all(promises).then(function() {
+				newLog.child(label + 'Vis_' + visualizationLookingAt).child("done").set(true);
 				window.location.replace(destination);
 			}).catch(function(err) {
 				console.log('One or more sets failed:', err);
@@ -76,6 +77,7 @@ function addFormLogic(visualizationLookingAt, destination) {
 			saveData('.form', visualizationLookingAt);
 
 			Promise.all(promises).then(function() {
+				newLog.child(label + 'Vis_' + visualizationLookingAt).child("done").set(true);
 				window.location.replace(destination);
 			}).catch(function(err) {
 				console.log('One or more sets failed:', err);
