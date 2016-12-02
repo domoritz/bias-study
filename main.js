@@ -65,17 +65,17 @@ console.log("seq states:", getSequence('states'));
 
 newLog.child('userAgent').set(window.navigator.userAgent);
 
-var condition = newLog.child("cond");
-
-condition.child('studyCondition').set(studyCondition);
-condition.child('firstCondition').set(presentationOrder[0]);
-condition.child('secondCondition').set(presentationOrder[1]);
-condition.child('focusState').set(focusState);
-condition.child('focusAirline').set(focusAirline);
-condition.child('errorAirline').set(getError('airline'));
-condition.child('errorStates').set(getError('states'));
-condition.child('seqAirline').set(getSequence('airline'));
-condition.child('seqStates').set(getSequence('states'));
+var condition = newLog.child("cond").set({
+    studyCondition: studyCondition,
+    firstCondition: presentationOrder[0],
+    secondCondition: presentationOrder[1],
+    focusState: focusState,
+    focusAirline: focusAirline,
+    errorAirline: getError('airline'),
+    errorStates: getError('states'),
+    seqAirline: getSequence('airline'),
+    seqStates: getSequence('states'),
+});
 
 window.mobilecheck = function() {
   var check = false;

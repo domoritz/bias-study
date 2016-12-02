@@ -21,23 +21,26 @@ function addCompareQuestions(form, visualizationLookingAt, focus, comparisons) {
 	}
 }
 
+const promises = [];
+
 function saveData(form, visualizationLookingAt) {
 	$.each($(form).serializeArray(), function(j, field) { //Important assumption being utilized here: the confidence is always paired with each question.
 		var confidenceName = field.name.split("+");
 		var actualName = confidenceName[0].split("_");
 		var visRecord = newLog.child(label + 'Vis_' + visualizationLookingAt).child(confidenceName[0]);
 		if(confidenceName.length == 1) { //The actual question
-			visRecord.child("type").set(actualName[0]);
-			if(actualName.length > 1) { //There's a data field to store
-				visRecord.child("data").set(actualName[1])
+			var type = actualName[0];
+			promises.push(visRecord.child("type").set(type));
+			if (actualName.length > 1) { //There's a data field to store
+				promises.push(visRecord.child("data").set(actualName[1]));
 			}
-			if(actualName[0] === "SelectAll") {
-				if(visRecord.child(field.value).set(true));
+			if (type === "SelectAll") {
+				promises.push(visRecord.child(field.value).set(true));
 			} else {
-				visRecord.child("answer").set(field.value);
+				promises.push(visRecord.child("answer").set(field.value));
 			}
 		} else { //The confidence slider
-			visRecord.child("confidence").set(field.value);
+			promises.push(visRecord.child("confidence").set(field.value));
 		}
 	});
 }
@@ -58,7 +61,13 @@ function addFormLogic(visualizationLookingAt, destination) {
 			newLog.child(label + 'Vis_' + presentationOrder[1]).remove();
 			saveData('.form2', presentationOrder[1]);
 
-			window.location.replace(destination);
+			Promise.all(promises).then(function() {
+				window.location.replace(destination);
+			}).catch(function(err) {
+				console.log('One or more sets failed:', err);
+				visRecord.child("errors").push().set(err.toString());
+				window.location.replace(destination);
+			});
 		});
 	} else {
 		$('.form').append(btn).submit(function(ev) {
@@ -66,7 +75,13 @@ function addFormLogic(visualizationLookingAt, destination) {
 			newLog.child(label + 'Vis_' + visualizationLookingAt).remove();
 			saveData('.form', visualizationLookingAt);
 
-			window.location.replace(destination);
+			Promise.all(promises).then(function() {
+				window.location.replace(destination);
+			}).catch(function(err) {
+				console.log('One or more sets failed:', err);
+				visRecord.child("errors").push().set(err.toString());
+				window.location.replace(destination);
+			});
 		});
 	}
 }
