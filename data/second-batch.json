@@ -1045,6 +1045,7 @@
         },
         "HowManyCompare_B6" : {
           "answer" : "1000",
+          "confidence" : "unknown",
           "data" : "B6",
           "type" : "HowManyCompare"
         },
