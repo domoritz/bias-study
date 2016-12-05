@@ -1,0 +1,1467 @@
+{
+  "logs" : {
+    "2893057" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "3000",
+          "confidence" : "agree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "2000",
+          "confidence" : "agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "6500",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "2000",
+          "confidence" : "neutral",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "6000",
+          "confidence" : "agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 100,
+        "errorStates" : 200,
+        "firstCondition" : "airline",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "states",
+        "seqAirline" : 5,
+        "seqStates" : 17,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "32",
+        "cheat" : "no",
+        "familiar" : "none",
+        "gender" : "Male",
+        "improved" : "longer timer",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "disagree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "6000",
+          "confidence" : "weak_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "2000",
+          "confidence" : "disagree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "3444",
+          "confidence" : "neutral",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "500",
+          "confidence" : "strong_disagree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "EV" : true,
+          "VX" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "weak_disagree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "6000",
+          "confidence" : "neutral",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "3000",
+          "confidence" : "disagree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "2500",
+          "confidence" : "disagree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "2000",
+          "confidence" : "strong_disagree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "NJ" : true,
+          "NY" : true,
+          "VA" : true,
+          "confidence" : "weak_disagree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 34029,
+        "approximate_questions_first_html" : 37180,
+        "approximate_questions_second_html" : 28645,
+        "approximate_second_html" : 21532,
+        "demographics_html" : 14901,
+        "index_html" : 5171,
+        "instructions_html" : 8287,
+        "precise_first_html" : 14804,
+        "precise_instructions_html" : 3941,
+        "precise_second_html" : 14921,
+        "thanks_html" : 50814
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36 OPR/41.0.0.235319328 (Edition EXP50)"
+    },
+    "25917069" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "5200",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "1500",
+          "confidence" : "agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "5000",
+          "confidence" : "agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "3700",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "1000",
+          "confidence" : "agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "4000",
+          "confidence" : "agree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 200,
+        "errorStates" : 1000,
+        "firstCondition" : "airline",
+        "focusAirline" : "DL",
+        "focusState" : "FL",
+        "secondCondition" : "states",
+        "seqAirline" : 15,
+        "seqStates" : 15,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "29",
+        "cheat" : "no",
+        "familiar" : "expert",
+        "gender" : "male",
+        "improved" : "-",
+        "problems" : "-",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_AA" : {
+          "answer" : "2000",
+          "confidence" : "weak_agree",
+          "data" : "AA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "5000",
+          "confidence" : "weak_agree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4500",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "1000",
+          "confidence" : "weak_agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "1000",
+          "confidence" : "weak_agree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "-100",
+          "confidence" : "strong_agree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NY" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 866229,
+        "approximate_questions_first_html" : 52130,
+        "approximate_questions_second_html" : 18845,
+        "approximate_second_html" : 17669,
+        "demographics_html" : 13630,
+        "instructions_html" : 14361,
+        "precise_first_html" : 12020,
+        "precise_instructions_html" : 2951,
+        "precise_questions_html" : 75360,
+        "precise_second_html" : 11390,
+        "thanks_html" : 7509
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
+    },
+    "28653725" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "3900",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "-1001",
+          "confidence" : "strong_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "2000",
+          "confidence" : "agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "1000",
+          "confidence" : "strong_agree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "4000",
+          "confidence" : "strong_agree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 200,
+        "errorStates" : 1,
+        "firstCondition" : "airline",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "states",
+        "seqAirline" : 14,
+        "seqStates" : 1,
+        "studyCondition" : "difference"
+      },
+      "demographics" : {
+        "age" : "30",
+        "cheat" : "no",
+        "familiar" : "familiar",
+        "gender" : "male",
+        "improved" : "none",
+        "problems" : "none",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4300",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "-1000",
+          "confidence" : "agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "4000",
+          "confidence" : "agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "2000",
+          "confidence" : "agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4800",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "3200",
+          "confidence" : "agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "-200",
+          "confidence" : "strong_agree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "3800",
+          "confidence" : "agree",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "VA" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 34604,
+        "approximate_questions_first_html" : 39807,
+        "approximate_questions_second_html" : 36402,
+        "approximate_second_html" : 17777,
+        "demographics_html" : 18493,
+        "index_html" : 1518,
+        "instructions_html" : 8166,
+        "precise_first_html" : 22856,
+        "precise_instructions_html" : 7108,
+        "precise_questions_html" : 189774,
+        "precise_second_html" : 15810,
+        "thanks_html" : 17836
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
+    },
+    "30619584" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "1800",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "-900",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "-600",
+          "confidence" : "weak_agree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "4400",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "-600",
+          "confidence" : "weak_agree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "3600",
+          "confidence" : "weak_agree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 1000,
+        "errorStates" : 200,
+        "firstCondition" : "airline",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "states",
+        "seqAirline" : 16,
+        "seqStates" : 4,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "28",
+        "cheat" : "no",
+        "familiar" : "some",
+        "gender" : "female",
+        "improved" : "no",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "neutral",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "1800",
+          "confidence" : "neutral",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "-3000",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "600",
+          "confidence" : "weak_agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "-1200",
+          "confidence" : "weak_agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "WN" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "no",
+          "confidence" : "weak_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "200",
+          "confidence" : "weak_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "-300",
+          "confidence" : "disagree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "99",
+          "confidence" : "neutral",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "400",
+          "confidence" : "strong_disagree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "IL" : true,
+          "MA" : true,
+          "NY" : true,
+          "TX" : true,
+          "VA" : true,
+          "confidence" : "weak_disagree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 47978,
+        "approximate_questions_first_html" : 88097,
+        "approximate_questions_second_html" : 79659,
+        "approximate_second_html" : 19609,
+        "demographics_html" : 92158,
+        "index_html" : 4674,
+        "instructions_html" : 32714,
+        "precise_first_html" : 19461,
+        "precise_instructions_html" : 7992,
+        "precise_questions_html" : 265048,
+        "precise_second_html" : 37566,
+        "thanks_html" : 40719
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"
+    },
+    "50263296" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "5500",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "1000",
+          "confidence" : "agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "5000",
+          "confidence" : "agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "5500",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "3000",
+          "confidence" : "agree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 100,
+        "errorStates" : 500,
+        "firstCondition" : "states",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "airline",
+        "seqAirline" : 5,
+        "seqStates" : 7,
+        "studyCondition" : "difference"
+      },
+      "demographics" : {
+        "age" : "43",
+        "cheat" : "no",
+        "familiar" : "expert",
+        "gender" : "female",
+        "improved" : "no",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4000",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "-1000",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "-2000",
+          "confidence" : "weak_agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "1000",
+          "confidence" : "agree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "4000",
+          "confidence" : "strong_agree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "VA" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 62632,
+        "approximate_questions_first_html" : 60470,
+        "approximate_questions_second_html" : 46440,
+        "approximate_second_html" : 60142,
+        "demographics_html" : 23022,
+        "index_html" : 18918,
+        "instructions_html" : 74622,
+        "precise_first_html" : 35876,
+        "precise_instructions_html" : 8255,
+        "precise_questions_html" : 227829,
+        "precise_second_html" : 34451,
+        "thanks_html" : 19325
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"
+    },
+    "51665387" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "4900",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "4100",
+          "confidence" : "weak_agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "4100",
+          "confidence" : "weak_agree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "3400",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "1200",
+          "confidence" : "weak_agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 500,
+        "errorStates" : 200,
+        "firstCondition" : "airline",
+        "focusAirline" : "B6",
+        "focusState" : "MA",
+        "secondCondition" : "states",
+        "seqAirline" : 3,
+        "seqStates" : 18,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "39",
+        "cheat" : "no",
+        "familiar" : "familiar",
+        "gender" : "Male",
+        "improved" : "no",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5100",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "4500",
+          "confidence" : "weak_agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VX" : {
+          "answer" : "5000",
+          "confidence" : "weak_agree",
+          "data" : "VX",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "3900",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "2000",
+          "confidence" : "weak_agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_FL" : {
+          "answer" : "-1000",
+          "confidence" : "weak_agree",
+          "data" : "FL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "3000",
+          "confidence" : "weak_agree",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "confidence" : "strong_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 35977,
+        "approximate_questions_first_html" : 47007,
+        "approximate_questions_second_html" : 44026,
+        "approximate_second_html" : 14814,
+        "demographics_html" : 24875,
+        "index_html" : 2496,
+        "instructions_html" : 8000,
+        "precise_first_html" : 12796,
+        "precise_instructions_html" : 8722,
+        "precise_questions_html" : 514676,
+        "precise_second_html" : 17334,
+        "thanks_html" : 1249144
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
+    },
+    "60755967" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "4000",
+          "confidence" : "strong_disagree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "3000",
+          "confidence" : "disagree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "4200",
+          "confidence" : "disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "1000",
+          "confidence" : "strong_disagree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "1500",
+          "confidence" : "neutral",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 1000,
+        "errorStates" : 100,
+        "firstCondition" : "airline",
+        "focusAirline" : "AA",
+        "focusState" : "NY",
+        "secondCondition" : "states",
+        "seqAirline" : 12,
+        "seqStates" : 19,
+        "studyCondition" : "difference"
+      },
+      "demographics" : {
+        "age" : "28",
+        "cheat" : "no",
+        "familiar" : "familiar",
+        "gender" : "female",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4250",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "1000",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "-1000",
+          "confidence" : "weak_agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "3500",
+          "confidence" : "weak_agree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "UA" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "strong_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4500",
+          "confidence" : "weak_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "1000",
+          "confidence" : "disagree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "4000",
+          "confidence" : "agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "5000",
+          "confidence" : "neutral",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "VA" : true,
+          "confidence" : "agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 17904,
+        "approximate_questions_first_html" : 21317,
+        "approximate_second_html" : 17435,
+        "index_html" : 28231,
+        "instructions_html" : 3484,
+        "precise_first_html" : 25611,
+        "precise_instructions_html" : 32499,
+        "precise_second_html" : 13964,
+        "thanks_html" : 45717
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"
+    },
+    "76632955" : {
+      "cond" : {
+        "errorAirline" : 100,
+        "errorStates" : 200,
+        "firstCondition" : "states",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "airline",
+        "seqAirline" : 11,
+        "seqStates" : 15,
+        "studyCondition" : "onlyNew"
+      },
+      "isMobile" : false,
+      "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
+    },
+    "76648162" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "4600",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "-1400",
+          "confidence" : "weak_agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "300",
+          "confidence" : "disagree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "20000",
+          "confidence" : "strong_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "2400",
+          "confidence" : "disagree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "5000",
+          "confidence" : "disagree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 200,
+        "errorStates" : 100,
+        "firstCondition" : "airline",
+        "focusAirline" : "AA",
+        "focusState" : "NY",
+        "secondCondition" : "states",
+        "seqAirline" : 20,
+        "seqStates" : 20,
+        "studyCondition" : "both"
+      },
+      "demographics" : {
+        "age" : "44",
+        "cheat" : "no",
+        "familiar" : "familiar",
+        "gender" : "Male",
+        "improved" : "No comments",
+        "problems" : "No technical problems",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "weak_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5100",
+          "confidence" : "weak_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "3000",
+          "confidence" : "weak_disagree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_UA" : {
+          "answer" : "500",
+          "confidence" : "strong_disagree",
+          "data" : "UA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "2200",
+          "confidence" : "strong_disagree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "UA" : true,
+          "WN" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "weak_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5100",
+          "confidence" : "agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "2300",
+          "confidence" : "neutral",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "3000",
+          "confidence" : "weak_disagree",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "2000",
+          "confidence" : "weak_disagree",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "PR" : true,
+          "VA" : true,
+          "confidence" : "agree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 52391,
+        "approximate_questions_first_html" : 75826,
+        "approximate_questions_second_html" : 84506,
+        "approximate_second_html" : 83127,
+        "demographics_html" : 35418,
+        "index_html" : 22994,
+        "instructions_html" : 54300,
+        "precise_first_html" : 88129,
+        "precise_instructions_html" : 6391,
+        "precise_questions_html" : 134424,
+        "precise_second_html" : 23188,
+        "thanks_html" : 32408
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
+    },
+    "87912012" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "3500",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "600",
+          "confidence" : "weak_agree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VX" : {
+          "answer" : "2000",
+          "confidence" : "weak_disagree",
+          "data" : "VX",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "400",
+          "confidence" : "agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NY" : {
+          "answer" : "-200",
+          "confidence" : "agree",
+          "data" : "NY",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "cond" : {
+        "errorAirline" : 200,
+        "errorStates" : 1,
+        "firstCondition" : "states",
+        "focusAirline" : "AA",
+        "focusState" : "FL",
+        "secondCondition" : "airline",
+        "seqAirline" : 14,
+        "seqStates" : 1,
+        "studyCondition" : "onlyNew"
+      },
+      "demographics" : {
+        "age" : "44",
+        "cheat" : "no",
+        "familiar" : "expert",
+        "gender" : "male",
+        "improved" : "none thank you",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
+      "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "weak_agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4200",
+          "confidence" : "weak_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "-400",
+          "confidence" : "weak_agree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VX" : {
+          "answer" : "1500",
+          "confidence" : "weak_disagree",
+          "data" : "VX",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "1000",
+          "confidence" : "weak_disagree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "DL" : true,
+          "EV" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "weak_agree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "4900",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "2000",
+          "confidence" : "agree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_NJ" : {
+          "answer" : "3400",
+          "confidence" : "weak_agree",
+          "data" : "NJ",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "2000",
+          "confidence" : "strong_disagree",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "MA" : true,
+          "NJ" : true,
+          "NY" : true,
+          "VA" : true,
+          "confidence" : "weak_disagree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 24134,
+        "approximate_questions_first_html" : 41039,
+        "approximate_questions_second_html" : 50485,
+        "approximate_second_html" : 34033,
+        "demographics_html" : 23508,
+        "index_html" : 7544,
+        "instructions_html" : 30481,
+        "precise_first_html" : 28255,
+        "precise_instructions_html" : 5296,
+        "precise_questions_html" : 142468,
+        "precise_second_html" : 34611,
+        "thanks_html" : 6907
+      },
+      "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"
+    }
+  }
+}
