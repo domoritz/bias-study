@@ -1126,6 +1126,46 @@
       "userAgent" : "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:50.0) Gecko/20100101 Firefox/50.0"
     },
     "76632955" : {
+      "approximateVis_airline" : {
+        "HowMany" : {
+          "answer" : "2100",
+          "confidence" : "strong_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_VX" : {
+          "answer" : "1000",
+          "confidence" : "strong_disagree",
+          "data" : "VX",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_WN" : {
+          "answer" : "500",
+          "confidence" : "strong_disagree",
+          "data" : "WN",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
+      "approximateVis_states" : {
+        "HowMany" : {
+          "answer" : "4000",
+          "confidence" : "strong_agree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "200",
+          "confidence" : "strong_disagree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_MA" : {
+          "answer" : "900",
+          "confidence" : "strong_disagree",
+          "data" : "MA",
+          "type" : "HowManyCompare"
+        },
+        "done" : true
+      },
       "cond" : {
         "errorAirline" : 100,
         "errorStates" : 200,
@@ -1137,7 +1177,113 @@
         "seqStates" : 15,
         "studyCondition" : "onlyNew"
       },
+      "demographics" : {
+        "age" : "28",
+        "cheat" : "no",
+        "familiar" : "none",
+        "gender" : "female",
+        "improved" : "I'm not sure now whether I was allowed to write things down.",
+        "problems" : "no",
+        "troubles" : "no"
+      },
+      "done" : true,
       "isMobile" : false,
+      "preciseVis_airline" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "neutral",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "1100",
+          "confidence" : "strong_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_B6" : {
+          "answer" : "100",
+          "confidence" : "strong_disagree",
+          "data" : "B6",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_DL" : {
+          "answer" : "200",
+          "confidence" : "strong_disagree",
+          "data" : "DL",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_EV" : {
+          "answer" : "-100",
+          "confidence" : "strong_disagree",
+          "data" : "EV",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "AA" : true,
+          "B6" : true,
+          "EV" : true,
+          "VX" : true,
+          "WN" : true,
+          "confidence" : "disagree",
+          "type" : "SelectAll"
+        }
+      },
+      "preciseVis_precise" : {
+        "done" : true
+      },
+      "preciseVis_states" : {
+        "DidYouNotice" : {
+          "answer" : "yes",
+          "confidence" : "agree",
+          "type" : "DidYouNotice"
+        },
+        "HowMany" : {
+          "answer" : "5000",
+          "confidence" : "strong_disagree",
+          "type" : "HowMany"
+        },
+        "HowManyCompare_CA" : {
+          "answer" : "100",
+          "confidence" : "strong_disagree",
+          "data" : "CA",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_PR" : {
+          "answer" : "100",
+          "confidence" : "strong_disagree",
+          "data" : "PR",
+          "type" : "HowManyCompare"
+        },
+        "HowManyCompare_VA" : {
+          "answer" : "",
+          "data" : "VA",
+          "type" : "HowManyCompare"
+        },
+        "SelectAll" : {
+          "CA" : true,
+          "FL" : true,
+          "GA" : true,
+          "MA" : true,
+          "NY" : true,
+          "TX" : true,
+          "VA" : true,
+          "confidence" : "strong_disagree",
+          "type" : "SelectAll"
+        }
+      },
+      "timing" : {
+        "approximate_first_html" : 48131,
+        "approximate_questions_first_html" : 63676,
+        "approximate_questions_second_html" : 169478,
+        "approximate_second_html" : 156227,
+        "demographics_html" : 52492,
+        "index_html" : 11492419,
+        "instructions_html" : 11657746,
+        "precise_first_html" : 32185,
+        "precise_instructions_html" : 815773,
+        "precise_questions_html" : 828820,
+        "precise_second_html" : 46066,
+        "thanks_html" : 4861816
+      },
       "userAgent" : "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
     },
     "76648162" : {
