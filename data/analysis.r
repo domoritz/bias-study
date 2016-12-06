@@ -3,7 +3,7 @@ library(ggplot2)
 library(mefa)
 library(lsmeans)
 
-bias_data <- read.csv("first-batch.csv")
+bias_data <- read.csv("second-batch.csv")
 #Select the columns for statistics
 id <- rep(as.vector(t(bias_data["id"])), each=2)#airline, states
 condition <- rep(as.vector(t(bias_data["studyCondition"])), each=2)#airline, states
