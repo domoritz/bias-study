@@ -1253,11 +1253,6 @@
           "data" : "PR",
           "type" : "HowManyCompare"
         },
-        "HowManyCompare_VA" : {
-          "answer" : "",
-          "data" : "VA",
-          "type" : "HowManyCompare"
-        },
         "SelectAll" : {
           "CA" : true,
           "FL" : true,
