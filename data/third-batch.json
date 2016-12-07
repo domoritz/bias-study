@@ -249,6 +249,7 @@
         "HowManyCompare_WN" : {
           "answer" : "-100",
           "data" : "WN",
+          "confidence" : "unknown",
           "type" : "HowManyCompare"
         },
         "SelectAll" : {
@@ -1921,7 +1922,8 @@
         "HowManyCompare_VA" : {
           "answer" : "3000",
           "data" : "VA",
-          "type" : "HowManyCompare"
+          "type" : "HowManyCompare",
+          "confidence": "unknown"
         },
         "SelectAll" : {
           "CA" : true,
@@ -3896,7 +3898,8 @@
         },
         "HowMany" : {
           "answer" : "4100",
-          "type" : "HowMany"
+          "type" : "HowMany",
+          "confidence" : "unknown"
         },
         "HowManyCompare_B6" : {
           "answer" : "3000",
