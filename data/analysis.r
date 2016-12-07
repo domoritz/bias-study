@@ -65,7 +65,7 @@ jaccard_precise$expected_bias <- as.vector(t(bias_data[c("precise_states_SelectA
 jaccard_precise$approximate_error <- as.vector(t(bias_data[c("precise_states_SelectAll_jaccard_approx_precise", "precise_airline_SelectAll_jaccard_approx_precise")]))
 jaccard_precise$measured_bias <- as.vector(t(bias_data[c("precise_states_SelectAll_jaccard_approx_answer", "precise_airline_SelectAll_jaccard_approx_answer")]))
 
-jaccard_precise_test <- lm(expected_bias ~ approximate_error + measured_bias + condition + (1 | id), data=jaccard_precise)
+jaccard_precise_test <- lm(measured_bias ~ approximate_error + expected_bias*condition + (1 | id), data=jaccard_precise)
 
 jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition)) + geom_jitter()
 ggsave("plots/jaccard_precise_jitter.png", jaccard_precise_plot)
