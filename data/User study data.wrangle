@@ -1,0 +1,11 @@
+splitrows col: column1 on: '\n' quote: '\"'
+split col: column1 on: ',' limit: 111 quote: '\"'
+header
+extract col: userAgent on: `Firefox/50|Chrome/55|Chrome/54|Trident/7.0|Chrome/54.0.2840.71|Chrome/54.0.2840.98`
+rename col: userAgent1 to: 'Browser'
+extract col: userAgent on: `Linux x86_64; rv:50.0|Mac OS X 10_11|Windows NT 6.3|Mac OS X 10_12|Windows NT 6.1|Windows NT 10.0`
+rename col: userAgent1 to: 'OS'
+derive value: lowercase(demographics_gender) as: 'lowercase_demographics_gender'
+replace col: lowercase_demographics_gender with: 'female' on: 'feamle'
+drop col: demographics_gender
+rename col: lowercase_demographics_gender to: 'demographics_gender'
