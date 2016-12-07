@@ -34,21 +34,21 @@ how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bi
 ggsave("plots/how_many_precise.png", how_many_precise_plot)
 
 #-----Comparison questions when viewing the precise data-----
-compare_precise <- rep(cleaned_data_frame, 2)
+compare_precise <- rep(cleaned_data_frame, 3)
 #Calculate approximate error (Only looking at the first approximate answer, since I think this was the intended behavior)
 
 approx_compare_answer <- as.vector(t(bias_data[c("approx_airline_howManyCompare_0_answer", "approx_states_howManyCompare_0_answer")]))
 approx_compare_approx <- as.vector(t(bias_data[c("approx_airline_howManyCompare_0_approx", "approx_states_howManyCompare_0_approx")]))
-precise_compare_approx <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_approx", "precise_states_howManyCompare_0_approx", "precise_airline_howManyCompare_1_approx", "precise_states_howManyCompare_1_approx")]))
-precise_compare_precise <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_precise", "precise_states_howManyCompare_0_precise", "precise_airline_howManyCompare_1_precise", "precise_states_howManyCompare_1_precise")]))
-precise_compare_answer <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_answer", "precise_states_howManyCompare_0_answer", "precise_airline_howManyCompare_1_answer", "precise_states_howManyCompare_1_answer")]))
-precise_compare_comparison <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_data", "precise_states_howManyCompare_0_data", "precise_airline_howManyCompare_1_data", "precise_states_howManyCompare_1_data")]))
+precise_compare_approx <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_approx", "precise_states_howManyCompare_0_approx", "precise_airline_howManyCompare_1_approx", "precise_states_howManyCompare_1_approx", "precise_airline_howManyCompare_2_approx", "precise_states_howManyCompare_2_approx")]))
+precise_compare_precise <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_precise", "precise_states_howManyCompare_0_precise", "precise_airline_howManyCompare_1_precise", "precise_states_howManyCompare_1_precise", "precise_airline_howManyCompare_2_precise", "precise_states_howManyCompare_2_precise")]))
+precise_compare_answer <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_answer", "precise_states_howManyCompare_0_answer", "precise_airline_howManyCompare_1_answer", "precise_states_howManyCompare_1_answer", "precise_airline_howManyCompare_2_answer", "precise_states_howManyCompare_2_answer")]))
+precise_compare_comparison <- as.vector(t(bias_data[c("precise_airline_howManyCompare_0_data", "precise_states_howManyCompare_0_data", "precise_airline_howManyCompare_1_data", "precise_states_howManyCompare_1_data", "precise_airline_howManyCompare_2_data", "precise_states_howManyCompare_2_data")]))
 approx_compare_comparison <- as.vector(t(bias_data[c("approx_airline_howManyCompare_0_data", "approx_states_howManyCompare_0_data")]))
 
-compare_precise$approximate_error <- rep((approx_compare_answer - approx_compare_approx)/approx_compare_approx, 2)
+compare_precise$approximate_error <- rep((approx_compare_answer - approx_compare_approx)/approx_compare_approx, 3)
 compare_precise$expected_bias <- (precise_compare_precise - precise_compare_approx)/precise_compare_precise
 compare_precise$measured_bias <- (precise_compare_precise - precise_compare_answer)/precise_compare_precise
-compare_precise$approximate_comparison <- rep(approx_compare_comparison, 2)
+compare_precise$approximate_comparison <- rep(approx_compare_comparison, 3)
 compare_precise$precise_comparison <- rep(precise_compare_comparison)
 
 #One would hope we can remove: visType, focus, sequence, order, approximate_comparison, precise_comparison
