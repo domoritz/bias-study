@@ -4,6 +4,8 @@ library(mefa)
 library(lsmeans)
 
 bias_data <- read.csv("cleaned_data.csv")
+#Filter out the people who admitted to cheating
+bias_data[bias_data$demographics_cheat != 'yes',]
 #Select the columns for statistics
 id <- rep(as.vector(t(bias_data["id"])), each=2)#airline, states
 condition <- rep(as.vector(t(bias_data["studyCondition"])), each=2)#airline, states
@@ -33,6 +35,9 @@ how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximat
 how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
 ggsave("plots/how_many_precise.png", how_many_precise_plot)
 
+how_many_precise_boxplot <- ggplot(how_many_precise, aes(condition, measured_bias)) + geom_boxplot()
+ggsave("plots/how_many_precise_box.png", how_many_precise_boxplot)
+
 #-----Comparison questions when viewing the precise data-----
 compare_precise <- rep(cleaned_data_frame, 3)
 #Calculate approximate error (Only looking at the first approximate answer, since I think this was the intended behavior)
@@ -58,6 +63,9 @@ compare_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate
 compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
 ggsave("plots/compare_precise.png", compare_precise_plot)
 
+compare_precise_boxplot <- ggplot(compare_precise, aes(condition, measured_bias)) + geom_boxplot()
+ggsave("plots/compare_precise_box.png", compare_precise_boxplot)
+
 #-----Question of "how many of X were there?-----
 jaccard_precise <- cleaned_data_frame
 
@@ -69,3 +77,6 @@ jaccard_precise_test <- lm(measured_bias ~ approximate_error + expected_bias*con
 
 jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition)) + geom_jitter()
 ggsave("plots/jaccard_precise_jitter.png", jaccard_precise_plot)
+
+jaccard_precise_boxplot <- ggplot(jaccard_precise, aes(condition, measured_bias)) + geom_boxplot()
+ggsave("plots/jaccard_precise_box.png", jaccard_precise_boxplot)
