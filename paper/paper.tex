@@ -592,7 +592,21 @@ Prior work distinguishes memorability of the visualization itself and the underl
 In this paper, we only focus on what data users remember because the mental models users build of the data are what influences their decisions on what to look at next.
 To the best of our knowledge there are no studies on the biases that exposure to imprecise visualizations introduces.
 
-\section{Experimental Setup}\label{sec:experimental_setup}
+\section{Experiment Description}\label{sec:experimental_setup}
+
+\subsection{Research Questions}
+
+The questions we want to answer two questions about participants recollection of the data form a precise data when they see an approximate, incorrect visualization first. 
+
+\begin{enumerate}
+  \item[\textbf{RQ1}]: Do participants bias their recollection towards the data from the approximate visualization?
+  \item[\textbf{RQ2}]: Is this bias reduced by showing participants the approximate and precise data or a visualization of the difference as opposed to only the precise data?
+\end{enumerate}
+
+We designed out study to answer these two questions in a controlled experiment that mimics a real data analysis session.
+RQ2 of course only makes sense if the answer to RQ1 is yes but we have reason to believe it is.
+
+\subsection{Experimental Design}
 
 \begin{figure*}[!ht]
 \centering
@@ -624,7 +638,7 @@ To the best of our knowledge there are no studies on the biases that exposure to
 \label{fig:nine}}
 \hfil
 
-\caption{A possible experimental flow with two visualzations about airlines and states with a precise visualization that shows the difference between the approximate and precise data.}
+\caption{A possible experimental flow with two visualizations about airlines and states with a precise visualization that shows the difference between the approximate and precise data.}
 \label{fig:example}
 \end{figure*}
 
@@ -683,8 +697,7 @@ Similar to other studies of human perception of visualizations, we restricted pa
 Participation was restricted to the United States to ensure familiarity with the airlines and states in the dataset.
 Participants were compensated \$2.00 for completing the study.
 
-\todo{Talk about our participants.}
-
+\subsection{Measurements}
 \subsubsection{Independent Variables}
 
 %Probably make a figure for this too.
@@ -704,7 +717,7 @@ As previously stated, the variation level of the approximate visualizations vari
 
 \subsubsection{Dependent Variables}
 
-We asked three types of questions about each precise visualization, bulding on Brehmer and Munzner's task taxonomy \cite{brehmer2013multi}.
+We asked three types of questions about each precise visualization, building on Brehmer and Munzner's task taxonomy \cite{brehmer2013multi}.
 Participants were asked to recall (1) how many flights were there on or out of the focus state or airline, (2) the difference in flights between the focus state or airline and another state or airline in the visualization, and (3) which states or airlines were in the visualization.
 We asked question (2) three times for each precise visualization with three different comparison airlines.
 This repetition, as well as the repetition between state and airline, gave us repeated measures for each participant.
@@ -730,6 +743,12 @@ We anticipated that the measured bias would be less than the expected bias, as p
 
 For question (3), the answers were calculated via a Jaccard Index.
 
+\section{Results}\label{sec:results}
+
+\subsection{Descriptive Statistics}
+
+\todo{What are the means and variance of different variables?}
+
 \subsection{Statistical Analysis}
 
 We analyzed our data through linear regression using the \texttt{lm} package in R, analyzing the results with a factorial ANOVA (\texttt{anova} in R).
@@ -739,8 +758,6 @@ We treated each participant as a random effect.
 As expected, visualization order, focus state and focus airline had no effect on our results for any of the tests we conducted.
 For the comparison questions, the comparison state or airline also did not have an effect on our results.
 None of these independent variables pertain to our research questions, so we discard the terms from our analysis and do not report on them further.
-
-\section{Results}\label{sec:results}
 
 
 
@@ -794,110 +811,12 @@ Tie to crowdsourcing literature here, about what our work could inform over ther
 
 \todo{future research questions}
 
-\subsubsection{Threads to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
+\subsection{Threads to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
 
 We had no way of ensuring that participants did not take screenshots in order to answer later questions about the precise visualizations.
 \todo{some more detail here, now that we collected data}
 
 \todo{Statistical methods and outliers}
-
-% An example of a floating figure using the graphicx package.
-% Note that \label must occur AFTER (or within) \caption.
-% For figures, \caption should occur after the \includegraphics.
-% Note that IEEEtran v1.7 and later has special internal code that
-% is designed to preserve the operation of \label within \caption
-% even when the captionsoff option is in effect. However, because
-% of issues like this, it may be the safest practice to put all your
-% \label just after \caption rather than within \caption{}.
-%
-% Reminder: the "draftcls" or "draftclsnofoot", not "draft", class
-% option should be used if it is desired that the figures are to be
-% displayed while in draft mode.
-%
-%\begin{figure}[!t]
-%\centering
-%\includegraphics[width=2.5in]{myfigure}
-% where an .eps filename suffix will be assumed under latex, 
-% and a .pdf suffix will be assumed for pdflatex; or what has been declared
-% via \DeclareGraphicsExtensions.
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure}
-
-% Note that the IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-% However, the Computer Society has been known to put floats at the bottom.
-
-
-% An example of a double column floating figure using two subfigures.
-% (The subfig.sty package must be loaded for this to work.)
-% The subfigure \label commands are set within each subfloat command,
-% and the \label for the overall figure must come after \caption.
-% \hfil is used as a separator to get equal spacing.
-% Watch out that the combined width of all the subfigures on a 
-% line do not exceed the text width or a line break will occur.
-%
-%\begin{figure*}[!t]
-%\centering
-%\subfloat[Case I]{\includegraphics[width=2.5in]{box}%
-%\label{fig_first_case}}
-%\hfil
-%\subfloat[Case II]{\includegraphics[width=2.5in]{box}%
-%\label{fig_second_case}}
-%\caption{Simulation results for the network.}
-%\label{fig_sim}
-%\end{figure*}
-%
-% Note that often IEEE papers with subfigures do not employ subfigure
-% captions (using the optional argument to \subfloat[]), but instead will
-% reference/describe all of them (a), (b), etc., within the main caption.
-% Be aware that for subfig.sty to generate the (a), (b), etc., subfigure
-% labels, the optional argument to \subfloat must be present. If a
-% subcaption is not desired, just leave its contents blank,
-% e.g., \subfloat[].
-
-
-% An example of a floating table. Note that, for IEEE style tables, the
-% \caption command should come BEFORE the table and, given that table
-% captions serve much like titles, are usually capitalized except for words
-% such as a, an, and, as, at, but, by, for, in, nor, of, on, or, the, to
-% and up, which are usually not capitalized unless they are the first or
-% last word of the caption. Table text will default to \footnotesize as
-% the IEEE normally uses this smaller font for tables.
-% The \label must come after \caption as always.
-%
-%\begin{table}[!t]
-%% increase table row spacing, adjust to taste
-%\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-%\caption{An Example of a Table}
-%\label{table_example}
-%\centering
-%% Some packages, such as MDW tools, offer better commands for making tables
-%% than the plain LaTeX2e tabular which is used here.
-%\begin{tabular}{|c||c|}
-%\hline
-%One & Two\\
-%\hline
-%Three & Four\\
-%\hline
-%\end{tabular}
-%\end{table}
-
-
-% Note that the IEEE does not put floats in the very first column
-% - or typically anywhere on the first page for that matter. Also,
-% in-text middle ("here") positioning is typically not used, but it
-% is allowed and encouraged for Computer Society conferences (but
-% not Computer Society journals). Most IEEE journals/conferences use
-% top floats exclusively. 
-% Note that, LaTeX2e, unlike IEEE journals/conferences, places
-% footnotes above bottom floats. This can be corrected via the
-% \fnbelowfloat command of the stfloats package.
-
-
-
 
 \section{Conclusion}
 The conclusion goes here \todo{when we have data}.
