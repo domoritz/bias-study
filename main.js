@@ -229,16 +229,16 @@ $('#demographics-form').submit(function(ev) {
     window.location.replace("thanks.html");
 });
 
-const page = window.location.pathname.replace('/', '').replace('bias-study', '').replace('.', '_');
+var page = window.location.pathname.replace('/', '').replace('bias-study', '').replace('.', '_');
 
 // store time on page
 var start = new Date();
 
 if (page == 'index_html') {
-    newLog.child("timing").child("start_time").set(start.getTime());
+    newLog.child("timing").child("start_time").set('' + start.getTime());
 }
 if (page == 'thanks_html') {
-    newLog.child("timing").child("end_time").set(end.getTime());
+    newLog.child("timing").child("end_time").set('' + end.getTime());
 }
 
 window.onbeforeunload = function(ev) {
