@@ -32,13 +32,13 @@ how_many_precise$measured_bias <- (precise_howMany_precise - precise_howMany_ans
 #One would hope we can remove: visType, focus, sequence, order
 #how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, F, T, T, T),] #remove outlier answer
 how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + visType + condition + focus + sequence + order + (1 | id), data=how_many_precise)
-how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + control + (1 | id), data=how_many_precise)
+how_many_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=how_many_precise)
 
-how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_point() + geom_smooth(se=T, method="lm")
-ggsave("plots/how_many_precise.png", how_many_precise_plot)
+how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_point() + geom_smooth(se=T, method="lm")
+ggsave("plots/how_many_precise.pdf", how_many_precise_plot)
 
 how_many_precise_boxplot <- ggplot(how_many_precise, aes(condition, measured_bias)) + geom_boxplot()
-ggsave("plots/how_many_precise_box.png", how_many_precise_boxplot)
+ggsave("plots/how_many_precise_box.pdf", how_many_precise_boxplot)
 
 #-----Comparison questions when viewing the precise data-----
 compare_precise <- rep(cleaned_data_frame, 3)
@@ -60,13 +60,13 @@ compare_precise$precise_comparison <- rep(precise_compare_comparison)
 
 #One would hope we can remove: visType, focus, sequence, order, approximate_comparison, precise_comparison
 compare_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + approximate_comparison + precise_comparison + visType + condition + focus + sequence + order + (1 | id), data=compare_precise)
-compare_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=compare_precise)
+compare_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=compare_precise)
 
-compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_point() + geom_smooth(se=T, method="lm")
-ggsave("plots/compare_precise.png", compare_precise_plot)
+compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_point() + geom_smooth(se=T, method="lm")
+ggsave("plots/compare_precise.pdf", compare_precise_plot)
 
 compare_precise_boxplot <- ggplot(compare_precise, aes(condition, measured_bias)) + geom_boxplot()
-ggsave("plots/compare_precise_box.png", compare_precise_boxplot)
+ggsave("plots/compare_precise_box.pdf", compare_precise_boxplot)
 
 #-----Question of "how many of X were there?-----
 jaccard_precise <- cleaned_data_frame
@@ -75,10 +75,10 @@ jaccard_precise$expected_bias <- as.vector(t(bias_data[c("precise_states_SelectA
 jaccard_precise$approximate_error <- as.vector(t(bias_data[c("precise_states_SelectAll_jaccard_approx_precise", "precise_airline_SelectAll_jaccard_approx_precise")]))
 jaccard_precise$measured_bias <- as.vector(t(bias_data[c("precise_states_SelectAll_jaccard_approx_answer", "precise_airline_SelectAll_jaccard_approx_answer")]))
 
-jaccard_precise_test <- lm(measured_bias ~ approximate_error + expected_bias*condition + (1 | id), data=jaccard_precise)
+jaccard_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=jaccard_precise)
 
-jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_jitter() + geom_smooth(se=T, method="lm")
-ggsave("plots/jaccard_precise_jitter.png", jaccard_precise_plot)
+jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_jitter() + geom_smooth(se=T, method="lm")
+ggsave("plots/jaccard_precise_jitter.pdf", jaccard_precise_plot)
 
 jaccard_precise_boxplot <- ggplot(jaccard_precise, aes(condition, measured_bias)) + geom_boxplot()
-ggsave("plots/jaccard_precise_box.png", jaccard_precise_boxplot)
+ggsave("plots/jaccard_precise_box.pdf", jaccard_precise_boxplot)

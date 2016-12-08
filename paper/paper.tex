@@ -476,7 +476,7 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-The abstract goes here.
+\todo{The abstract goes here.}
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -741,7 +741,11 @@ We hypothesized that the greater the expected bias, thr greater the measured bia
 Meaning, if an approximate visualization differed substantially from the precise visualization, we expected participant's answers to be close to correct (e.g., a measured bias of near 0), but skew in the direction of the approximate visualization.
 We anticipated that the measured bias would be less than the expected bias, as participants had seen the updated, correct visualization.
 
-For question (3), the answers were calculated via a Jaccard Index.
+For question (3), the answers were calculated via a Jaccard Difference between the airlines or states in the visualization and the airlines or states in the participant's answer.
+
+\subsection{Participants}
+
+\todo{Summary demographics about our participants, who we dropped, etc.}
 
 \section{Results}\label{sec:results}
 
@@ -759,51 +763,124 @@ As expected, visualization order, focus state and focus airline had no effect on
 For the comparison questions, the comparison state or airline also did not have an effect on our results.
 None of these independent variables pertain to our research questions, so we discard the terms from our analysis and do not report on them further.
 
-
+The regression tables of our three types of questions are in tables \ref{table_q1}, \ref{table_q2}, and \ref{table_q3}.
+The raw data for our three types of questions are in figures \ref{figure_q1}, \ref{figure_q2}, and \ref{figure_q3}.
+We now answer our research questions in turn.
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Regression table for Question 1. Baseline is only the precise visualization.}
-\label{table_example}
+\caption{Regression table for question type 1, how many flights were there on an airline or state. Baseline is no difference between the approximate and precise visualization, showing only the precise data in the precise visualization.}
+\label{table_q1}
 \centering
-\begin{tabular}{|c||c|c|c|c|}
+\begin{tabular}{|l||r|r|r|r@{}l|}
 \hline
-Study parameter & Est. & SE & t & p\\
+Study parameter & Est. & SE & t & p & \\
 \hline
 \hline
-Expected Bias & & & & \\
+Intercept & -0.186 & 0.117 & -1.590 & 0.1160 &  \\
 \hline
-Control condition & & & & \\
+Approx$\neq$Precise & 0.248 & 0.097 & 2.550 & 0.0128 & * \\
 \hline
-Condition:Difference & & & & \\
+Expected Bias & -0.126 & 0.463 & -0.271 & 0.7868 &  \\
 \hline
-Condition:Both & & & & \\
+VisType\textsubscript{Diff} & -0.112 & 0.096 & -1.167 & 0.2471 &  \\
 \hline
-Expected Bias * Condition:Difference & & & & \\
+VisType\textsubscript{Both} & 0.026 & 0.102 & 0.258 & 0.7970 &  \\
 \hline
-Expected Bias * Condition:Both & & & & \\
+Expected Bias*VisType\textsubscript{Diff} & 0.234 & 0.522 & 0.449 & 0.6545 &  \\
+\hline
+Expected Bias*VisType\textsubscript{Both} & 1.037 & 0.583 & 1.778 & 0.0794 & . \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{Regression table for question type 2, comparing how many flights to another airline or state. Baseline is the same as question type 1.}
+\label{table_q2}
+\centering
+\begin{tabular}{|l||r|r|r|r@{}l|}
+\hline
+Study parameter & Est. & SE & t & p & \\
+\hline
+\hline
+Intercept & 0.395 & 1.156 & 0.342 & 0.7330 &  \\
+\hline
+Approx$\neq$Precise & -1.101 & 0.926 & -1.189 & 0.2358 & \\
+\hline
+Expected Bias & 5.961 & 1.674 & 3.560 & 0.0004 & *** \\
+\hline
+VisType\textsubscript{Diff} & -1.320 & 0.950 & -1.389 & 0.1661 &  \\
+\hline
+VisType\textsubscript{Both} & -0.590 & 1.018 & -0.580 & 0.5626 &  \\
+\hline
+Expected Bias*VisType\textsubscript{Diff} & -2.197 & 1.850 & -1.187 & 0.2362 &  \\
+\hline
+Expected Bias*VisType\textsubscript{Both} & -2.897 & 1.862 & -1.556 & 0.1210 &  \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{Regression table for question type 3, which airlines or states were in the dataset. Baseline is the same as question type 1.}
+\label{table_q3}
+\centering
+\begin{tabular}{|l||r|r|r|r@{}l|}
+\hline
+Study parameter & Est. & SE & t & p & \\
+\hline
+\hline
+Intercept & 0.146 & 0.128 & 1.139 & 0.2585 &  \\
+\hline
+Approx$\neq$Precise & -0.009 & 0.026 & -0.334 & 0.7392 & \\
+\hline
+Expected Bias & 0.826 & 0.148 & 5.578 & $<$0.0001 & *** \\
+\hline
+VisType\textsubscript{Diff} & 0.294 & 0.157 & 1.866 & 0.0659 &  \\
+\hline
+VisType\textsubscript{Both} & -0.033 & 0.156 & -0.213 & 0.8318 &  \\
+\hline
+Expected Bias*VisType\textsubscript{Diff} & -0.335 & 0.181 & -1.853 & 0.0679 & . \\
+\hline
+Expected Bias*VisType\textsubscript{Both} & 0.045 & 0.183 & 0.247 & 0.8058 &  \\
 \hline
 \end{tabular}
 \end{table}
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=\columnwidth]{blankheatmap.png}
-  \caption{Example heatmap to demonstrate interaction}
-  \label{fig:blank_heatmap}
+  \includegraphics[width=\columnwidth]{how_many_precise.pdf}
+  \caption{Participant data for quesstion type 1 plotted by measured and expected bias.}
+  \label{figure_q1}
 \end{figure}
 
-We will analyze our data through regressions.
-For questions with categorical responses, we will use a factorial logistic regression (\texttt{glm} with a \texttt{binomial} family in R).
-We will use a factorial ANOVA (\texttt{anova} on \texttt{lm} in R) for questions with interval responses.
-Table \ref{table_example} shows what we expect our regression tables to show.
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{compare_precise.pdf}
+  \caption{Participant data for question type 2 plotted by measured and expected bias.}
+  \label{figure_q2}
+\end{figure}
 
-We will likely have to conduct post-hoc Tukey tests to differentiate between study conditions.
-We will present the results of those tests graphically.
-For example, Figure \ref{fig:blank_heatmap} shows how we will present the amount of bias present in different study conditions for numerical questions, such as question 3 above.
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=\columnwidth]{jaccard_precise_jitter.pdf}
+  \caption{Participant data for question type 3 plotted by measured and expected bias.}
+  \label{figure_q3}
+\end{figure}
+
+\subsubsection{RQ1: Is there a bias?}
+
+\subsubsection{RQ2: Does visualization type impact the bias?}
 
 \section{Discussion}\label{sec:discussion}
 
