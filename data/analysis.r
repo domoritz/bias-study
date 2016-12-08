@@ -9,11 +9,13 @@ bias_data[bias_data$demographics_cheat != 'yes',]
 #Select the columns for statistics
 id <- rep(as.vector(t(bias_data["id"])), each=2)#airline, states
 condition <- rep(as.vector(t(bias_data["studyCondition"])), each=2)#airline, states
+condition <- factor(condition,c("onlyNew", "difference", "both"))
 visType <- rep(c("airline", "states"), nrow(bias_data))
 focus <- as.vector(t(bias_data[c("focusAirline", "focusState")]))
 sequence <- as.vector(t(bias_data[c("seqAirline", "seqStates")]))
+control <- factor(as.factor(ifelse(sequence == 1, 1, 0)), c("1", "0"))
 order <- ifelse(rep(as.vector(t(bias_data["firstCondition"])), each=2) == visType, 1, 2)#airline, states
-cleaned_data_frame <- data.frame(id, condition, visType, focus, sequence, order)
+cleaned_data_frame <- data.frame(id, condition, visType, focus, sequence, order, control)
 
 #-----How many questions when viewing the precise data-----
 how_many_precise <- cleaned_data_frame
@@ -30,9 +32,9 @@ how_many_precise$measured_bias <- (precise_howMany_precise - precise_howMany_ans
 #One would hope we can remove: visType, focus, sequence, order
 #how_many_precise <- how_many_precise[c(T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, T, F, T, T, T),] #remove outlier answer
 how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + visType + condition + focus + sequence + order + (1 | id), data=how_many_precise)
-how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=how_many_precise)
+how_many_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + control + (1 | id), data=how_many_precise)
 
-how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
+how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_point() + geom_smooth(se=T, method="lm")
 ggsave("plots/how_many_precise.png", how_many_precise_plot)
 
 how_many_precise_boxplot <- ggplot(how_many_precise, aes(condition, measured_bias)) + geom_boxplot()
@@ -60,7 +62,7 @@ compare_precise$precise_comparison <- rep(precise_compare_comparison)
 compare_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + approximate_comparison + precise_comparison + visType + condition + focus + sequence + order + (1 | id), data=compare_precise)
 compare_precise_test <- lm(measured_bias ~ expected_bias*condition + approximate_error + (1 | id), data=compare_precise)
 
-compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition)) + geom_point()
+compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_point() + geom_smooth(se=T, method="lm")
 ggsave("plots/compare_precise.png", compare_precise_plot)
 
 compare_precise_boxplot <- ggplot(compare_precise, aes(condition, measured_bias)) + geom_boxplot()
@@ -75,7 +77,7 @@ jaccard_precise$measured_bias <- as.vector(t(bias_data[c("precise_states_SelectA
 
 jaccard_precise_test <- lm(measured_bias ~ approximate_error + expected_bias*condition + (1 | id), data=jaccard_precise)
 
-jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition)) + geom_jitter()
+jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + geom_jitter() + geom_smooth(se=T, method="lm")
 ggsave("plots/jaccard_precise_jitter.png", jaccard_precise_plot)
 
 jaccard_precise_boxplot <- ggplot(jaccard_precise, aes(condition, measured_bias)) + geom_boxplot()

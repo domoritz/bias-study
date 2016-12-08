@@ -646,7 +646,7 @@ Participants were informed that the first two visualizations showed approximatio
 
 \begin{figure*}[!ht]
 \centering
-\subfloat[Approximate visualization based on 0.2\% of the data. Note that ``New Yersey'' is missing and that ``Florida'' is the state with the most outgoing flights.]{\includegraphics[width=0.3\textwidth]{states5009.png}%
+\subfloat[Approximate visualization based on 0.2\% of the data. Note that ``New Jersey'' is missing and that ``Florida'' is the state with the most outgoing flights.]{\includegraphics[width=0.3\textwidth]{states5009.png}%
 \label{fig:approx}}
 \hfil
 \subfloat[Visualization of precise data.]{\includegraphics[width=0.3\textwidth]{states10.png}%
@@ -669,6 +669,7 @@ To visually separate visualizations of approximate and precise data, we colored 
 
 We used one month of flight data to generate the visualizations.
 The precise visualization of number of flights per state uses data where the airline was ``JetBlue'' and the visualization of the flight per airline uses data from ``New York State''.
+In the study, we randomized the airline and state to focus on.
 The approximate visualizations use a random subset of the data for the precise visualizations with replacement.
 We then computed the approximate values by dividing the count values by the fraction of rows used in the sample.
 
@@ -681,6 +682,8 @@ Participants were recruited from Amazon Mechanical Turk (AMT), a common tool to 
 Similar to other studies of human perception of visualizations, we restricted participation to people on AMT with at least 1,000 tasks completed and an approval rate above 95\%.
 Participation was restricted to the United States to ensure familiarity with the airlines and states in the dataset.
 Participants were compensated \$2.00 for completing the study.
+
+\todo{Talk about our participants.}
 
 \subsubsection{Independent Variables}
 
@@ -696,42 +699,75 @@ Smaller samples tended to have greater difference from the precise visualization
 For each approximate visualization, we recorded the difference from the precise visualization relative to the questions we asked.
 For example, if a participant was asked ``How many flights were there on Alaska Airlines?'', we record the difference in number of flights between the approximate and precise visualization.
 
-We randomized visualization order, approximate sample, and study condition for each participant.
+We randomized visualization order, approximate sample, focus state, focus airline, and study condition for each participant.
 As previously stated, the variation level of the approximate visualizations varied by visualization.
+
+\subsubsection{Dependent Variables}
+
+We asked three types of questions about each precise visualization, bulding on Brehmer and Munzner's task taxonomy \cite{brehmer2013multi}.
+Participants were asked to recall (1) how many flights were there on or out of the focus state or airline, (2) the difference in flights between the focus state or airline and another state or airline in the visualization, and (3) which states or airlines were in the visualization.
+We asked question (2) three times for each precise visualization with three different comparison airlines.
+This repetition, as well as the repetition between state and airline, gave us repeated measures for each participant.
+
+Each dependent variable has a "correct" answer (e.g., the data presented in the precise visualization).
+We normalize our outcome (e.g., the answer participants gave) by the by the value of the "correct" answer, e.g.,
+
+\[\frac{correct\_answer - answer\_given}{correct\_answer}\]
+
+We refer to this value as the \textbf{measured bias}.
+
+The experimental conditions inform how much variation there was between the precise and the approximate visualizations.
+For each question we ask the participants, we compute the difference between the "correct" answer (e.g., the data presented in the precise visualization) and the "approximate" answer (e.g., the data presented in the precise visualization).
+Again, we normalize this value by the "correct" answer, e.g.,
+
+\[\frac{correct\_answer - approximate\_answer}{correct\_answer}\]
+
+We refer to this value as the \textbf{expected bias}.
+We treat the expected bias as an independent variable in our analysis.
+We hypothesized that the greater the expected bias, thr greater the measured bias would be.
+Meaning, if an approximate visualization differed substantially from the precise visualization, we expected participant's answers to be close to correct (e.g., a measured bias of near 0), but skew in the direction of the approximate visualization.
+We anticipated that the measured bias would be less than the expected bias, as participants had seen the updated, correct visualization.
+
+For question (3), the answers were calculated via a Jaccard Index.
 
 \subsection{Statistical Analysis}
 
-Analysis of each study question will have four independent variables: visualization number (interval), type of data displayed (categorical), level of approximation (interval), and presentation technique (categorical).
-We anticipate visualization number and type of data displayed will have no effect on our results, as they do not pertain to our research questions.
-Should they have no effect, we will then discard these terms from our analysis and not report on them further.
-Further, each participant will be treated as a random effect.
+We analyzed our data through linear regression using the \texttt{lm} package in R, analyzing the results with a factorial ANOVA (\texttt{anova} in R).
+We hypothesized that multiple factors would impact our outcome metrics, so we used multiple regression in our analyses.
+We treated each participant as a random effect.
 
-We are asking three types of questions in our study with different dependent variables:
-\begin{enumerate}
-\item Was there a difference between the precise and approximate visualizations (categorical dependent variable)
-\item Which airline or state had the most or least flights (categorical dependent variable)
-\item How many flights were on a particular airline or from a particular state (interval dependent variable)
-\item Confidence in answers to the above questions (interval dependent variable)
-\end{enumerate}
+As expected, visualization order, focus state and focus airline had no effect on our results for any of the tests we conducted.
+For the comparison questions, the comparison state or airline also did not have an effect on our results.
+None of these independent variables pertain to our research questions, so we discard the terms from our analysis and do not report on them further.
+
+\section{Results}\label{sec:results}
+
+
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{Example statistical analysis table for categorical dependent variables}
+\caption{Regression table for Question 1. Baseline is only the precise visualization.}
 \label{table_example}
 \centering
 \begin{tabular}{|c||c|c|c|c|}
 \hline
-Study parameter & Est. & SE & Z & p\\
+Study parameter & Est. & SE & t & p\\
 \hline
 \hline
-Presentation Technique & & & & \\
+Expected Bias & & & & \\
 \hline
-Approximate Sample Amount & & & & \\
+Control condition & & & & \\
 \hline
-Technique * Sample Amount & & & & \\
+Condition:Difference & & & & \\
+\hline
+Condition:Both & & & & \\
+\hline
+Expected Bias * Condition:Difference & & & & \\
+\hline
+Expected Bias * Condition:Both & & & & \\
 \hline
 \end{tabular}
 \end{table}
@@ -752,15 +788,18 @@ We will likely have to conduct post-hoc Tukey tests to differentiate between stu
 We will present the results of those tests graphically.
 For example, Figure \ref{fig:blank_heatmap} shows how we will present the amount of bias present in different study conditions for numerical questions, such as question 3 above.
 
-\section{Results}\label{sec:results}
-
 \section{Discussion}\label{sec:discussion}
 
 Tie to crowdsourcing literature here, about what our work could inform over there \todo{when we have data}.
 
+\todo{future research questions}
+
 \subsubsection{Threads to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
 
 We had no way of ensuring that participants did not take screenshots in order to answer later questions about the precise visualizations.
+\todo{some more detail here, now that we collected data}
+
+\todo{Statistical methods and outliers}
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
