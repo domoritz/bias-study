@@ -1,0 +1,7 @@
+title: Dominik Moritz
+author: Dominik Moritz
+email: domoritz@cs.washington.edu
+exclude:
+  - paper
+  - data/plots
+  - data/.ipynb_checkpoints
