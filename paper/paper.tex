@@ -780,7 +780,31 @@ As expected, most participants spent more time on the questions than the visuali
 
 \subsection{Descriptive Statistics}
 
-\todo{What are the means and variance of different variables?}
+In this study we wanted to understand whether analysts have a bias in how they recall precise data.
+Before we analyze the bias between what participants remembered from the approximate and precise visualizations, we look at the relative errors (absolute bias) independently.
+We removed outliers where the relative bias was larger than 4 times the standard deviation using sigma clipping.
+Table \ref{table_errors} summarized the results.
+Since we expect a bias (R1), the errors in the precise visualization should be larger.
+The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{What's happening?}
+
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{The errors (absolute values of the bias) for different questions}
+\label{table_errors}
+\centering
+\begin{tabular}{|l||r|r|r|r|}
+\hline
+Question & Data        & Mean error & Standard deviation \\ \hline
+\hline
+type 1   & approx      & 2.18\%     & 3.52\%             \\ \hline
+type 1   & precise     & 8.67\%     & 13.05\%            \\ \hline
+type 2   & approx      & 41.99\%    & 52.84\%            \\ \hline
+type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Statistical Analysis}
 
@@ -889,7 +913,7 @@ Expected Bias*VisType\textsubscript{Both} & 0.045 & 0.183 & 0.247 & 0.8058 &  \\
 \begin{figure}[!t]
   \centering
   \includegraphics[width=\columnwidth]{how_many_precise.pdf}
-  \caption{Participant data for quesstion type 1 plotted by measured and expected bias.}
+  \caption{Participant data for question type 1 plotted by measured and expected bias.}
   \label{figure_q1}
 \end{figure}
 
@@ -919,7 +943,7 @@ Tie to crowdsourcing literature here, about what our work could inform over ther
 
 \subsection{Threads to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
 
-We had no way of ensuring that participants did not take screenshots in order to answer later questions about the precise visualizations.
+We had no way of ensuring that participants did not take screenshots or notes in order to answer later questions about the precise visualizations.
 \todo{some more detail here, now that we collected data}
 
 \todo{Statistical methods and outliers}
