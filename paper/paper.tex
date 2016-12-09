@@ -790,6 +790,11 @@ We removed outliers where the relative bias was larger than 4 times the standard
 Since we expect a bias (R1), the errors in the precise visualization should be larger.
 The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{Dom: What's happening? These errors are waaaay too large.}
 
+Table \tabref{table_bias} summarizes participant responses.
+For question type 1, both the true and expected biases are relatively small (e.g., about 10\% of the correct values).
+For question type 2, the true biases averaged over 100\% of the correct values, with an even larger standard deviation.
+This means that participant answers to question type 2 were off by orders of magnitude.
+
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
 \renewcommand{\arraystretch}{1.3}
@@ -816,7 +821,7 @@ type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
 \caption{The mean and standard deviation of the true and expected bias.}
-\label{table_errors}
+\label{table_bias}
 \centering
 \begin{tabular}{|l||r|r|r|r|}
 \hline
@@ -828,8 +833,6 @@ type 2   & true      & -1.542 & 5.244  \\ \hline
 type 2   & expected  & -0.145 & 0.691  \\ \hline
 \end{tabular}
 \end{table}
-
-\todo{Daniel: mean and variance of measures and expected bias}
 
 \subsection{Statistical Analysis}
 
@@ -965,7 +968,7 @@ The effect for question type 1 was smaller than the other question types (95\% C
 This aligns with the finding that the error for this type of question was lower overall.
 For question types 2 and 3, the sign of the impact of the expected bias was in the same direction of the bias ($95\% CI 2.594-5.637, 0.329-1.135$ for type 2 and 3, respectively).
 This suggests that people tend to be biased in the same direction as the data they see in the approximate visualization.
-However, for question type 2, the measured bias was \testit{larger} than the expected bias.
+However, for question type 2, the measured bias was \textit{larger} than the expected bias.
 
 This means that people are reporting answers closer to the approximate visualization than to the precise visualization.
 One interpretation of this is that there is a significant bias.
