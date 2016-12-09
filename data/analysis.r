@@ -35,7 +35,7 @@ how_many_precise$measured_bias <- (precise_howMany_precise - precise_howMany_ans
 how_many_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + visType + condition + focus + sequence + order + (1 | id), data=how_many_precise)
 how_many_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=how_many_precise)
 
-how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_point() + geom_smooth(se=T, method="lm")
+how_many_precise_plot <- ggplot(how_many_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=16)) + geom_point() + geom_smooth(se=T, method="lm")
 ggsave("plots/how_many_precise.pdf", how_many_precise_plot)
 
 how_many_precise_boxplot <- ggplot(how_many_precise, aes(condition, measured_bias)) + geom_boxplot()
@@ -63,7 +63,7 @@ compare_precise$precise_comparison <- rep(precise_compare_comparison)
 compare_precise_test <- lm(measured_bias ~ expected_bias + approximate_error + approximate_comparison + precise_comparison + visType + condition + focus + sequence + order + (1 | id), data=compare_precise)
 compare_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=compare_precise)
 
-compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_point() + geom_smooth(se=T, method="lm")
+compare_precise_plot <- ggplot(compare_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=16)) + geom_point() + geom_smooth(se=T, method="lm")
 ggsave("plots/compare_precise.pdf", compare_precise_plot)
 
 compare_precise_boxplot <- ggplot(compare_precise, aes(condition, measured_bias)) + geom_boxplot()
@@ -78,7 +78,7 @@ jaccard_precise$measured_bias <- as.vector(t(bias_data[c("precise_states_SelectA
 
 jaccard_precise_test <- lm(measured_bias ~ control + expected_bias*condition + (1 | id), data=jaccard_precise)
 
-jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=32)) + geom_jitter() + geom_smooth(se=T, method="lm")
+jaccard_precise_plot <- ggplot(jaccard_precise, aes(expected_bias, measured_bias, color=condition, fill=condition)) + theme(text = element_text(size=16)) + geom_jitter() + geom_smooth(se=T, method="lm")
 ggsave("plots/jaccard_precise_jitter.pdf", jaccard_precise_plot)
 
 jaccard_precise_boxplot <- ggplot(jaccard_precise, aes(condition, measured_bias)) + geom_boxplot()
