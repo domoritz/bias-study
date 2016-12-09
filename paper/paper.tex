@@ -767,6 +767,7 @@ For question (3), the answers were calculated via a Jaccard Difference between t
 
 We recruited 40 participants for the study.
 One did not complete the study and 5 participants had to be removed because they said they cheated during the study.
+They said they wrote down the data in the visualizations, despite the instructions asking them them not to.
 We used the data from the remaining 34 participants for our analysis.
 
 The average participant was 33.7 years old.
@@ -785,7 +786,7 @@ Before we analyze the bias between what participants remembered from the approxi
 We removed outliers where the relative bias was larger than 4 times the standard deviation using sigma clipping.
 Table \ref{table_errors} summarized the results.
 Since we expect a bias (R1), the errors in the precise visualization should be larger.
-The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{What's happening?}
+The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{What's happening? These errors are waaaay too large.}
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
@@ -805,6 +806,8 @@ type 2   & approx      & 41.99\%    & 52.84\%            \\ \hline
 type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
 \end{tabular}
 \end{table}
+
+\todo{mean and variance of measures and expected bias}
 
 \subsection{Statistical Analysis}
 
@@ -931,7 +934,11 @@ Expected Bias*VisType\textsubscript{Both} & 0.045 & 0.183 & 0.247 & 0.8058 &  \\
   \label{figure_q3}
 \end{figure}
 
-\subsubsection{RQ1: Is there a bias?}
+\subsubsection{RQ1: Does incorrect approximate data bias responses about correct data?}
+
+Our results suggest that viewing incorrect approximate data biases participant responses about correct data for certain types of questions.
+For question type 1, how many, the expected bias had no impact on participant response $(t)$.
+
 
 \subsubsection{RQ2: Does visualization type impact the bias?}
 
