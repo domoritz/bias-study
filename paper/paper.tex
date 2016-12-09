@@ -478,7 +478,7 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-\todo{The abstract goes here.}
+\todo{Dom: The abstract goes here.}
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -788,7 +788,7 @@ Before we analyze the bias between what participants remembered from the approxi
 We removed outliers where the relative bias was larger than 4 times the standard deviation using sigma clipping.
 \tabref{table_errors} summarized the results.
 Since we expect a bias (R1), the errors in the precise visualization should be larger.
-The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{What's happening? These errors are waaaay too large.}
+The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{Dom: What's happening? These errors are waaaay too large.}
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
@@ -809,7 +809,27 @@ type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
 \end{tabular}
 \end{table}
 
-\todo{mean and variance of measures and expected bias}
+
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{The mean and standard deviation of the true and expected bias.}
+\label{table_errors}
+\centering
+\begin{tabular}{|l||r|r|r|r|}
+\hline
+Question & Bias Type  & Mean  & Standard deviation \\ \hline
+\hline
+type 1   & true      &      &           \\ \hline
+type 1   & expected  &      &           \\ \hline
+type 2   & true      &      &           \\ \hline
+type 2   & expected  &      &           \\ \hline
+\end{tabular}
+\end{table}
+
+\todo{Daniel: mean and variance of measures and expected bias}
 
 \subsection{Statistical Analysis}
 
@@ -946,10 +966,8 @@ For question type 1, how many, the expected bias had no impact on participant re
 
 \section{Discussion}\label{sec:discussion}
 
-Tie to crowdsourcing literature here, about what our work could inform over there \todo{when we have data}.
-
-\todo{Explain why we see the bias}
-\todo{Talk about massive error}
+\todo{Daniel: Explain why we see the bias}
+\todo{Dom: Talk about massive error}
 
 \subsection{Threats to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
 
@@ -959,7 +977,8 @@ We removed these participants from the data but we don't know whether any other 
 Another problematic factor is the large error for type 2 questions (see \tabref{table_errors}).
 This could be because participants misunderstood the task or because they ignored the instructions.
 
-\todo{Statistical methods and outliers}
+\todo{Daniel: Statistical methods and outliers}
+\todo{Dom: more threats}
 
 \section{Conclusion}
 
@@ -975,8 +994,6 @@ In this paper we tried to reduce the bias by making people aware of the approxim
 
 In future work, we should focus of usable methods to reduce the bias that can be used by approximate visualization tools.
 Future work should also investigate how the findings from this paper generalize to other applications.
-
-\todo{future research questions}
 
 % use section* for acknowledgment
 \ifCLASSOPTIONcompsoc
