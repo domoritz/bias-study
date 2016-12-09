@@ -2,10 +2,11 @@ setwd("~/GitHub/bias-study/data") #machine-dependent... sorry. probably a better
 library(ggplot2)
 library(mefa)
 library(lsmeans)
+library(multcomp)
 
 bias_data <- read.csv("cleaned_data.csv")
 #Filter out the people who admitted to cheating
-bias_data[bias_data$demographics_cheat != 'yes',]
+bias_data[bias_data$id %in% c("55686356", "49437914", "66972706", "80993444", "42878404", "23634915", "18074862", "84835951", "58926040", "55656520", "87912012", "30619584", "51665387", "25917069", "50263296", "60755967", "2893057", "28653725", "76648162", "21045111", "72925790", "88825154", "97626871", "29657674", "26308857", "79273300", "77642132", "83205605", "9782123", "28428523", "95378753", "62759895", "45694489", "57315921", "20505415", "73348785", "77955785", "45840218", "79707421", "7321301", "43548417", "89431160", "29089701", "61154389", "71996586", "21418137", "76395409", "79544988", "76024785"),]
 #Select the columns for statistics
 id <- rep(as.vector(t(bias_data["id"])), each=2)#airline, states
 condition <- rep(as.vector(t(bias_data["studyCondition"])), each=2)#airline, states
