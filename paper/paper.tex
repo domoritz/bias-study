@@ -822,10 +822,10 @@ type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
 \hline
 Question & Bias Type  & Mean  & Standard deviation \\ \hline
 \hline
-type 1   & true      & -0.032 & 0.0386 \\ \hline
-type 1   & expected  & -0.010 & 0.022  \\ \hline
-type 2   & true      & -1.836 & 0.374  \\ \hline
-type 2   & expected  & -0.127 & 0.041  \\ \hline
+type 1   & true      &  0.010 & 0.195  \\ \hline
+type 1   & expected  & -0.011 & 0.215  \\ \hline
+type 2   & true      & -1.542 & 5.244  \\ \hline
+type 2   & expected  & -0.145 & 0.691  \\ \hline
 \end{tabular}
 \end{table}
 
@@ -858,19 +858,19 @@ We now answer our research questions in turn.
 Study parameter & Est. & SE & t & p & \\
 \hline
 \hline
-Intercept & -0.186 & 0.117 & -1.590 & 0.1160 &  \\
+Intercept & -0.033 & 0.068 & -0.482 & 0.6313 &  \\
 \hline
-Approx$\neq$Precise & 0.248 & 0.097 & 2.550 & 0.0128 & * \\
+Approx$\neq$Precise & 0.214 & 0.060 & 0.360 & 0.7200 & * \\
 \hline
-Expected Bias & -0.126 & 0.463 & -0.271 & 0.7868 &  \\
+Expected Bias & 0.074 & 0.254 & 0.290 & 0.7729 &  \\
 \hline
-VisType\textsubscript{Diff} & -0.112 & 0.096 & -1.167 & 0.2471 &  \\
+VisType\textsubscript{Diff} & 0.014 & 0.055 & 0.255 & 0.7999 &  \\
 \hline
-VisType\textsubscript{Both} & 0.026 & 0.102 & 0.258 & 0.7970 &  \\
+VisType\textsubscript{Both} & 0.074 & 0.058 & 1.284 & 0.2041 &  \\
 \hline
-Expected Bias*VisType\textsubscript{Diff} & 0.234 & 0.522 & 0.449 & 0.6545 &  \\
+Expected Bias*VisType\textsubscript{Diff} & 0.072 & 0.286 & 0.252 & 0.8016 &  \\
 \hline
-Expected Bias*VisType\textsubscript{Both} & 1.037 & 0.583 & 1.778 & 0.0794 & . \\
+Expected Bias*VisType\textsubscript{Both} & 0.791 & 0.317 & 2.492 & 0.0154 & * \\
 \hline
 \end{tabular}
 \end{table}
@@ -888,19 +888,19 @@ Expected Bias*VisType\textsubscript{Both} & 1.037 & 0.583 & 1.778 & 0.0794 & . \
 Study parameter & Est. & SE & t & p & \\
 \hline
 \hline
-Intercept & 0.395 & 1.156 & 0.342 & 0.7330 &  \\
+Intercept & -2.312 & 1.066 & -2.168 & 0.0314 & * \\
 \hline
-Approx$\neq$Precise & -1.101 & 0.926 & -1.189 & 0.2358 & \\
+Approx$\neq$Precise & 1.745 & 0.918 & 1.902 & 0.0586 & . \\
 \hline
-Expected Bias & 5.961 & 1.674 & 3.560 & 0.0004 & *** \\
+Expected Bias & 4.165 & 0.746 & 5.584 & $<$0.0001 & *** \\
 \hline
-VisType\textsubscript{Diff} & -1.320 & 0.950 & -1.389 & 0.1661 &  \\
+VisType\textsubscript{Diff} & -0.230 & 0.850 & -0.271 & 0.7867 &  \\
 \hline
-VisType\textsubscript{Both} & -0.590 & 1.018 & -0.580 & 0.5626 &  \\
+VisType\textsubscript{Both} & 0.576 & 0.921 & 0.063 & 0.9502 &  \\
 \hline
-Expected Bias*VisType\textsubscript{Diff} & -2.197 & 1.850 & -1.187 & 0.2362 &  \\
+Expected Bias*VisType\textsubscript{Diff} & -1.474 & 0.994 & -1.482 & 0.1398 &  \\
 \hline
-Expected Bias*VisType\textsubscript{Both} & -2.897 & 1.862 & -1.556 & 0.1210 &  \\
+Expected Bias*VisType\textsubscript{Both} & -2.247 & 1.808 & 1.243 & 0.2154 &  \\
 \hline
 \end{tabular}
 \end{table}
@@ -918,19 +918,19 @@ Expected Bias*VisType\textsubscript{Both} & -2.897 & 1.862 & -1.556 & 0.1210 &  
 Study parameter & Est. & SE & t & p & \\
 \hline
 \hline
-Intercept & 0.146 & 0.128 & 1.139 & 0.2585 &  \\
+Intercept & 0.217 & 0.176 & 1.234 & 0.2220 &  \\
 \hline
-Approx$\neq$Precise & -0.009 & 0.026 & -0.334 & 0.7392 & \\
+Approx$\neq$Precise & 0.009 & 0.033 & 0.279 & 0.7815 & \\
 \hline
-Expected Bias & 0.826 & 0.148 & 5.578 & $<$0.0001 & *** \\
+Expected Bias & 0.732 & 0.202 & 3.629 & 0.0006 & *** \\
 \hline
-VisType\textsubscript{Diff} & 0.294 & 0.157 & 1.866 & 0.0659 &  \\
+VisType\textsubscript{Diff} & 0.233 & 0.208 & 1.119 & 0.268 &  \\
 \hline
-VisType\textsubscript{Both} & -0.033 & 0.156 & -0.213 & 0.8318 &  \\
+VisType\textsubscript{Both} & -0.108 & 0.202 & -0.533 & 0.5961 &  \\
 \hline
-Expected Bias*VisType\textsubscript{Diff} & -0.335 & 0.181 & -1.853 & 0.0679 & . \\
+Expected Bias*VisType\textsubscript{Diff} & -0.278 & 0.236 & -1.175 & 0.2447 & \\
 \hline
-Expected Bias*VisType\textsubscript{Both} & 0.045 & 0.183 & 0.247 & 0.8058 &  \\
+Expected Bias*VisType\textsubscript{Both} & 0.122 & 0.232 & 0.526 & 0.6008 &  \\
 \hline
 \end{tabular}
 \end{table}
@@ -959,18 +959,14 @@ Expected Bias*VisType\textsubscript{Both} & 0.045 & 0.183 & 0.247 & 0.8058 &  \\
 \subsubsection{RQ1: Does incorrect approximate data bias responses about correct data?}
 
 Our results suggest that viewing incorrect approximate data biases participant responses about correct data for certain types of questions.
-For question type 1, how many, the expected bias had no impact on participant response ($F_{1, 75}=2.702, p=0.104$).
-For question types 2 and 3 (comparison and inclusion), the expected bias had a significant effect on participant response ($F_{1, 238}=45.214, p<0.0001$ for type 2, $F_{1, 75}=118.438, p<0.0001$ for type 3).
+For all three question types, the expected bias had a significant effect on participant response ($F_{1,61}=10.767, p=0.002$, $F_{1, 197}=58.399, p<0.0001$ for type 2, $F_{1, 61}=78.448, p<0.0001$ for type 3).
 
-We note that although the p-value for type 1 questions is above $\alpha=0.05$, it approaches significance.
-We plan to conduct a power analysis for our next iteration of the study and likely scale up participation.
-With more data, we expect this effect would be statistically significant.
-That said, the effect for question type 1 was smaller than the other question types.
+The effect for question type 1 was smaller than the other question types (95\% CI -0.435-0.582).
 This aligns with the finding that the error for this type of question was lower overall.
-
 For question types 2 and 3, the sign of the impact of the expected bias was in the same direction of the bias ($95\% CI 2.594-5.637, 0.329-1.135$ for type 2 and 3, respectively).
 This suggests that people tend to be biased in the same direction as the data they see in the approximate visualization.
 However, for question type 2, the measured bias was \testit{larger} than the expected bias.
+
 This means that people are reporting answers closer to the approximate visualization than to the precise visualization.
 One interpretation of this is that there is a significant bias.
 However, we suspect participants remembered very little about the precise data.
@@ -979,10 +975,12 @@ Instead we believe this result is heavily influenced by outliers in participant 
 \subsubsection{RQ2: Does visualization type impact the bias?}
 
 Our results fail to reject the hypothesis that visualization type impacts the bias.
-Condition did not have a significant main effect for any question type ($F_{2,75}=1.174, p=0.315$, $F_{2,238}=0.776, p=0.462$, and $F_{2,75}=0.061, p=0.941$ for types 1, 2, and 3 respectively).
-We only observed an interaction effect question type 3 ($F_{2,75}=3.665, p=0.030$), but post-hoc tests proved inconclusive as to the directionality of the effect.
+Condition did not have a significant main effect for any question type ($F_{2,61}=0.888, p=0.417$, $F_{2,197}=0.026, p=0.975$, and $F_{2,61}=0.205, p=0.815$ for types 1, 2, and 3 respectively).
+
 
 We believe the individual variance between participants exceeded any differences between visualizations.
+Our results suggest there may be interaction effects between visualization type and the impact of expected bias.
+However, the variation in participant responses in general made us hesitant to probe deeper into these interaction effects.
 
 \section{Discussion}\label{sec:discussion}
 
