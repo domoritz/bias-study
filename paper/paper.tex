@@ -968,6 +968,14 @@ With more data, we expect this effect would be statistically significant.
 That said, the effect for question type 1 was smaller than the other question types.
 This aligns with the finding that the error for this type of question was lower overall.
 
+For question types 2 and 3, the sign of the impact of the expected bias was in the same direction of the bias ($95\% CI 2.594-5.637, 0.329-1.135$ for type 2 and 3, respectively).
+This suggests that people tend to be biased in the same direction as the data they see in the approximate visualization.
+However, for question type 2, the measured bias was \testit{larger} than the expected bias.
+This means that people are reporting answers closer to the approximate visualization than to the precise visualization.
+One interpretation of this is that there is a significant bias.
+However, we suspect participants remembered very little about the precise data.
+Instead we believe this result is heavily influenced by outliers in participant responses.
+
 \subsubsection{RQ2: Does visualization type impact the bias?}
 
 Our results fail to reject the hypothesis that visualization type impacts the bias.
@@ -978,7 +986,11 @@ We believe the individual variance between participants exceeded any differences
 
 \section{Discussion}\label{sec:discussion}
 
-\todo{Daniel: Explain why we see the bias}
+We are a bit unsure why we see the bias we do.
+On one hand, we predicted we would see a bias in the data.
+However, we expected the magnitude of the bias would be less than the expected error (e.g., people would be biased only a little by the imprecise visualization).
+Instead, we seem to be seeing that people are just not remembering the data they saw.
+
 \todo{Dom: Talk about massive error}
 
 \subsection{Threats to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
@@ -989,7 +1001,17 @@ We removed these participants from the data but we don't know whether any other 
 Another problematic factor is the large error for type 2 questions (see \tabref{table_errors}).
 This could be because participants misunderstood the task or because they ignored the instructions.
 
-\todo{Daniel: Statistical methods and outliers}
+We used linear regression in all of our statistical analyses.
+We made this choice because our outcome is numeric rather than categorical.
+Additionally, we had no reason to anticipate our data would fit a different distribution.
+However, viewing figures \ref{figure_q1}, \ref{figure_q2}, and \ref{figure_q3} shows that although much of the data appears distributed around 0 measured bias, there are many participant responses far away from this value.
+These responses do not appear to necessarily be outliers, meaning that many people were answering questions similarly wrong.
+
+Linear regression follows a sum-of-squares approach, and is therefore heavily influenced by values far away from the mean.
+Perhaps a different analysis technique is better suited to our data.
+We believe our data has systematic problems in how participants are responding to the questions which are unlikely to be corrected by choosing a different statistical test.
+However, future studies in this domain should ensure that outliers are being treated in a sensible way.
+
 \todo{Dom: more threats}
 
 \section{Conclusion}
