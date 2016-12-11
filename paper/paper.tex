@@ -781,16 +781,39 @@ As expected, most participants spent more time on the questions than the visuali
 
 \section{Results}\label{sec:results}
 
-\subsection{Descriptive Statistics}
+\subsection{Descriptive Statistics}\label{sec:desc}
 
 In this study we wanted to understand whether analysts have a bias in how they recall precise data.
-Before we analyze the bias between what participants remembered from the approximate and precise visualizations, we look at the relative errors (absolute bias) independently.
-We removed outliers where the relative bias was larger than 4 times the standard deviation using sigma clipping.
+Before we analyze the bias between what participants remembered from the approximate and precise visualizations, we look at the relative errors that participants made when they answered questions about the visualizations.
 \tabref{table_errors} summarized the results.
+We expect the errors for the precise data to be larger than the approximate one because it is the first visualization they look at.
+However, that is not true for type 1 questions because of a single outlier where a participant types in a value that was an order of magnitude off.
+We rerun the statistics with outliers removed (sigma clipping with values outside of $4 \times sigma$ removed).
+Now the error for the precise visualization is larger (non-paired t-test because missing data does not allow us to run a paired test any more, p=0.0002).
+For questions of type 2, the errors and variances were much larger and we don't see significantly larger errors in the precise visualizations (paired t-test with mean as value per participant, p=0.032).
 
-Table \tabref{table_bias} summarizes participant responses.
-For question type 1, both the true and expected biases are relatively small (e.g., about 10\% of the correct values).
-For question type 2, the true biases averaged over 100\% of the correct values, with an even larger standard deviation.
+\begin{table}[!t]
+% increase table row spacing, adjust to taste
+\renewcommand{\arraystretch}{1.3}
+% if using array.sty, it might be a good idea to tweak the value of
+% \extrarowheight as needed to properly center the text within the cells
+\caption{The errors for different questions. The results in parentheses are with outliers removed (sigma clipping with $4 \time sigma$).}
+\label{table_errors}
+\centering
+\begin{tabular}{|l||r|r|r|r|}
+\hline
+Question & Data        & Mean error & Standard deviation \\ \hline
+\hline
+type 1   & approx      & 0.117 (0.021)     & 0.535 (0.035)             \\ \hline
+type 1   & precise     & 0.099 (0.087)     & 0.167 (0.130)            \\ \hline
+type 2   & approx      & 0.803 (0.420)     & 1.649 (0.528)            \\ \hline
+type 2   & precise     & 2.075 (0.469)     & 8.500 (0.453)            \\ \hline
+\end{tabular}
+\end{table}
+
+\tabref{table_bias} summarizes the expected and true biases.
+For question type 1, both the measured and expected biases are relatively small (e.g., about 10\% of the correct values).
+For question type 2, the measured biases averaged over 100\% of the correct values, with an even larger standard deviation.
 This means that participant answers to question type 2 were off by orders of magnitude.
 
 \begin{table}[!t]
@@ -798,36 +821,16 @@ This means that participant answers to question type 2 were off by orders of mag
 \renewcommand{\arraystretch}{1.3}
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
-\caption{The errors (absolute values of the bias) for different questions}
-\label{table_errors}
-\centering
-\begin{tabular}{|l||r|r|r|r|}
-\hline
-Question & Data        & Mean error & Standard deviation \\ \hline
-\hline
-type 1   & approx      & 2.18\%     & 3.52\%             \\ \hline
-type 1   & precise     & 8.67\%     & 13.05\%            \\ \hline
-type 2   & approx      & 41.99\%    & 52.84\%            \\ \hline
-type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[!t]
-% increase table row spacing, adjust to taste
-\renewcommand{\arraystretch}{1.3}
-% if using array.sty, it might be a good idea to tweak the value of
-% \extrarowheight as needed to properly center the text within the cells
-\caption{The mean and standard deviation of the true and expected bias.}
+\caption{The mean and standard deviation of the measured and expected bias.}
 \label{table_bias}
 \centering
 \begin{tabular}{|l||r|r|r|r|}
 \hline
 Question & Bias Type  & Mean  & Standard deviation \\ \hline
 \hline
-type 1   & true      &  0.010 & 0.195  \\ \hline
+type 1   & measured  &  0.010 & 0.195  \\ \hline
 type 1   & expected  & -0.011 & 0.215  \\ \hline
-type 2   & true      & -1.542 & 5.244  \\ \hline
+type 2   & measured  & -1.542 & 5.244  \\ \hline
 type 2   & expected  & -0.145 & 0.691  \\ \hline
 \end{tabular}
 \end{table}
@@ -990,9 +993,13 @@ On one hand, we predicted we would see a bias in the data.
 However, we expected the magnitude of the bias would be less than the expected error (e.g., people would be biased only a little by the imprecise visualization).
 Instead, we seem to be seeing that people are just not remembering the data they saw.
 
-\todo{Dom: Talk about massive error}
+In \secref{sec:desc}, we saw that the errors for type 2 questions were much larger than type 1.
+This makes sense as we asked participants to focus on a particular state and airline and type 1 questions were specifically about that one item.
+Still, even then errors are very large which could be because participants struggled with the comparison questions.
+Remember, we asked participants to say how much more flights there were on the focus airline and state and they had to type a negative value if the airline or state we compared to had more flights than the focus airline or state.
+A more detailed analysis is needed to tease apart why participants made such large errors.
 
-\subsection{Threats to Validity} %I would opt to put this under the experimental setup, but I understand that Mike might want differently.
+\subsection{Threats to Validity}
 
 We had no way of ensuring that participants did not take screenshots or notes in order to answer later questions about the precise visualizations.
 Although we asked participants to not take notes during the study, a few self-reported that they did.
