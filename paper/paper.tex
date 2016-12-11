@@ -787,8 +787,6 @@ In this study we wanted to understand whether analysts have a bias in how they r
 Before we analyze the bias between what participants remembered from the approximate and precise visualizations, we look at the relative errors (absolute bias) independently.
 We removed outliers where the relative bias was larger than 4 times the standard deviation using sigma clipping.
 \tabref{table_errors} summarized the results.
-Since we expect a bias (R1), the errors in the precise visualization should be larger.
-The errors for the type 1 questions were significantly larger ($p=0.0002$ for type 1), while we could not see a significant effect of type 2 questions.  \todo{Dom: What's happening? These errors are waaaay too large.}
 
 \begin{table}[!t]
 % increase table row spacing, adjust to taste
@@ -816,7 +814,7 @@ type 2   & precise     & 46.87\%    & 45.36\%            \\ \hline
 % if using array.sty, it might be a good idea to tweak the value of
 % \extrarowheight as needed to properly center the text within the cells
 \caption{The mean and standard deviation of the true and expected bias.}
-\label{table_errors}
+\label{table_biases}
 \centering
 \begin{tabular}{|l||r|r|r|r|}
 \hline
@@ -828,8 +826,6 @@ type 2   & true      & -1.542 & 5.244  \\ \hline
 type 2   & expected  & -0.145 & 0.691  \\ \hline
 \end{tabular}
 \end{table}
-
-\todo{Daniel: mean and variance of measures and expected bias}
 
 \subsection{Statistical Analysis}
 
