@@ -478,7 +478,13 @@
 % in the abstract or keywords.
 \IEEEtitleabstractindextext{%
 \begin{abstract}
-\todo{Dom: The abstract goes here.}
+Data analysts often have to work with an approximate model before more precise results are available.
+However, after they have seen the accurate results, are they still biased by the approximation?
+In this paper we present a controlled experiment with 34 participants on Mechanical Turk to investigate whether exposure to approximate results biases user's recollection of the precise data.
+In our study, we aimed to simulate an exploratory data analysis session with an approximate query processing (AQP) system, a common class of systems used to accelerate data exploration.
+Our goal was to understand whether analysts are biased by approximate data and whether highlighting the difference reduces this bias.
+We found that analyst's recollection of precise data is biased but have no conclusive results about whether highlighting differences reduces the bias.
+The results from this paper are relevant for AQP systems and count extend to other applications in journalism and science.
 \end{abstract}
 
 % Note that keywords are not normally used for peerreview papers.
@@ -775,7 +781,7 @@ We used the data from the remaining 34 participants for our analysis.
 The average participant was 33.7 years old.
 26 participants self-identified as male and 8 as female.
 All participants reported that they had no technical problems with the study procedures.
-Only 11\% of our participants said they are not with all of these visualization types: barcharts, scatterplots, and heatmaps.
+Only 11\% of our participants said they are not with all of these visualization types: bar charts, scatter plots, and heatmaps.
 On average participants spent 8 minutes on the study with 3:20 minutes standard deviation.
 As expected, most participants spent more time on the questions than the visualizations and overall the most time on the questions about the precise data.
 
@@ -981,7 +987,6 @@ Instead we believe this result is heavily influenced by outliers in participant 
 Our results fail to reject the hypothesis that visualization type impacts the bias.
 Condition did not have a significant main effect for any question type ($F_{2,61}=0.888, p=0.417$, $F_{2,197}=0.026, p=0.975$, and $F_{2,61}=0.205, p=0.815$ for types 1, 2, and 3 respectively).
 
-
 We believe the individual variance between participants exceeded any differences between visualizations.
 Our results suggest there may be interaction effects between visualization type and the impact of expected bias.
 However, the variation in participant responses in general made us hesitant to probe deeper into these interaction effects.
@@ -998,6 +1003,13 @@ This makes sense as we asked participants to focus on a particular state and air
 Still, even then errors are very large which could be because participants struggled with the comparison questions.
 Remember, we asked participants to say how much more flights there were on the focus airline and state and they had to type a negative value if the airline or state we compared to had more flights than the focus airline or state.
 A more detailed analysis is needed to tease apart why participants made such large errors.
+
+Because errors in the responses from participants were so large, we have little statistical power to tease apart how highlighting differences may reduce biases to answer RQ2.
+With more statistical power we might also be able to understand the role of how certain participants were in their responses.
+For each question we asked participants to rate their confidence in their answer.
+For an analyst it would be fatal to have a large bias and high confidence in their recollection.
+However, if either the bias is low or the confidence is low, the analysts is likely to not make the wrong decision when it really matters.
+In our data we did not see significant support for the hypothesis that high confidence correlates with lower biases.
 
 \subsection{Threats to Validity}
 
@@ -1018,8 +1030,6 @@ Perhaps a different analysis technique is better suited to our data.
 We believe our data has systematic problems in how participants are responding to the questions which are unlikely to be corrected by choosing a different statistical test.
 However, future studies in this domain should ensure that outliers are being treated in a sensible way.
 
-\todo{Dom: more threats}
-
 \section{Conclusion}
 
 The questions we try to answer in this paper in a more general sense are what negative effects seeing a less precise model before a more precise one has on how well people recollect the more precise data.
@@ -1031,8 +1041,8 @@ In this study, we found that exposure to approximate data prior to seeing the pr
 This has important implications for the design of applications that present approximate results as well as for journalists who report for example polls before votes.
 In this paper we tried to reduce the bias by making people aware of the approximate result they have previously seen but we did not see a significant reduction of the bias.
 
-
 In future work, we should focus of usable methods to reduce the bias that can be used by approximate visualization tools.
+Also, we should also try to understand the relationship between confidence and bias to avoid that analysts make wrong decisions with high confidence.
 Future work should also investigate how the findings from this paper generalize to other applications.
 
 % use section* for acknowledgment
