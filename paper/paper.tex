@@ -370,7 +370,7 @@
 
 \usepackage{color}
 
-\usepackage[pdftex]{hyperref}
+\usepackage[pdftex, colorlinks]{hyperref}
 \newcommand{\figref}[1]{\hyperref[#1]{Figure~\ref*{#1}}}
 \newcommand{\secref}[1]{\hyperref[#1]{Section~\ref*{#1}}}
 \newcommand{\tabref}[1]{\hyperref[#1]{Table~\ref*{#1}}}
@@ -658,6 +658,8 @@ In approximate query systems, users often internalize approximate visualizations
 Systems, such as Pangloss \cite{moritz2017pangloss}, can later generate visualizations of the precise results.
 However, the user may have moved on to investigate a new visualization before the precise result is computed.
 
+The study is online at \url{https://domoritz.github.io/bias-study/index.html}.
+
 \subsubsection{Study Flow}
 
 Our study flow (\figref{fig:example}) aimed to mimic the experience of a data scientist analyzing a large dataset about flights in an approximate query processing system.
@@ -847,7 +849,7 @@ We asked participants to report the confidence in their responses.
 
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.8\columnwidth]{confidence}
+  \includegraphics[width=\columnwidth]{confidence}
   \caption{Relative counts of confidence in answers about the approximate and precise data. 1 is the lowest confidence, 7 the highest.}
   \label{fig:confidence}
 \end{figure}
@@ -1055,6 +1057,8 @@ In this paper we tried to reduce the bias by making people aware of the approxim
 In future work, we should focus of usable methods to reduce the bias that can be used by approximate visualization tools.
 Also, we should also try to understand the relationship between confidence and bias to avoid that analysts make wrong decisions with high confidence.
 Future work should also investigate how the findings from this paper generalize to other applications.
+
+All material for this study, results, and the analysis are available at \url{https://github.com/domoritz/bias-study}.
 
 % use section* for acknowledgment
 \ifCLASSOPTIONcompsoc
